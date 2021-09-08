@@ -1,0 +1,23 @@
+<div class="staffBioBoxWrapper contentItem hspace" id="id<t4 type='meta' meta='content_id' />" aria-labelledby="label<t4 type='meta' meta='content_id' />" data-position-default="ZoneA" data-position-selected="ZoneA">
+  <t4 type="meta" meta="html_anchor" />
+  <div class="staffBioBox standardContent">
+    <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<a href='<t4 type=&quot;content&quot; name=&quot;Name&quot; output=&quot;fulltext&quot; use-element=&quot;true&quot; filename-element=&quot;Name&quot; modifiers=&quot;htmlentities&quot; enable-dedit=&quot;false&quot; />' onmouseover='SwapBioImage(this)' onmouseout='SwapBioImage(this)'>" />
+    <img src="<t4 type='content' name='Photo' output='normal' formatter='path/*' />" class="staffBioPhoto1" alt="Photo of <t4 type='content' name='Name of Faculty or Staff Member' output='normal' />" />
+    <t4 type="content" name="Rollover Photo" output="selective-output" process-format="true" format="<img src=&quot;<t4 type=&quot;content&quot; name=&quot;Rollover Photo&quot; output=&quot;normal&quot; formatter=&quot;path/*&quot; />&quot; class=&quot;staffBioPhoto2&quot; alt=&quot;Alternate Photo of <t4 type='content' name='Name of Faculty or Staff Member' output='normal' />&quot; style=&quot;display: none;&quot; />" />
+    <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="</a>" />
+    <h3>
+      <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<a href='<t4 type=&quot;content&quot; name=&quot;Name&quot; output=&quot;fulltext&quot; use-element=&quot;true&quot; filename-element=&quot;Name&quot; modifiers=&quot;htmlentities&quot; enable-dedit=&quot;false&quot; />'>" />
+      <span id="label<t4 type='meta' meta='content_id' />"><t4 type='content' name='Name of Faculty or Staff Member' output='normal' modifiers='htmlentities' /></span>
+      <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="</a>" />
+    </h3>
+    <div class="staffBioInfo">
+      <t4 type="content" name="Degree(s)" output="selective-output" modifiers="striptags,htmlentities,nl2br" format="<p class=&quot;Degree&quot;>$value</p>" />
+      <t4 type="content" name="Position Title(s)" output="selective-output" modifiers="striptags,htmlentities,nl2br" format="<p class=&quot;Title&quot;>$value</p>" />
+      <t4 type="content" name="Email Address" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Email&quot;><strong>Email: </strong><a href=&quot;mailto:$value&quot;>$value</a></p>" />
+      <t4 type="content" name="Phone" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Phone&quot;><strong>Phone:</strong> $value</p>" />
+      <t4 type="content" name="Building/Room Number" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Location&quot;><strong>Building/Room:</strong> $value</p>" />
+    </div>
+    <t4 type="content" name="Summary Biography" output="selective-output" modifiers="medialibrary,nav_sections" format="<div class=&quot;Summary&quot;>$value</div>" />
+  </div>
+  <div class="clearfix"></div>
+</div>
