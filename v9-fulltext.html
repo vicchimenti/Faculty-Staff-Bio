@@ -1,0 +1,18 @@
+<article class="staffBioPageWrapper contentItem">
+    <!-- <t4 type="content" name="Name" output="fulltext" use-element="true" filename-element="Name" modifiers="htmlentities" enable-dedit="false" />-->
+    <h1 id="pageTitle"><t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" /></h1>
+    <div class="staffBioPage standardContent">
+      <div class="staffBioPageImage">
+        <t4 type="content" name="Photo" output="normal" formatter="image/*" />
+      </div>
+      <div class="staffBioPageInfo">
+        <t4 type="content" name="Degree(s)" output="selective-output" modifiers="striptags,htmlentities,nl2br" format="<p class=&quot;Degree&quot;>$value</p>" />
+        <t4 type="content" name="Position Title(s)" output="selective-output" modifiers="striptags,htmlentities,nl2br" format="<p class=&quot;Title&quot;>$value</p>" />
+        <t4 type="content" name="Email Address" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Email&quot;><strong>Email: </strong><a href=&quot;mailto:$value&quot;>$value</a></p>" />
+        <t4 type="content" name="Phone" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Phone&quot;><strong>Phone:</strong> $value</p>" />
+        <t4 type="content" name="Building/Room Number" output="selective-output" modifiers="striptags,htmlentities" format="<p class=&quot;Location&quot;><strong>Building/Room:</strong> $value</p>" />
+      </div>
+      <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<div class=&quot;ExtendedBiography&quot;>$value</div>" />
+      <div class="clearfix"></div>
+    </div>
+  </article>
