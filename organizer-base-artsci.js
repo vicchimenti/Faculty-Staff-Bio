@@ -6,7 +6,7 @@
 *
 *     Used for ArtSci Faculty Bio Organizer
 *
-*     @version 5.2
+*     @version 5.3
 */
 
 
