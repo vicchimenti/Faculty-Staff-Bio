@@ -8,9 +8,14 @@
  *  declare and assign topic layout
  * 
  */
+// checks the Departments field in the Bio Content Type
  var fieldToBeEvaluated = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, '<t4 type="content" name="Departments" output="normal" display_field="value" delimiter=";" />');
+ 
+//  do we even need this? only if we want a specific layout for each department
  var optionToTestFor = "suLawInTheNews"; //edit this to change the option
- var contentTypeLayout = 'output/suLawInTheNewsfeed'; //edit this to change the Content Layout to use for output
+
+//  calls the layout we want
+ var contentTypeLayout = 'output/artsci/department'; //edit this to change the Content Layout to use for output
  var n = fieldToBeEvaluated.indexOf(optionToTestFor); /* determines starting character of string */
  
  
