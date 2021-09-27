@@ -1,5 +1,5 @@
 /***
- *  law/organizer/suLawInTheNews
+ *  artsci/organizer/departments
  * 
  */
 
