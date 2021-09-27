@@ -1,12 +1,12 @@
 /***
 *     @author Victor Chimenti, MSCS
-*     @file organizerBaseWorkingFile.js
+*     @file organizerBaseArtsci.js
 *     ID: 2984595
-*     organizer base working file
+*     organizer base artsci
 *
-*     Development file for making improvements on organizer functionality
+*     Used for ArtSci Faculty Bio Organizer
 *
-*     @version 4.3
+*     @version 5.0
 */
 
 
