@@ -319,8 +319,11 @@ function main(header, midder, footer) {
          * 
          */
         var title = content.hasElement('Title') ? content.get('Title') : "";
-        var choice = content.get('Content type and layout').publish();
-        var CID = new java.lang.Integer(choice.split(";")[0]);
+        var choice = content.get('Department').publish();
+
+        // var CID = new java.lang.Integer(choice.split(";")[0]);
+        var CID = "203";
+        
         var LAYOUT = choice.split(";")[1];
         var SSID = String(content.get('Section')).match(/sslink_id="(\d+)"/)[1];
         var sortMethod = content.get('Sorting method').publish();
