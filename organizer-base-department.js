@@ -543,3 +543,14 @@ function main(header, midder, footer) {
         log("Error Thrown: " + e);
     }
 }
+
+
+
+
+/***
+*       @author Victor Chimenti, MSCS
+*       @file organizer-base-department.js
+*           ID: 3006086
+*           organizer base department
+*
+*/
