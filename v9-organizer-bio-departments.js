@@ -402,7 +402,55 @@
 
 
 
-    
+    /***
+     *  modify headline if special topic present
+     * 
+     * */
+        function modifyWrapper(htmlClass) {
+
+        beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
+    }
+
+
+
+
+    /***
+     *  modify dateline if special topic present
+     * 
+     * */
+    function modifyDateline(specialTopic) {
+
+        dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
+    }
+
+
+
+
+    /***
+     *  process and prioritize special topics
+     * 
+     * */
+    if (majorDict.catTags.content.includes(suLawInTheNews)) {
+
+        modifyWrapper(suLawInTheNews);
+        modifyDateline(suLawInTheNews);
+
+    } else if (majorDict.catTags.content.includes(announcements)) {
+
+        modifyWrapper(announcements);
+        modifyDateline(announcements);
+
+    } else if (majorDict.catTags.content.includes(events)) {
+
+        modifyWrapper(events);
+        modifyDateline(events);
+
+    }
+
+
+
+
+
  
  
  
