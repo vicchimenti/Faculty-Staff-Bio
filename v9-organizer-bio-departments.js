@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220218
      *
-     *     @version 9.0
+     *     @version 9.1
      */
 
 
@@ -62,7 +62,7 @@
  
          for (let i = 0; i < arrayOfValues.length; i++) {
  
-             listValues += '<li class="list-group-item sdgIcon">' + arrayOfValues[i].trim() + '</li>';
+             listValues += '<li class="list-group-item deptBioli">' + arrayOfValues[i].trim() + '</li>';
          }
  
          return listValues;
@@ -111,8 +111,8 @@
          info.setInput(media);
  
          let mediaHTML =    (info.check())
-                            ? '<figure class="figure"><img src="' + mediaPath + '" class="listgroupImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-                            : '<span class="listgroupImage visually-hidden hidden">Invalid Image ID</span>';
+                            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+                            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
  
          return mediaHTML;
      }
@@ -432,10 +432,15 @@
             let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
 
             imageString = (info.check()) ?
-                '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
-                '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" alt="' + imageDefaultAlt + '" loading="auto" />';
+                '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
+                '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" alt="' + imageDefaultAlt + '" loading="auto" />';
 
             openImageWrapper = '<figure class="figure">';
+
+
+            let mediaHTML =    (info.check())
+            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
 
 
