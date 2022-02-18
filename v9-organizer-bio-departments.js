@@ -205,7 +205,7 @@
          /***
           *      Dictionary of content
           * */
-         let cejscDict = {
+         let departmentBioDict = {
  
              contentName: getContentValues('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
              articleTitle: getContentValues('<t4 type="content" name="Article Title" output="normal" modifiers="striptags,htmlentities" />'),
@@ -235,7 +235,7 @@
          let openBodyWrapper = '<div class="articleSummary card-body">';
          let closeBodyWrapper = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
-         let beginningHTML = '<article class="cejscourseWrapper card shadow border-0 radius-0 mb-3" id="cejscourse' + cejscDict.contentId.content + 'zonea" aria-label="' + cejscDict.articleTitle.content + '">';
+         let beginningHTML = '<article class="cejscourseWrapper card shadow border-0 radius-0 mb-3" id="cejscourse' + departmentBioDict.contentId.content + 'zonea" aria-label="' + departmentBioDict.articleTitle.content + '">';
  
  
  
@@ -244,11 +244,11 @@
           *  check for fulltext content
           * 
           * */
-         let titleLink = (cejscDict.articleTitle.content && cejscDict.courseName.content) ?
-             '<h3 class="card-title border-0"><a href="' + cejscDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + cejscDict.articleTitle.content + '">' + cejscDict.courseName.content + ' : ' + cejscDict.articleTitle.content + '</a></h3>' :
-             (cejscDict.articleTitle.content && !cejscDict.courseName.content) ?
-             '<h3 class="card-title border-0"><a href="' + cejscDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + cejscDict.articleTitle.content + '">' + cejscDict.articleTitle.content + '</a></h3>' :
-             '<h3 class="card-title border-0">' + cejscDict.contentName.content + '</h3>';
+         let titleLink = (departmentBioDict.articleTitle.content && departmentBioDict.courseName.content) ?
+             '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.courseName.content + ' : ' + departmentBioDict.articleTitle.content + '</a></h3>' :
+             (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
+             '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
+             '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
  
  
  
@@ -259,7 +259,7 @@
           * 
           * */
          let maxLength = 200;
-         let plainString = (cejscDict.summaryDescription.content) ? '' + cejscDict.summaryDescription.content +  '' : null;
+         let plainString = (departmentBioDict.summaryDescription.content) ? '' + departmentBioDict.summaryDescription.content +  '' : null;
          let actualLength = (plainString) ? plainString.length : null;
          let summarySubstring = (plainString && actualLength && actualLength > maxLength)
                                 ? plainString.substring(0, maxLength)
@@ -274,8 +274,8 @@
           *  format summary
           * 
           * */
-         let summaryString =    (summarySubstring && cejscDict.articleTitle.content)
-                                ? '<p class="card-text shortSummary">' + summarySubstring + '... <a href="' + cejscDict.fullTextLink.content + '" class="card-link" title="See the full course description: ' + cejscDict.articleTitle.content + '">Read More</a></p>'
+         let summaryString =    (summarySubstring && departmentBioDict.articleTitle.content)
+                                ? '<p class="card-text shortSummary">' + summarySubstring + '... <a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course description: ' + departmentBioDict.articleTitle.content + '">Read More</a></p>'
                                 : '<span class="card-text shortSummary visually-hidden hidden">No valid summary provided</span>';
 
  
@@ -285,8 +285,8 @@
           *  check for subject Description
           * 
           * */
-         let subjectString = (cejscDict.subjectDescription.content) ?
-             '<span class="card-text subject"><em>' + cejscDict.subjectDescription.content + '</em></span>' :
+         let subjectString = (departmentBioDict.subjectDescription.content) ?
+             '<span class="card-text subject"><em>' + departmentBioDict.subjectDescription.content + '</em></span>' :
              '<span class="card-text subject visually-hidden hidden">No valid subject provided</span>';
  
  
@@ -296,8 +296,8 @@
           *  check for subject college
           * 
           * */
-         let collegeString = (cejscDict.college.content) ?
-             '<span class="card-text college">' + cejscDict.college.content + '</span>' :
+         let collegeString = (departmentBioDict.college.content) ?
+             '<span class="card-text college">' + departmentBioDict.college.content + '</span>' :
              '<span class="card-text college visually-hidden hidden">No valid subject provided</span>';
  
  
@@ -307,8 +307,8 @@
           *  check for subject level
           * 
           * */
-         let academicLevelString = (cejscDict.academicLevel.content) ?
-             '<span class="card-text academicLevel">' + cejscDict.academicLevel.content + '</span>' :
+         let academicLevelString = (departmentBioDict.academicLevel.content) ?
+             '<span class="card-text academicLevel">' + departmentBioDict.academicLevel.content + '</span>' :
              '<span class="card-text academicLevel visually-hidden hidden">No valid subject provided</span>';
  
  
@@ -318,19 +318,19 @@
           *  define subtitle
           * 
           * */
-         let subtitleString = (cejscDict.subjectDescription.content && cejscDict.college.content && cejscDict.academicLevel.content) ?
+         let subtitleString = (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + ' | ' + academicLevelString + '</p>' :
-             (cejscDict.subjectDescription.content && cejscDict.college.content && !cejscDict.academicLevel.content) ?
+             (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + '</p>' :
-             (cejscDict.subjectDescription.content && !cejscDict.college.content && cejscDict.academicLevel.content) ?
+             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
-             (!cejscDict.subjectDescription.content && cejscDict.college.content && cejscDict.academicLevel.content) ?
+             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
-             (!cejscDict.subjectDescription.content && !cejscDict.college.content && cejscDict.academicLevel.content) ?
+             (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + academicLevelString + '</p>' :
-             (!cejscDict.subjectDescription.content && cejscDict.college.content && !cejscDict.academicLevel.content) ?
+             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + collegeString + '</p>' :
-             (cejscDict.subjectDescription.content && !cejscDict.college.content && !cejscDict.academicLevel.content) ?
+             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
              '<p class="card-subtitle">' + subjectString + '</p>' :
              '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
  
@@ -341,9 +341,9 @@
           *  Parse and format icons
           * 
           * */
-         if (cejscDict.icons.content) {
+         if (departmentBioDict.icons.content) {
  
-             let iconArray = cejscDict.icons.content.split(',');
+             let iconArray = departmentBioDict.icons.content.split(',');
              let iconPathArray = [];
  
              for (icon in iconArray) {
@@ -362,9 +362,9 @@
           *  Parse for media item titles and add to wrapper classes for isotope search engine
           * 
           * */
-         if (cejscDict.icons.content) {
-             let mediaTitles = wrapperTargets(cejscDict.icons.content);
-             beginningHTML = '<article class="cejscourseWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="cejscourse' + cejscDict.contentId.content + 'zonea" aria-label="' + cejscDict.articleTitle.content + '">';
+         if (departmentBioDict.icons.content) {
+             let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
+             beginningHTML = '<article class="cejscourseWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="cejscourse' + departmentBioDict.contentId.content + 'zonea" aria-label="' + departmentBioDict.articleTitle.content + '">';
          }
  
  
