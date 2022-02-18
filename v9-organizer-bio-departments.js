@@ -369,6 +369,40 @@
              let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
              beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
          }
+
+
+
+
+
+
+
+
+
+    /***
+     *  Parse for image
+     * 
+     * */
+    if (majorDict.frontPageImage.content) {
+
+        let imageID = content.get('Main Image').getID();
+        let mediaInfo = getMediaInfo(imageID);
+        let media = readMedia(imageID);
+        let info = new ImageInfo;
+        info.setInput(media);
+
+        let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
+
+        imageString = (info.check()) ?
+            '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
+            '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" alt="' + imageDefaultAlt + '" loading="auto" />';
+
+        openImageWrapper = '<figure class="figure">';
+    }
+
+
+
+
+    
  
  
  
