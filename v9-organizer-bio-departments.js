@@ -364,7 +364,7 @@
           * */
          if (departmentBioDict.icons.content) {
              let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
-             beginningHTML = '<article class="cejscourseWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="cejscourse' + departmentBioDict.contentId.content + 'zonea" aria-label="' + departmentBioDict.articleTitle.content + '">';
+             beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBioWrapper' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
          }
  
  
