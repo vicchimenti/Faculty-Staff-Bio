@@ -214,7 +214,7 @@
 
              primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
              primaryImagePath: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="path/*" />'),
-             rolloverImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
+             rolloverImage: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="image/*" />'),
              rolloverImagePath: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="path/*" />'),
 
              
