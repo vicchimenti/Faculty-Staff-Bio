@@ -30,5 +30,5 @@
   <div class="clearfix"></div>
 </article>
 
-<!-- v9/organizer/bio/departments -->
+{/* <!-- v9/organizer/bio/departments --> */}
 </script>
