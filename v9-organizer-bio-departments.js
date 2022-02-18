@@ -378,74 +378,74 @@
 
 
 
-    /***
-     *  Parse for image
-     * 
-     * */
-    if (majorDict.frontPageImage.content) {
+        /***
+         *  Parse for image
+         * 
+         * */
+        if (majorDict.frontPageImage.content) {
 
-        let imageID = content.get('Main Image').getID();
-        let mediaInfo = getMediaInfo(imageID);
-        let media = readMedia(imageID);
-        let info = new ImageInfo;
-        info.setInput(media);
+            let imageID = content.get('Main Image').getID();
+            let mediaInfo = getMediaInfo(imageID);
+            let media = readMedia(imageID);
+            let info = new ImageInfo;
+            info.setInput(media);
 
-        let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
+            let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
 
-        imageString = (info.check()) ?
-            '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
-            '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" alt="' + imageDefaultAlt + '" loading="auto" />';
+            imageString = (info.check()) ?
+                '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
+                '<img src="' + majorDict.frontPageImage.content + '" class="articleImage figure-img card-img-top" alt="' + imageDefaultAlt + '" loading="auto" />';
 
-        openImageWrapper = '<figure class="figure">';
-    }
-
-
-
-
-    /***
-     *  modify headline if special topic present
-     * 
-     * */
-        function modifyWrapper(htmlClass) {
-
-        beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
-    }
+            openImageWrapper = '<figure class="figure">';
+        }
 
 
 
 
-    /***
-     *  modify dateline if special topic present
-     * 
-     * */
-    function modifyDateline(specialTopic) {
+        /***
+         *  modify headline if special topic present
+         * 
+         * */
+            function modifyWrapper(htmlClass) {
 
-        dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
-    }
-
-
+            beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
+        }
 
 
-    /***
-     *  process and prioritize special topics
-     * 
-     * */
-    if (majorDict.catTags.content.includes(suLawInTheNews)) {
 
-        modifyWrapper(suLawInTheNews);
-        modifyDateline(suLawInTheNews);
 
-    } else if (majorDict.catTags.content.includes(announcements)) {
+        /***
+         *  modify dateline if special topic present
+         * 
+         * */
+        function modifyDateline(specialTopic) {
 
-        modifyWrapper(announcements);
-        modifyDateline(announcements);
+            dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
+        }
 
-    } else if (majorDict.catTags.content.includes(events)) {
 
-        modifyWrapper(events);
-        modifyDateline(events);
 
-    }
+
+        /***
+         *  process and prioritize special topics
+         * 
+         * */
+        if (majorDict.catTags.content.includes(suLawInTheNews)) {
+
+            modifyWrapper(suLawInTheNews);
+            modifyDateline(suLawInTheNews);
+
+        } else if (majorDict.catTags.content.includes(announcements)) {
+
+            modifyWrapper(announcements);
+            modifyDateline(announcements);
+
+        } else if (majorDict.catTags.content.includes(events)) {
+
+            modifyWrapper(events);
+            modifyDateline(events);
+
+        }
 
 
 
