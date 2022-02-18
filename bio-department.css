@@ -1,3 +1,24 @@
+/***
+*       Faculty and Staff Bio
+*       Department Layout Styles
+*       20220218
+*
+*
+*/
+
+
+
+
+/***
+*       Bootstrap 5 defaults
+*       20220218
+*
+*
+*/
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
 .shadow-sm {
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
