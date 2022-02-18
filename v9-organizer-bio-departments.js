@@ -235,7 +235,7 @@
          let openBodyWrapper = '<div class="articleSummary card-body">';
          let closeBodyWrapper = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
-         let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="cejscourse' + departmentBioDict.contentId.content + 'zonea" aria-label="' + departmentBioDict.articleTitle.content + '">';
+         let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
  
  
  
@@ -364,7 +364,7 @@
           * */
          if (departmentBioDict.icons.content) {
              let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
-             beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBioWrapper' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
+             beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
          }
  
  
