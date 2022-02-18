@@ -7,6 +7,8 @@
      *     This Faculty and Staff Bio content type layout works with the Department Organizer.
      *
      *     Document will write once when the page loads
+     * 
+     *      not ready for primetime 20220218
      *
      *     @version 9.0
      */
@@ -254,8 +256,9 @@
  
 
          /***
-          *  check for summaryDescription
-          *  find string length and truncate
+          *   Truncation
+          *   check for summaryDescription
+          *   find string length and truncate
           * 
           * */
          let maxLength = 200;
