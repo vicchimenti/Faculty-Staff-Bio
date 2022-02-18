@@ -9,9 +9,13 @@
 
 
 
-/* Override standard content max width */
+/* Organizer styles */
 .departmentOrganizer .organizer.standardContent {
     max-width: none;
+}
+
+.departmentOrganizer .standardContent h2 {
+    font-family:  "Montserrat", sans-serif;
 }
 
 
