@@ -4,15 +4,15 @@
 
     /***
      *     @author  Victor Chimenti, MSCS
-     *     @file    v9-organizer-cejscourse.js
-     *                  v9/organizer/cejscourse
+     *     @file    v9-organizer-bio-departments.js
+     *                  v9/organizer/bio/departments
      *                  id:5650
      *
      *     This content type will work in conjunction with the Organizer.
      *
      *     Document will write once when the page loads
      *
-     *     @version 8.5.3
+     *     @version 9.0
      */
 
 
@@ -401,7 +401,7 @@
      }
 
 
-     
+
 
 
 {/* <script>
