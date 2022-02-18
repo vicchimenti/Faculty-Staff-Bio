@@ -1,14 +1,10 @@
-
-
-
-
     /***
      *     @author  Victor Chimenti, MSCS
      *     @file    v9-organizer-bio-departments.js
      *                  v9/organizer/bio/departments
-     *                  id:5650
+     *                  id:203
      *
-     *     This content type will work in conjunction with the Organizer.
+     *     This Faculty and Staff Bio content type layout works with the Department Organizer.
      *
      *     Document will write once when the page loads
      *
