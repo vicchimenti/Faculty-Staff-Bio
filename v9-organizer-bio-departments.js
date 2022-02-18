@@ -232,10 +232,12 @@
           * 
           * */
          let endingHTML = '</article>';
-         let openCardHeader = '<div class="card-header border-0 bg-transparent">';
+         let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
-         let openBodyWrapper = '<div class="articleSummary card-body">';
+         let openBodyWrapper = '<div class="departBioSummary card-body">';
          let closeBodyWrapper = '</div>';
+         let openFooterWrapper = '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
+         let closeFooterWrapper = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
          let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
  
@@ -261,8 +263,7 @@
         // </div>
 
 
-
-
+   
         /***
           *  bs5 card image overlay
           * 
@@ -512,7 +513,6 @@
                  closeCardHeader,
                  openBodyWrapper,
                  summaryString,
-                 listOfIcons,
                  closeBodyWrapper,
                  endingHTML
              ]
