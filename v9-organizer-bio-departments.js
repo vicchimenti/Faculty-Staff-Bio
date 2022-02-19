@@ -465,27 +465,27 @@
          *  Parse for image
          * 
          * */
-        if (majorDict.frontPageImage.content) {
+        // if (majorDict.frontPageImage.content) {
 
-            let imageID = content.get('Main Image').getID();
-            let mediaInfo = getMediaInfo(imageID);
-            let media = readMedia(imageID);
-            let info = new ImageInfo;
-            info.setInput(media);
+        //     let imageID = content.get('Main Image').getID();
+        //     let mediaInfo = getMediaInfo(imageID);
+        //     let media = readMedia(imageID);
+        //     let info = new ImageInfo;
+        //     info.setInput(media);
 
-            let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
+        //     let imageDefaultAlt = majorDict.frontPageImageCaption.content ? majorDict.frontPageImageCaption.content : majorDict.articleTitle.content;
 
-            imageString = (info.check()) ?
-                '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
-                '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" alt="' + imageDefaultAlt + '" loading="auto" />';
+        //     imageString = (info.check()) ?
+        //         '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" />' :
+        //         '<img src="' + majorDict.frontPageImage.content + '" class="deptBioImage figure-img card-img" alt="' + imageDefaultAlt + '" loading="auto" />';
 
-            openImageWrapper = '<figure class="figure">';
+        //     openImageWrapper = '<figure class="figure">';
 
 
-            let mediaHTML =    (info.check())
-            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
-        }
+        //     let mediaHTML =    (info.check())
+        //     ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+        //     : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
+        // }
 
 
 
