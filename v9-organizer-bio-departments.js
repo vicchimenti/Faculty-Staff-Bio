@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220218
      *
-     *     @version 9.8
+     *     @version 9.8.1
      */
 
 
@@ -251,8 +251,40 @@
          let closeFooter = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
          let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '">';
+
+         
  
- 
+
+        /***
+         *  modify wrapper's aria label
+         * 
+         * */
+        function modifyWrapper(ariaLabel) {
+
+            beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '">';
+        }
+
+
+
+
+        /***
+         *  process and prioritize label options
+         * 
+         * */
+        if (departmentBioDict.firstName.content && departmentBioDict.lastName.content) {
+        
+            let ariaString = '' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '';
+
+            modifyWrapper(ariaString.trim());
+
+        } else if (departmentBioDict.fullName.content) {
+
+            let ariaString = '' + departmentBioDict.fullName.content + '';
+
+            modifyWrapper(ariaString.trim());
+        }
+
+
 
         /***
           *  bs5 horizontal card
