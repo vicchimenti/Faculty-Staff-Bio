@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220218
      *
-     *     @version 9.7
+     *     @version 9.8
      */
 
 
@@ -250,7 +250,7 @@
          let openFooter = '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
          let closeFooter = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
-         let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
+         let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '">';
  
  
 
