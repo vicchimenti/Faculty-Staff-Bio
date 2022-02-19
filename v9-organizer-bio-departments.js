@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220219
      *
-     *     @version 9.8.10
+     *     @version 9.8.11
      */
 
 
@@ -352,7 +352,7 @@
          * 
          * */
         let bldgRoomString =    (departmentBioDict.bldgRoom.content)
-                                ? '<p class="location card-text">' + departmentBioDict.bldgRoom.content + '</p>'
+                                ? '<p class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</p>'
                                 : '<span class="location visually-hidden hidden">No location entered</span>';
 
 
