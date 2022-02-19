@@ -214,6 +214,12 @@
              lastName: ('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />'),
              firstName: ('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
              degrees: ('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
+             positionTitle: ('<t4 type="content" name="Position Title(s)" output="normal" modifiers="striptags,htmlentities" />'),
+             officePhone: ('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />'),
+             enailAddress: ('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities,encode_emails" />'),
+             bldgRoom: ('<t4 type="content" name="Building/Room Number" output="normal" modifiers="striptags,htmlentities" />'),
+             departments: ('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
+             summaryBio: ('<t4 type="content" name="Summary Biography" output="normal" modifiers="medialibrary,nav_sections" />'),
 
 
              primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
@@ -234,10 +240,7 @@
 
 
 
-             fullTextLink: getContentValues('<t4 type="content" name="Article Title" output="fulltext" use-element="true" filename-element="Article Title" modifiers="striptags,htmlentities" />'),
-             
-             
-             
+             fullTextLink: getContentValues('<t4 type="content" name="Name" output="fulltext" use-element="true" filename-element="Name" modifiers="striptags,htmlentities" />'),
              contentId: getContentValues('<t4 type="meta" meta="content_id" />')
  
          };
