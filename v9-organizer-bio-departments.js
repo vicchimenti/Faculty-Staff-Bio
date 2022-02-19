@@ -302,12 +302,24 @@
 
 
         /***
-             *  set for fulltext link
-             * 
-             * */
+         *  parse degrees
+         * 
+         * */
         let degreeString = (departmentBioDict.degrees.content)
                         ? '<p class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></p>'
                         : '<span class="degree visually-hidden hidden">No degree entered</span>';
+
+
+
+
+        /***
+         *  parse titles
+         * 
+         * */
+        let positionTitleString = (departmentBioDict.positionTitle.content)
+                            ? '<p class="degree card-text"><em>' + departmentBioDict.positionTitle.content + '</em></p>'
+                            : '<span class="degree visually-hidden hidden">No degree entered</span>';
+
 
 
 
@@ -542,6 +554,7 @@
                  closeCardHeader,
                  openBody,
                  degreeString,
+                 positionTitleString,
 
                  closeBody,
                  openFooter,
