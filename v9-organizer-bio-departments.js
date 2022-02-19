@@ -210,6 +210,10 @@
          let departmentBioDict = {
  
              contentName: getContentValues('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
+             fullName: ('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
+             lastName: ('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />'),
+             firstName: ('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
+             degrees: ('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
 
 
              primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
