@@ -306,9 +306,9 @@
           * 
           * */
         let emailAddressString =    (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-                                    ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Contact ' + departmentBioDict.firstName.content + '</a></p>'
+                                    ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '"><span class="fas fa-envelope"></span> Email ' + departmentBioDict.firstName.content + '</a></p>'
                                     : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-                                    ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Contact ' + departmentBioDict.fullName.content + '</a></p>'
+                                    ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '"><span class="fas fa-envelope"></span> Email ' + departmentBioDict.fullName.content + '</a></p>'
                                     : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
