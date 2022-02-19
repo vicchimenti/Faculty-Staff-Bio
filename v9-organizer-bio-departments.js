@@ -358,6 +358,17 @@
 
 
 
+        /***
+         *  parse titles
+         * 
+         * */
+        let summaryBioString =    (departmentBioDict.summaryBio.content)
+                                ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
+                                : '<span class="summaryBio visually-hidden hidden">No location entered</span>';
+
+
+
+
 
 
 
@@ -593,10 +604,9 @@
                  emailAddressString,
                  phoneString,
                  bldgRoomString,
-
+                 summaryBioString,
                  closeBody,
                  openFooter,
-
                  closeFooter,
                  closeBodyWrapper,
                  closeRow,
