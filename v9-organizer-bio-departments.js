@@ -523,22 +523,15 @@
 
                  closeImageWrapper,
                  openBodyWrapper,
-                 
                  openCardHeader,
 
                  closeCardHeader,
-
                  openBody,
 
                  closeBody,
                  openFooter,
 
                  closeFooter,
-
-
-
-
-
                  closeBodyWrapper,
                  closeRow,
                  endingHTML
