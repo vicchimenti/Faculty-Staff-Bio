@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220219
      *
-     *     @version 9.8.9
+     *     @version 9.8.10
      */
 
 
@@ -347,6 +347,17 @@
 
 
 
+        /***
+         *  parse titles
+         * 
+         * */
+        let bldgRoomString =    (departmentBioDict.bldgRoom.content)
+                                ? '<p class="location card-text">' + departmentBioDict.bldgRoom.content + '</p>'
+                                : '<span class="location visually-hidden hidden">No location entered</span>';
+
+
+
+
 
 
 
@@ -581,6 +592,7 @@
                  positionTitleString,
                  emailAddressString,
                  phoneString,
+                 bldgRoomString,
 
                  closeBody,
                  openFooter,
