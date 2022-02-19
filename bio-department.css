@@ -9,13 +9,50 @@
 
 
 
-/* Organizer styles */
+/***
+*       Organizer Styles
+*
+*
+*/
 .departmentOrganizer .organizer.standardContent {
+
+    border: none;
     max-width: none;
 }
 
 .departmentOrganizer .standardContent h2 {
+
     font-family:  "Montserrat", sans-serif;
+    margin-bottom: 3rem;
+}
+
+
+
+
+/***
+*       Wrapper Styles
+*
+*
+*/
+.departmentBioWrapper {
+
+    margin-bottom: 3rem;;
+}
+
+
+
+
+/***
+*       Image Styles
+*
+*
+*/
+.departmentBioWrapper img.deptBioImage {
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;    
 }
 
 
