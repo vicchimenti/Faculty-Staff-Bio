@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220218
      *
-     *     @version 9.2
+     *     @version 9.7
      */
 
 
@@ -518,13 +518,29 @@
          writeDocument(
              [
                  beginningHTML,
-                 openCardHeader,
-                 titleLink,
-                 subtitleString,
-                 closeCardHeader,
+                 openRow,
+                 openImageWrapper,
+
+                 closeImageWrapper,
                  openBodyWrapper,
-                 summaryString,
+                 
+                 openCardHeader,
+
+                 closeCardHeader,
+
+                 openBody,
+
+                 closeBody,
+                 openFooter,
+
+                 closeFooter,
+
+
+
+
+
                  closeBodyWrapper,
+                 closeRow,
                  endingHTML
              ]
          );
