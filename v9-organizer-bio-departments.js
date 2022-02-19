@@ -315,6 +315,17 @@
 
 
         /***
+          *  parse for email
+          * 
+          * */
+        let phoneString =   (departmentBioDict.officePhone.content)
+                            ? '<p class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">Phone: ' + departmentBioDict.officePhone.content + '</a></p>'
+                            : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
+
+
+
+
+        /***
          *  parse degrees
          * 
          * */
@@ -569,6 +580,7 @@
                  degreeString,
                  positionTitleString,
                  emailAddressString,
+                 phoneString,
 
                  closeBody,
                  openFooter,
