@@ -42,13 +42,26 @@
 
 
 /***
-*       Title Styles
+*       Header Styles
 *
 *
 */
 .departmentBioWrapper .departBioHeader h3 {
 
     font-family:  "Montserrat", sans-serif;
+}
+
+
+
+
+/***
+*       Body Styles
+*
+*
+*/
+.departmentBioWrapper .departBioSummary p.title {
+
+    color: #aa0000;
 }
 
 
