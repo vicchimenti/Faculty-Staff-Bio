@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220219
      *
-     *     @version 9.8.11
+     *     @version 9.8.12
      */
 
 
@@ -364,7 +364,7 @@
          * */
         let summaryBioString =    (departmentBioDict.summaryBio.content)
                                 ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
-                                : '<span class="summaryBio visually-hidden hidden">No location entered</span>';
+                                : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
 
