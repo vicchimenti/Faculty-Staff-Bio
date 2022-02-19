@@ -308,9 +308,9 @@
           * */
         let emailAddressString =    (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
                                     ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Contact ' + departmentBioDict.firstName.content + '</a></p>'
-        : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
-                                    ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
-                                    : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
+                                    : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
+                                    ? '<p class="emailAddress card-text"><a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Contact ' + departmentBioDict.fullName.content + '</a></p>'
+                                    : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
 
@@ -569,6 +569,7 @@
                  openBody,
                  degreeString,
                  positionTitleString,
+                 emailAddressString,
 
                  closeBody,
                  openFooter,
