@@ -287,6 +287,24 @@
 
 
 
+
+        /***
+          *  set for fulltext link
+          * 
+          * */
+        let titleLink = (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
+                        ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
+                        : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
+                        ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
+                        : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
+
+
+            // (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
+            // '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
+            // '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
+
+
+
         /***
           *  bs5 horizontal card
           * 
@@ -326,15 +344,7 @@
 
 
              
-         /***
-          *  check for fulltext content
-          * 
-          * */
-        //  let titleLink = (departmentBioDict.articleTitle.content && departmentBioDict.courseName.content) ?
-        //      '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.courseName.content + ' : ' + departmentBioDict.articleTitle.content + '</a></h3>' :
-        //      (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
-        //      '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
-        //      '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
+
  
  
  
@@ -548,7 +558,7 @@
                  closeImageWrapper,
                  openBodyWrapper,
                  openCardHeader,
-
+                 titleLink,
                  closeCardHeader,
                  openBody,
 
