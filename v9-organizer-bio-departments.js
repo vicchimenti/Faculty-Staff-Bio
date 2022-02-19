@@ -306,7 +306,7 @@
              * 
              * */
         let degreeString = (departmentBioDict.degrees.content)
-                        ? '<p class="degree card-text">' + departmentBioDict.degrees.content + '</p>'
+                        ? '<p class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></p>'
                         : '<span class="degree visually-hidden hidden">No degree entered</span>';
 
 
@@ -542,7 +542,7 @@
                  closeCardHeader,
                  openBody,
                  degreeString,
-                 
+
                  closeBody,
                  openFooter,
 
