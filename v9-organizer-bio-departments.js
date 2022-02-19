@@ -301,6 +301,17 @@
 
 
 
+        /***
+             *  set for fulltext link
+             * 
+             * */
+        let degreeString = (departmentBioDict.degrees.content)
+                        ? '<p class="degree card-text">' + departmentBioDict.degrees.content + '</p>'
+                        : '<span class="degree visually-hidden hidden">No degree entered</span>';
+
+
+
+
 
 
         /***
@@ -530,7 +541,8 @@
                  titleLink,
                  closeCardHeader,
                  openBody,
-
+                 degreeString,
+                 
                  closeBody,
                  openFooter,
 
