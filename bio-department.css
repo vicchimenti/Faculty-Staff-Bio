@@ -16,7 +16,9 @@
 .departmentOrganizer .organizer.standardContent {
 
     border: none;
+    margin: 1rem;
     max-width: none;
+    padding: 1rem;
 }
 
 .departmentOrganizer .standardContent h2 {
