@@ -1,7 +1,6 @@
 /***
 *       Faculty and Staff Bio
 *       Department Layout Styles
-*       20220218
 *
 *
 */
@@ -43,6 +42,19 @@
 
 
 /***
+*       Title Styles
+*
+*
+*/
+.departmentBioWrapper .departBioHeader h3 {
+
+    font-family:  "Montserrat", sans-serif;
+}
+
+
+
+
+/***
 *       Image Styles
 *
 *
@@ -60,7 +72,6 @@
 
 /***
 *       Bootstrap 5 defaults
-*       20220218
 *
 *
 */
