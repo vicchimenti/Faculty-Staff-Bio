@@ -237,12 +237,18 @@
           * 
           * */
          let endingHTML = '</article>';
+         let openRow = '<div class="row g-0 noGap">';
+         let closeRow = '</div>';
+         let openImageWrapper = '<div class="col-12 col-lg-4">';
+         let closeImageWrapper = '</div>';
+         let openBodyWrapper = '<div class="col-12 col-lg-8">';
+         let closeBodyWrapper = '</div>';
          let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
-         let openBodyWrapper = '<div class="departBioSummary card-body">';
-         let closeBodyWrapper = '</div>';
-         let openFooterWrapper = '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
-         let closeFooterWrapper = '</div>';
+         let openBody = '<div class="departBioSummary card-body">';
+         let closeBody = '</div>';
+         let openFooter = '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
+         let closeFooter = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
          let beginningHTML = '<article class="departmentBioWrapper card shadow-sm border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
  
