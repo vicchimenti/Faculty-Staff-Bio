@@ -10,7 +10,7 @@
      * 
      *      not ready for primetime 20220218
      *
-     *     @version 9.8.4
+     *     @version 9.8.5
      */
 
 
@@ -316,9 +316,9 @@
          *  parse titles
          * 
          * */
-        let positionTitleString = (departmentBioDict.positionTitle.content)
-                            ? '<p class="degree card-text"><em>' + departmentBioDict.positionTitle.content + '</em></p>'
-                            : '<span class="degree visually-hidden hidden">No degree entered</span>';
+        let positionTitleString =   (departmentBioDict.positionTitle.content)
+                                    ? '<p class="title card-text">' + departmentBioDict.positionTitle.content + '</p>'
+                                    : '<span class="title visually-hidden hidden">No title entered</span>';
 
 
 
