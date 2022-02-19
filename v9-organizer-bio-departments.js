@@ -10,8 +10,7 @@
      * 
      *      not ready for primetime 20220219
      *
-     *     @version 9.8.12
-     */
+     *     @version 9.8.13
 
 
 
@@ -367,113 +366,10 @@
                                 : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
-
-
-
-
-
-        /***
-          *  bs5 horizontal card
-          * 
-          * */
-        //  <div class="card mb-3" style="max-width: 540px;">
-        //     <div class="row g-0">
-        //         <div class="col-md-4">
-        //         <img src="..." class="img-fluid rounded-start" alt="...">
-        //         </div>
-        //         <div class="col-md-8">
-        //         <div class="card-body">
-        //             <h5 class="card-title">Card title</h5>
-        //             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        //             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        //         </div>
-        //         </div>
-        //     </div>
-        // </div>
-
-
-   
-        /***
-          *  bs5 card image overlay
-          * 
-          * */
-        // <div class="card bg-dark text-white">
-        //     <img src="..." class="card-img" alt="...">
-        //     <div class="card-img-overlay">
-        //         <h5 class="card-title">Card title</h5>
-        //         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        //         <p class="card-text">Last updated 3 mins ago</p>
-        //     </div>
-        // </div>
-
-
-
-
-
-             
-
  
  
  
 
-         /***
-          *   Truncation
-          *   check for summaryDescription
-          *   find string length and truncate
-          * 
-          * */
-        //  let maxLength = 200;
-        //  let plainString = (departmentBioDict.summaryDescription.content) ? '' + departmentBioDict.summaryDescription.content +  '' : null;
-        //  let actualLength = (plainString) ? plainString.length : null;
-        //  let summarySubstring = (plainString && actualLength && actualLength > maxLength)
-        //                         ? plainString.substring(0, maxLength)
-        //                         : (plainString && actualLength && actualLength <= maxLength)
-        //                         ? plainString.substring(0, actualLength)
-        //                         : null;
-                                
-                                
-
-
-        /***
-          *  format summary
-          * 
-          * */
-        //  let summaryString =    (summarySubstring && departmentBioDict.articleTitle.content)
-        //                         ? '<p class="card-text shortSummary">' + summarySubstring + '... <a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course description: ' + departmentBioDict.articleTitle.content + '">Read More</a></p>'
-        //                         : '<span class="card-text shortSummary visually-hidden hidden">No valid summary provided</span>';
-
- 
- 
- 
-         /***
-          *  check for subject Description
-          * 
-          * */
-        //  let subjectString = (departmentBioDict.subjectDescription.content) ?
-        //      '<span class="card-text subject"><em>' + departmentBioDict.subjectDescription.content + '</em></span>' :
-        //      '<span class="card-text subject visually-hidden hidden">No valid subject provided</span>';
- 
- 
- 
- 
-         /***
-          *  check for subject college
-          * 
-          * */
-        //  let collegeString = (departmentBioDict.college.content) ?
-        //      '<span class="card-text college">' + departmentBioDict.college.content + '</span>' :
-        //      '<span class="card-text college visually-hidden hidden">No valid subject provided</span>';
- 
- 
- 
- 
-         /***
-          *  check for subject level
-          * 
-          * */
-        //  let academicLevelString = (departmentBioDict.academicLevel.content) ?
-        //      '<span class="card-text academicLevel">' + departmentBioDict.academicLevel.content + '</span>' :
-        //      '<span class="card-text academicLevel visually-hidden hidden">No valid subject provided</span>';
  
  
  
@@ -498,41 +394,6 @@
         //      '<p class="card-subtitle">' + subjectString + '</p>' :
         //      '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
  
- 
- 
- 
-         /***
-          *  Parse and format icons
-          * 
-          * */
-        //  if (departmentBioDict.icons.content) {
- 
-        //      let iconArray = departmentBioDict.icons.content.split(',');
-        //      let iconPathArray = [];
- 
-        //      for (icon in iconArray) {
- 
-        //          iconPathArray[icon] = mediaTag(iconArray[icon].trim());
-        //      }
- 
-        //      let iconValues = assignList(iconPathArray);
-        //      listOfIcons = '<ul class="iconDashboard list-group list-group-horizontal">' + iconValues + '</ul>';
-        //  }
- 
- 
- 
-  
-         /***
-          *  Parse for media item titles and add to wrapper classes for isotope search engine
-          * 
-          * */
-        //  if (departmentBioDict.icons.content) {
-        //      let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
-        //      beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
-        //  }
-
-
-
 
 
 
@@ -561,27 +422,6 @@
 
 
 
-
-        /***
-         *  modify dateline if special topic present
-         * 
-         * */
-        // function modifyDateline(specialTopic) {
-
-        //     dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
-        // }
-
-
-
-
-
-
-
-
-
- 
- 
- 
   
          /***
           *  write document once
