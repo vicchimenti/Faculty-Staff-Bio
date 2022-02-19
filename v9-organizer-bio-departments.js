@@ -319,7 +319,7 @@
           * 
           * */
         let phoneString =   (departmentBioDict.officePhone.content)
-                            ? '<p class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">Phone: ' + departmentBioDict.officePhone.content + '</a></p>'
+                            ? '<p class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></p>'
                             : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
 
 
