@@ -299,9 +299,7 @@
                         : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
 
 
-            // (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
-            // '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
-            // '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
+
 
 
 
@@ -492,15 +490,6 @@
 
 
 
-        /***
-         *  modify headline if special topic present
-         * 
-         * */
-        // function modifyWrapper(htmlClass) {
-
-        //     beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
-        // }
-
 
 
 
@@ -516,26 +505,6 @@
 
 
 
-        /***
-         *  process and prioritize special topics
-         * 
-         * */
-        // if (majorDict.catTags.content.includes(suLawInTheNews)) {
-
-        //     modifyWrapper(suLawInTheNews);
-        //     modifyDateline(suLawInTheNews);
-
-        // } else if (majorDict.catTags.content.includes(announcements)) {
-
-        //     modifyWrapper(announcements);
-        //     modifyDateline(announcements);
-
-        // } else if (majorDict.catTags.content.includes(events)) {
-
-        //     modifyWrapper(events);
-        //     modifyDateline(events);
-
-        // }
 
 
 
