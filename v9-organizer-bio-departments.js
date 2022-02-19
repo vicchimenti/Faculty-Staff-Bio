@@ -297,11 +297,11 @@
           *  check for fulltext content
           * 
           * */
-         let titleLink = (departmentBioDict.articleTitle.content && departmentBioDict.courseName.content) ?
-             '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.courseName.content + ' : ' + departmentBioDict.articleTitle.content + '</a></h3>' :
-             (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
-             '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
-             '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
+        //  let titleLink = (departmentBioDict.articleTitle.content && departmentBioDict.courseName.content) ?
+        //      '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.courseName.content + ' : ' + departmentBioDict.articleTitle.content + '</a></h3>' :
+        //      (departmentBioDict.articleTitle.content && !departmentBioDict.courseName.content) ?
+        //      '<h3 class="card-title border-0"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course details: ' + departmentBioDict.articleTitle.content + '">' + departmentBioDict.articleTitle.content + '</a></h3>' :
+        //      '<h3 class="card-title border-0">' + departmentBioDict.contentName.content + '</h3>';
  
  
  
@@ -312,14 +312,14 @@
           *   find string length and truncate
           * 
           * */
-         let maxLength = 200;
-         let plainString = (departmentBioDict.summaryDescription.content) ? '' + departmentBioDict.summaryDescription.content +  '' : null;
-         let actualLength = (plainString) ? plainString.length : null;
-         let summarySubstring = (plainString && actualLength && actualLength > maxLength)
-                                ? plainString.substring(0, maxLength)
-                                : (plainString && actualLength && actualLength <= maxLength)
-                                ? plainString.substring(0, actualLength)
-                                : null;
+        //  let maxLength = 200;
+        //  let plainString = (departmentBioDict.summaryDescription.content) ? '' + departmentBioDict.summaryDescription.content +  '' : null;
+        //  let actualLength = (plainString) ? plainString.length : null;
+        //  let summarySubstring = (plainString && actualLength && actualLength > maxLength)
+        //                         ? plainString.substring(0, maxLength)
+        //                         : (plainString && actualLength && actualLength <= maxLength)
+        //                         ? plainString.substring(0, actualLength)
+        //                         : null;
                                 
                                 
 
@@ -328,9 +328,9 @@
           *  format summary
           * 
           * */
-         let summaryString =    (summarySubstring && departmentBioDict.articleTitle.content)
-                                ? '<p class="card-text shortSummary">' + summarySubstring + '... <a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course description: ' + departmentBioDict.articleTitle.content + '">Read More</a></p>'
-                                : '<span class="card-text shortSummary visually-hidden hidden">No valid summary provided</span>';
+        //  let summaryString =    (summarySubstring && departmentBioDict.articleTitle.content)
+        //                         ? '<p class="card-text shortSummary">' + summarySubstring + '... <a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full course description: ' + departmentBioDict.articleTitle.content + '">Read More</a></p>'
+        //                         : '<span class="card-text shortSummary visually-hidden hidden">No valid summary provided</span>';
 
  
  
@@ -339,9 +339,9 @@
           *  check for subject Description
           * 
           * */
-         let subjectString = (departmentBioDict.subjectDescription.content) ?
-             '<span class="card-text subject"><em>' + departmentBioDict.subjectDescription.content + '</em></span>' :
-             '<span class="card-text subject visually-hidden hidden">No valid subject provided</span>';
+        //  let subjectString = (departmentBioDict.subjectDescription.content) ?
+        //      '<span class="card-text subject"><em>' + departmentBioDict.subjectDescription.content + '</em></span>' :
+        //      '<span class="card-text subject visually-hidden hidden">No valid subject provided</span>';
  
  
  
@@ -350,9 +350,9 @@
           *  check for subject college
           * 
           * */
-         let collegeString = (departmentBioDict.college.content) ?
-             '<span class="card-text college">' + departmentBioDict.college.content + '</span>' :
-             '<span class="card-text college visually-hidden hidden">No valid subject provided</span>';
+        //  let collegeString = (departmentBioDict.college.content) ?
+        //      '<span class="card-text college">' + departmentBioDict.college.content + '</span>' :
+        //      '<span class="card-text college visually-hidden hidden">No valid subject provided</span>';
  
  
  
@@ -361,9 +361,9 @@
           *  check for subject level
           * 
           * */
-         let academicLevelString = (departmentBioDict.academicLevel.content) ?
-             '<span class="card-text academicLevel">' + departmentBioDict.academicLevel.content + '</span>' :
-             '<span class="card-text academicLevel visually-hidden hidden">No valid subject provided</span>';
+        //  let academicLevelString = (departmentBioDict.academicLevel.content) ?
+        //      '<span class="card-text academicLevel">' + departmentBioDict.academicLevel.content + '</span>' :
+        //      '<span class="card-text academicLevel visually-hidden hidden">No valid subject provided</span>';
  
  
  
@@ -372,21 +372,21 @@
           *  define subtitle
           * 
           * */
-         let subtitleString = (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + ' | ' + academicLevelString + '</p>' :
-             (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + '</p>' :
-             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
-             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
-             (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + academicLevelString + '</p>' :
-             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + collegeString + '</p>' :
-             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-             '<p class="card-subtitle">' + subjectString + '</p>' :
-             '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
+        //  let subtitleString = (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + ' | ' + academicLevelString + '</p>' :
+        //      (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + '</p>' :
+        //      (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
+        //      (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
+        //      (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + academicLevelString + '</p>' :
+        //      (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + collegeString + '</p>' :
+        //      (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
+        //      '<p class="card-subtitle">' + subjectString + '</p>' :
+        //      '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
  
  
  
@@ -395,19 +395,19 @@
           *  Parse and format icons
           * 
           * */
-         if (departmentBioDict.icons.content) {
+        //  if (departmentBioDict.icons.content) {
  
-             let iconArray = departmentBioDict.icons.content.split(',');
-             let iconPathArray = [];
+        //      let iconArray = departmentBioDict.icons.content.split(',');
+        //      let iconPathArray = [];
  
-             for (icon in iconArray) {
+        //      for (icon in iconArray) {
  
-                 iconPathArray[icon] = mediaTag(iconArray[icon].trim());
-             }
+        //          iconPathArray[icon] = mediaTag(iconArray[icon].trim());
+        //      }
  
-             let iconValues = assignList(iconPathArray);
-             listOfIcons = '<ul class="iconDashboard list-group list-group-horizontal">' + iconValues + '</ul>';
-         }
+        //      let iconValues = assignList(iconPathArray);
+        //      listOfIcons = '<ul class="iconDashboard list-group list-group-horizontal">' + iconValues + '</ul>';
+        //  }
  
  
  
@@ -416,10 +416,10 @@
           *  Parse for media item titles and add to wrapper classes for isotope search engine
           * 
           * */
-         if (departmentBioDict.icons.content) {
-             let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
-             beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
-         }
+        //  if (departmentBioDict.icons.content) {
+        //      let mediaTitles = wrapperTargets(departmentBioDict.icons.content);
+        //      beginningHTML = '<article class="departmentBioWrapper card shadow border-0 radius-0 ' + mediaTitles + 'mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.articleTitle.content + '">';
+        //  }
 
 
 
@@ -462,10 +462,10 @@
          *  modify headline if special topic present
          * 
          * */
-            function modifyWrapper(htmlClass) {
+        // function modifyWrapper(htmlClass) {
 
-            beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
-        }
+        //     beginningHTML = '<article class="newsroomMajorFeedItem newsroomBlurb card border-0 ' + htmlClass + '" id="major' + majorDict.contentId.content + '" aria-label="' + majorDict.headline.content + '">';
+        // }
 
 
 
@@ -474,10 +474,10 @@
          *  modify dateline if special topic present
          * 
          * */
-        function modifyDateline(specialTopic) {
+        // function modifyDateline(specialTopic) {
 
-            dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
-        }
+        //     dateline = '<p class="newsroomArticlePublishedDate">' + majorDict.publishedDate.content + hyphen + '<span class="newsroomArticleSpecialCategory">' + specialTopic + '</span></p>';
+        // }
 
 
 
@@ -486,22 +486,22 @@
          *  process and prioritize special topics
          * 
          * */
-        if (majorDict.catTags.content.includes(suLawInTheNews)) {
+        // if (majorDict.catTags.content.includes(suLawInTheNews)) {
 
-            modifyWrapper(suLawInTheNews);
-            modifyDateline(suLawInTheNews);
+        //     modifyWrapper(suLawInTheNews);
+        //     modifyDateline(suLawInTheNews);
 
-        } else if (majorDict.catTags.content.includes(announcements)) {
+        // } else if (majorDict.catTags.content.includes(announcements)) {
 
-            modifyWrapper(announcements);
-            modifyDateline(announcements);
+        //     modifyWrapper(announcements);
+        //     modifyDateline(announcements);
 
-        } else if (majorDict.catTags.content.includes(events)) {
+        // } else if (majorDict.catTags.content.includes(events)) {
 
-            modifyWrapper(events);
-            modifyDateline(events);
+        //     modifyWrapper(events);
+        //     modifyDateline(events);
 
-        }
+        // }
 
 
 
