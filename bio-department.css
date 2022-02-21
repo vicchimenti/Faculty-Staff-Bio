@@ -308,8 +308,8 @@
 
     .departmentBioWrapper .card-footer {
 
-        margin: 1rem;
-        padding: 1rem;
+        margin: 0 1rem;
+        padding: 0 1rem;
     }
 
     .departmentBioWrapper .card-header h3 {
