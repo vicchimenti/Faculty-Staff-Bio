@@ -16,7 +16,7 @@
 .departmentOrganizer .organizer.standardContent {
 
     border: none;
-    box-shadow: none;
+    box-shadow: revert;
     margin: 1rem;
     max-width: none;
     padding: 1rem;
@@ -24,6 +24,7 @@
 
 .departmentOrganizer .standardContent h2 {
 
+    box-shadow: revert;
     font-family:  "Montserrat", sans-serif;
     margin-bottom: 3rem;
 }
