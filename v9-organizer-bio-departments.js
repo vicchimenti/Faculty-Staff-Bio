@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.12
+     *     @version 9.9.13
      * 
      * */
 
@@ -478,12 +478,12 @@
                  conactString,
                  closeCardHeader,
                  openBody,
-                 closeBody,
-                 closeBodyWrapper,
-                 closeRow,
                  openFooter,
                  summaryBioString,
                  closeFooter,
+                 closeBody,
+                 closeBodyWrapper,
+                 closeRow,
                  endingHTML
              ]
          );
