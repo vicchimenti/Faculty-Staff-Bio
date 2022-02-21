@@ -300,17 +300,23 @@
         padding: 1rem;
     }
 
-    .departmentBioWrapper .card-header h3 {
-
-        margin: 0;
-    }
-    
     .departmentBioWrapper .card-body {
 
         margin: 1rem;
         padding: 1rem;
     }
 
+    .departmentBioWrapper .card-footer {
+
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .departmentBioWrapper .card-header h3 {
+
+        margin: 0;
+    }
+    
     .departmentBioWrapper p.card-subtitle {
 
         font-size: 1.25rem;
@@ -322,6 +328,19 @@
         font-size: 1.25rem;
         font-weight: 500;
         padding: 0 1rem;
+    }
+
+    .departmentBioWrapper .card-footer .list-group-item {
+
+        font-size: 1.25rem;
+        font-weight: 500;
+        padding: 0 1rem;
+    }
+
+    .departmentBioWrapper .card-footer .list-group-item span {
+
+        font-size: 1.25rem;
+        font-weight: 500;
     }
 }
 
