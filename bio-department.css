@@ -58,6 +58,12 @@
 
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    padding-left: 0;
+}
+
+.departmentBioWrapper ul.contactList {
+
+    margin: 0;
 }
 
 .departmentBioWrapper ul.contactList li {
