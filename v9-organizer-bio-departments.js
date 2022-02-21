@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9
+     *     @version 9.9.1
      * 
      * */
 
@@ -360,15 +360,11 @@
          * 
          * */
          let contactArray = [emailAddressString, phoneString, bldgRoomString];
-         let conactString = assignList(contactArray);
-        //  (departmentBioDict.bldgRoom.content)
-        //  ? '<span class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</span>'
-        //  : '<span class="location visually-hidden hidden">No location entered</span>';
+         let conactList = assignList(contactArray);
+         let conactString = '<ul class="contactList d-inline">' + conactList + '</ul>';
 
 
 
-
- 
  
         /***
          *  parse degrees and display only the first degree
