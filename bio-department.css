@@ -54,6 +54,29 @@
 }
 
 
+.departmentBioWrapper .list-group-item:first-child {
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.departmentBioWrapper ul.contactList li {
+
+    display: inline;
+}
+
+.departmentBioWrapper .list-group-item {
+
+    background-color: transparent;
+    border: none;
+}
+
+.departmentBioWrapper ul li:before {
+
+    content: none;
+}
+
+
 
 
 /***
