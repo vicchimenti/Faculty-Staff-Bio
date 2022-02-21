@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.8
+     *     @version 9.9.9
      * 
      * */
 
@@ -321,8 +321,8 @@
           * 
           * */
         let emailAddressString =
-            (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Message ' + departmentBioDict.firstName.content + '</a></span>'
+            (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.fullName.content)
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Message ' + departmentBioDict.firstName.content + '</a></span>'
             : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
             ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Message ' + departmentBioDict.fullName.content + '</a></span>'
             : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
@@ -335,7 +335,7 @@
           * 
           * */
         let phoneString =
-            (departmentBioDict.officePhone.content)
+            (departmentBioDict.officePhone.content && departmentBioDict.fullName.content)
             ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></span>'
             : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
 
