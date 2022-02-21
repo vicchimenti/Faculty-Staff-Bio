@@ -125,11 +125,19 @@
 *
 */
 .departmentBioWrapper img.deptBioImage {
+    
+    margin: 0;
     padding: 0;
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+
+    /* padding: 0;
     min-width: 100%;
     min-height: 100%;
     width: auto;
-    height: auto;    
+    height: auto;     */
 }
 
 
