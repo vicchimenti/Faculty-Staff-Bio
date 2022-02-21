@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.14
+     *     @version 9.10
      * 
      * */
 
@@ -241,7 +241,7 @@
           *  default html initializations
           * 
           * */
-         let endingHTML = '</article>';
+         let endingHTML = '</div></article>';
          let openRow = '<div class="row g-0 noGap">';
          let closeRow = '</div>';
          let openImageWrapper = '<div class="col-12 col-lg-3 d-flex align-items-center">';
@@ -255,7 +255,7 @@
          let openFooter = '<div class="departBioFooter col-12 card-footer border-0 border-top radius-0 bg-transparent">';
          let closeFooter = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
-         let beginningHTML = '<article class="departmentBioWrapper card shadow-lg border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '">';
+         let beginningHTML = '<article class="departmentBioWrapper card shadow-lg border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card shadow-lg border-0">';
 
          
 
@@ -266,7 +266,7 @@
          * */
         function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="departmentBioWrapper card shadow-lg border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '">';
+            beginningHTML = '<article class="departmentBioWrapper col flex-fill my-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card shadow-lg border-0">';
         }
 
 
