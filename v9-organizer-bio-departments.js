@@ -289,7 +289,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            return '<article class="departmentBioWrapper col flex-fill my-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card shadow-lg border-0">';
+            beginningHTML = '<article class="departmentBioWrapper col flex-fill my-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card shadow-lg border-0">';
         }
 
 
