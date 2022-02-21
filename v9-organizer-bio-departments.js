@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.10
+     *     @version 9.12
      * 
      * */
 
@@ -179,7 +179,31 @@
  
          return targets;
      }
- 
+
+
+
+
+    /***
+     *  modify card body
+     * 
+     * */
+     function modifyBody() {
+
+        return '<div class="departBioSummary card-body">';
+    }
+
+
+
+
+    /***
+     *  modify card body
+     * 
+     * */
+     function modifyFooter() {
+
+        return '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
+    }
+
  
  
  
@@ -250,9 +274,7 @@
          let closeBodyWrapper = '</div>';
          let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
-         let openBody = '<div class="departBioSummary card-body visually-hidden hidden">';
          let closeBody = '</div>';
-         let openFooter = '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent visually-hidden hidden">';
          let closeFooter = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
          let beginningHTML = '<article class="departmentBioWrapper card shadow-lg border-0 radius-0 mb-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card shadow-lg border-0">';
@@ -264,10 +286,34 @@
          *  modify wrapper's aria label
          * 
          * */
-        function modifyWrapper(ariaLabel) {
+         function modifyWrapper(ariaLabel) {
 
             beginningHTML = '<article class="departmentBioWrapper col flex-fill my-3" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card shadow-lg border-0">';
         }
+
+
+
+
+        /***
+         *  determine card-body
+         * 
+         * */
+         let openBody =
+            (departmentBioDict.description.content)
+            ? modifyBody()
+            : '<div class="departBioSummary card-body visually-hidden hidden">';
+
+
+
+
+        /***
+         *  determine card-footer
+         * 
+         * */
+         let openFooter = 
+            (departmentBioDict.description.content)
+            ? modifyFooter()
+            :'<div class="departBioFooter card-footer border-0 radius-0 bg-transparent visually-hidden hidden">';
 
 
 
@@ -296,7 +342,7 @@
           *  set for fulltext link
           * 
           * */
-        let titleLink =
+         let titleLink =
             (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
             : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
@@ -453,9 +499,6 @@
                 ? '<figure class="figure"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
                 : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
-
-
-
 
 
 
