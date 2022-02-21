@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.4
+     *     @version 9.9.5
      * 
      * */
 
@@ -322,9 +322,9 @@
           * */
         let emailAddressString =
             (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
             : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
             : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
@@ -348,7 +348,7 @@
          * */
         let bldgRoomString =
             (departmentBioDict.bldgRoom.content)
-            ? '<span class="location card-text"><i class="fa-duotone fa-building-columns"></i> ' + departmentBioDict.bldgRoom.content + '</span>'
+            ? '<span class="location card-text"><i class="fas fa-university"></i> ' + departmentBioDict.bldgRoom.content + '</span>'
             : '<span class="location visually-hidden hidden">No location entered</span>';
 
 
