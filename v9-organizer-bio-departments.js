@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.1
+     *     @version 9.9.2
      * 
      * */
 
@@ -454,7 +454,6 @@
                  titleLink,
                  subtitleString,
                  conactString,
-
                  closeCardHeader,
                  openBody,
                  emailAddressString,
