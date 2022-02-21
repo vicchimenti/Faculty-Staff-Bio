@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.2
+     *     @version 9.9.3
      * 
      * */
 
@@ -63,7 +63,7 @@
 
             if (arrayOfValues[i]) {
 
-                listValues += '<li class="list-group-item deptBioli">' + arrayOfValues[i].trim() + '</li>';
+                listValues += '<li class="list-group-item d-inline deptBioli">' + arrayOfValues[i].trim() + '</li>';
             }
          }
  
@@ -360,7 +360,7 @@
          * */
          let contactArray = [emailAddressString, phoneString, bldgRoomString];
          let conactList = assignList(contactArray);
-         let conactString = '<ul class="contactList d-inline">' + conactList + '</ul>';
+         let conactString = '<ul class="contactList">' + conactList + '</ul>';
 
 
 
