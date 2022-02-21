@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.6
+     *     @version 9.12.8
      * 
      * */
 
@@ -532,17 +532,24 @@
 
 
         /***
-          *  define footer
+         *  format footer
+         * 
+         * */
+         let footerArray = [webstring, cvString];
+         let footerList = assignList(footerArray);
+         let footerUl = '<ul class="footerList">' + footerList + '</ul>';
+
+
+
+
+        /***
+          *  define footer string
           * 
           * */
          let footerString =
-            (departmentBioDict.webPage.content && departmentBioDict.cvPath.content)
-            ? '<footer class="deptBioFooter"><p class="card-text">' + webstring + ' | ' + cvString + '</p></footer>'
-            : (departmentBioDict.webPage.content && !departmentBioDict.cvPath.content)
-            ? '<footer class="deptBioFooter"><p class="card-text">' + webstring + '</p></footer>'
-            : (!departmentBioDict.webPage.content && departmentBioDict.cvPath.content)
-            ? '<footer class="deptBioFooter"><p class="card-text">' + cvString + '</p></footer>'
-            : '<footer class="deptBioFooter visually-hidden hidden"><span class="card-text visually-hidden hidden">No footer provided</span></footer>';
+            (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
+            ? '<footer class="deptBioFooter">' + footerUl + '</footer>'
+            : '<footer class="deptBioFooter visually-hidden hidden">No footer provided</footer>';
 
 
 
