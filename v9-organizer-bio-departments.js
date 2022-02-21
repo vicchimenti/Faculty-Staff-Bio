@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.3
+     *     @version 9.9.4
      * 
      * */
 
@@ -348,7 +348,7 @@
          * */
         let bldgRoomString =
             (departmentBioDict.bldgRoom.content)
-            ? '<span class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</span>'
+            ? '<span class="location card-text"><i class="fa-duotone fa-building-columns"></i> ' + departmentBioDict.bldgRoom.content + '</span>'
             : '<span class="location visually-hidden hidden">No location entered</span>';
 
 
