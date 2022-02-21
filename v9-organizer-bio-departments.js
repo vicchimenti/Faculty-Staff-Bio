@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.8.17
+     *     @version 9.8.18
      * 
      * */
 
@@ -403,23 +403,7 @@
                                 ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
                                 : '<span class="card-subtitle">No subtitle fields entered</span>';
 
-
-            //  (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-            //  '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
-            //  (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-            //  '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
-            //  (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-            //  '<p class="card-subtitle">' + academicLevelString + '</p>' :
-            //  (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-            //  '<p class="card-subtitle">' + collegeString + '</p>' :
-            //  (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-            //  '<p class="card-subtitle">' + subjectString + '</p>' :
-            //  '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
  
-
-
-
-
 
 
         /***
