@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.7
+     *     @version 9.9.8
      * 
      * */
 
@@ -322,9 +322,9 @@
           * */
         let emailAddressString =
             (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Message ' + departmentBioDict.firstName.content + '</a></span>'
             : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Message ' + departmentBioDict.fullName.content + '</a></span>'
             : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
@@ -358,7 +358,7 @@
          *  format contact string
          * 
          * */
-         let contactArray = [emailAddressString, phoneString, bldgRoomString];
+         let contactArray = [bldgRoomString, emailAddressString, phoneString];
          let conactList = assignList(contactArray);
          let conactString = '<ul class="contactList">' + conactList + '</ul>';
 
