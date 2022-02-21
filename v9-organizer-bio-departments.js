@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.8.16
+     *     @version 9.8.17
      * 
      * */
 
@@ -368,7 +368,24 @@
 
  
  
- 
+        /***
+         *  parse degrees
+         * 
+         * */
+         let degreeSub = (departmentBioDict.degrees.content)
+         ? '<span class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></span>'
+         : '<span class="degree visually-hidden hidden">No degree entered</span>';
+
+
+
+
+        /***
+         *  parse titles
+         * 
+         * */
+         let positionTitleSub =   (departmentBioDict.positionTitle.content)
+                     ? '<span class="title card-text">' + departmentBioDict.positionTitle.content + '</span>'
+                     : '<span class="title visually-hidden hidden">No title entered</span>'; 
 
  
  
@@ -378,21 +395,26 @@
           *  define subtitle
           * 
           * */
-        //  let subtitleString = (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + ' | ' + academicLevelString + '</p>' :
-        //      (departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + subjectString + ' | ' + collegeString + '</p>' :
-        //      (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
-        //      (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
-        //      (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + academicLevelString + '</p>' :
-        //      (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + collegeString + '</p>' :
-        //      (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
-        //      '<p class="card-subtitle">' + subjectString + '</p>' :
-        //      '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
+         let subtitleString =   (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
+                                ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
+                                : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content)
+                                ? '<p class="card-subtitle">' + degreeSub + '</p>'
+                                : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
+                                ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
+                                : '<span class="card-subtitle">No subtitle fields entered</span>';
+
+
+             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+             '<p class="card-subtitle">' + subjectString + ' | ' + academicLevelString + '</p>' :
+             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+             '<p class="card-subtitle">' + collegeString + ' | ' + academicLevelString + '</p>' :
+             (!departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && departmentBioDict.academicLevel.content) ?
+             '<p class="card-subtitle">' + academicLevelString + '</p>' :
+             (!departmentBioDict.subjectDescription.content && departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
+             '<p class="card-subtitle">' + collegeString + '</p>' :
+             (departmentBioDict.subjectDescription.content && !departmentBioDict.college.content && !departmentBioDict.academicLevel.content) ?
+             '<p class="card-subtitle">' + subjectString + '</p>' :
+             '<span class="card-subtitle visually-hidden hidden">No valid subtitle provided</span>';
  
 
 
@@ -437,6 +459,7 @@
                  openBodyWrapper,
                  openCardHeader,
                  titleLink,
+                 subtitleString,
                  closeCardHeader,
                  openBody,
                  degreeString,
