@@ -60,8 +60,11 @@
          let listValues = '';
  
          for (let i = 0; i < arrayOfValues.length; i++) {
- 
-             listValues += '<li class="list-group-item deptBioli">' + arrayOfValues[i].trim() + '</li>';
+
+            if (arrayOfValues[i]) {
+
+                listValues += '<li class="list-group-item deptBioli">' + arrayOfValues[i].trim() + '</li>';
+            }
          }
  
          return listValues;
@@ -303,6 +306,18 @@
 
 
         /***
+         *  parse summary
+         * 
+         * */
+         let summaryBioString =
+            (departmentBioDict.summaryBio.content)
+            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
+            : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
+
+
+
+
+        /***
           *  parse for email
           * 
           * */
@@ -341,13 +356,16 @@
 
 
         /***
-         *  parse titles
+         *  format contact string
          * 
          * */
-        let summaryBioString =
-            (departmentBioDict.summaryBio.content)
-            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
-            : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
+         let contactArray = [emailAddressString, phoneString, bldgRoomString];
+         let conactString = assignList(contactArray);
+        //  (departmentBioDict.bldgRoom.content)
+        //  ? '<span class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</span>'
+        //  : '<span class="location visually-hidden hidden">No location entered</span>';
+
+
 
 
  
@@ -442,6 +460,7 @@
                  subtitleString,
                  closeCardHeader,
                  openBody,
+                 conactString,
                  emailAddressString,
                  phoneString,
                  bldgRoomString,
