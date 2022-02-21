@@ -246,7 +246,7 @@
          let closeCardHeader = '</div>'
          let openBody = '<div class="departBioSummary card-body">';
          let closeBody = '</div>';
-         let openFooter = '<div class="departBioFooter card-footer border-0 border-top radius-0 bg-transparent">';
+         let openFooter = '<div class="departBioFooter col-12 card-footer border-0 border-top radius-0 bg-transparent">';
          let closeFooter = '</div>';
          let listOfIcons = '<ul class="list-group list-group-horizontal hidden visually-hidden">No icons provided</ul>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
