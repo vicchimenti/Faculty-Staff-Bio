@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.4
+     *     @version 9.12.5
      * 
      * */
 
@@ -525,7 +525,7 @@
           * */
          let cvLink =
             (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="cvPath card-text"><i class="fas fa-phone-alt"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
+            ? '<span class="cvPath card-text"><i class="fas fa-phone-alt"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Read the curriculum vitae of ' + departmentBioDict.fullName.content + '">Curriculum Vitae</a></span>'
             : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
 
 
