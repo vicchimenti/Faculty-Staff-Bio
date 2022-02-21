@@ -328,9 +328,9 @@
          *  parse degrees
          * 
          * */
-        let degreeString = (departmentBioDict.degrees.content)
-                        ? '<p class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></p>'
-                        : '<span class="degree visually-hidden hidden">No degree entered</span>';
+        // let degreeString = (departmentBioDict.degrees.content)
+        //                 ? '<p class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></p>'
+        //                 : '<span class="degree visually-hidden hidden">No degree entered</span>';
 
 
 
@@ -339,9 +339,9 @@
          *  parse titles
          * 
          * */
-        let positionTitleString =   (departmentBioDict.positionTitle.content)
-                                    ? '<p class="title card-text">' + departmentBioDict.positionTitle.content + '</p>'
-                                    : '<span class="title visually-hidden hidden">No title entered</span>';
+        // let positionTitleString =   (departmentBioDict.positionTitle.content)
+        //                             ? '<p class="title card-text">' + departmentBioDict.positionTitle.content + '</p>'
+        //                             : '<span class="title visually-hidden hidden">No title entered</span>';
 
 
 
@@ -446,8 +446,6 @@
                  subtitleString,
                  closeCardHeader,
                  openBody,
-                 degreeString,
-                 positionTitleString,
                  emailAddressString,
                  phoneString,
                  bldgRoomString,
