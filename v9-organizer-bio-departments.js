@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.8.18
+     *     @version 9.9
      * 
      * */
 
@@ -109,9 +109,10 @@
          let info = new ImageInfo;
          info.setInput(media);
  
-         let mediaHTML =    (info.check())
-                            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-                            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
+         let mediaHTML =
+            (info.check())
+            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
  
          return mediaHTML;
      }
@@ -291,11 +292,12 @@
           *  set for fulltext link
           * 
           * */
-        let titleLink = (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
-                        ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
-                        : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
-                        ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
-                        : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
+        let titleLink =
+            (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
+            : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
+            : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
 
 
 
@@ -304,11 +306,12 @@
           *  parse for email
           * 
           * */
-        let emailAddressString =    (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-                                    ? '<p class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Email ' + departmentBioDict.firstName.content + '</a></p>'
-                                    : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-                                    ? '<p class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></p>'
-                                    : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
+        let emailAddressString =
+            (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+            ? '<p class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '">Email ' + departmentBioDict.firstName.content + '</a></p>'
+            : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
+            ? '<p class="emailAddress card-text"><span class="fas fa-envelope"></span> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></p>'
+            : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
 
@@ -317,9 +320,10 @@
           *  parse for email
           * 
           * */
-        let phoneString =   (departmentBioDict.officePhone.content)
-                            ? '<p class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></p>'
-                            : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
+        let phoneString =
+            (departmentBioDict.officePhone.content)
+            ? '<p class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></p>'
+            : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
 
 
 
@@ -350,9 +354,10 @@
          *  parse titles
          * 
          * */
-        let bldgRoomString =    (departmentBioDict.bldgRoom.content)
-                                ? '<p class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</p>'
-                                : '<span class="location visually-hidden hidden">No location entered</span>';
+        let bldgRoomString =
+            (departmentBioDict.bldgRoom.content)
+            ? '<p class="location card-text"><strong>Building/Room: </strong>' + departmentBioDict.bldgRoom.content + '</p>'
+            : '<span class="location visually-hidden hidden">No location entered</span>';
 
 
 
@@ -361,31 +366,42 @@
          *  parse titles
          * 
          * */
-        let summaryBioString =    (departmentBioDict.summaryBio.content)
-                                ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
-                                : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
+        let summaryBioString =
+            (departmentBioDict.summaryBio.content)
+            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
+            : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
  
  
         /***
-         *  parse degrees
+         *  parse degrees and display only the first degree
          * 
          * */
-         let degreeSub =    (departmentBioDict.degrees.content)
-                            ? '<span class="degree card-text"><em>' + departmentBioDict.degrees.content + '</em></span>'
-                            : '<span class="degree visually-hidden hidden">No degree entered</span>';
+         let arrayOfDegrees =
+            (departmentBioDict.degrees.content)
+            ? departmentBioDict.degrees.content.split(',')
+            : null;
+         let degreeSub =
+            (arrayOfDegrees)
+            ? '<span class="degree card-text"><em>' + arrayOfDegrees[0] + '</em></span>'
+            : '<span class="degree visually-hidden hidden">No degree entered</span>';
 
 
 
 
         /***
-         *  parse titles
+         *  parse titles and display only the first title
          * 
          * */
-         let positionTitleSub = (departmentBioDict.positionTitle.content)
-                                ? '<span class="title card-text">' + departmentBioDict.positionTitle.content + '</span>'
-                                : '<span class="title visually-hidden hidden">No title entered</span>'; 
+         let arrayOfTitles =
+            (departmentBioDict.positionTitle.content)
+            ? departmentBioDict.positionTitle.content.split(',')
+            : null;
+         let positionTitleSub =
+            (arrayOfTitles)
+            ? '<span class="title card-text">' + arrayOfTitles[0] + '</span>'
+            : '<span class="title visually-hidden hidden">No title entered</span>'; 
 
  
  
@@ -395,13 +411,14 @@
           *  define subtitle
           * 
           * */
-         let subtitleString =   (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
-                                ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
-                                : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content)
-                                ? '<p class="card-subtitle">' + degreeSub + '</p>'
-                                : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
-                                ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
-                                : '<span class="card-subtitle">No subtitle fields entered</span>';
+         let subtitleString =
+            (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
+            ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
+            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content)
+            ? '<p class="card-subtitle">' + degreeSub + '</p>'
+            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
+            ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
+            : '<span class="card-subtitle">No subtitle fields entered</span>';
 
  
 
@@ -418,9 +435,10 @@
             let info = new ImageInfo;
             info.setInput(media);
 
-            imageString =   (info.check())
-                            ? '<figure class="figure"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-                            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
+            imageString =
+                (info.check())
+                ? '<figure class="figure"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+                : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
 
 
