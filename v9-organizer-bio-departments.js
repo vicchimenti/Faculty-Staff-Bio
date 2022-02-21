@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.6
+     *     @version 9.9.7
      * 
      * */
 
@@ -456,9 +456,6 @@
                  conactString,
                  closeCardHeader,
                  openBody,
-                 emailAddressString,
-                 phoneString,
-                 bldgRoomString,
                  closeBody,
                  closeBodyWrapper,
                  closeRow,
