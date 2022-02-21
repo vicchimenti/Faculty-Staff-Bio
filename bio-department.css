@@ -93,9 +93,15 @@
     content: none;
 }
 
+.departmentBioWrapper .contactList .location {
+
+    display: inline-block;
+}
+
 .departmentBioWrapper .contactList .emailAddress {
 
     color: #088099;
+    display: inline-block;
 }
 
 
@@ -121,6 +127,7 @@
 .departmentBioWrapper .contactList .officePhone {
 
     color: #088099;
+    display: inline-block;
 }
 
 
