@@ -81,6 +81,55 @@
     content: none;
 }
 
+.departmentBioWrapper .contactList .emailAddress {
+
+    color: #088099;
+}
+
+
+.departmentBioWrapper .contactList .emailAddress a {
+
+    color: #088099;
+    text-decoration: none;
+}
+
+
+.departmentBioWrapper .contactList .emailAddress a:hover {
+
+    text-decoration: underline;
+}
+
+
+.departmentBioWrapper .contactList .emailAddress a:active {
+
+    text-decoration: underline;
+}
+
+
+.departmentBioWrapper .contactList .officePhone {
+
+    color: #088099;
+}
+
+
+.departmentBioWrapper .contactList .officePhone a {
+
+    color: #088099;
+    text-decoration: none;
+}
+
+
+.departmentBioWrapper .contactList .officePhone a:hover {
+
+    text-decoration: underline;
+}
+
+
+.departmentBioWrapper .contactList .officePhone a:active {
+
+    text-decoration: underline;
+}
+
 
 
 
