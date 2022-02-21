@@ -170,6 +170,13 @@
 *
 *
 */
+.departmentBioWrapper .card-footer {
+
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+
 .departmentBioWrapper footer.deptBioFooter {
 
     background: transparent;
