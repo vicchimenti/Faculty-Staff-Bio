@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.3
+     *     @version 9.12.4
      * 
      * */
 
@@ -383,7 +383,7 @@
 
 
         /***
-          *  parse for email
+          *  parse for phone
           * 
           * */
         let phoneString =
@@ -506,6 +506,30 @@
 
 
 
+
+        /***
+          *  parse for personal website
+          * 
+          * */
+         let webstring =
+            (departmentBioDict.webPage.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+            ? '<span class="webPage card-text"><i class="fas fa-phone-alt"></i> <a class="webPage card-link" href="' + departmentBioDict.webPage.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
+            : '<span class="webPage visually-hidden hidden">No website entered</span>';
+
+
+
+
+        /***
+          *  parse for personal website
+          * 
+          * */
+         let cvLink =
+            (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+            ? '<span class="cvPath card-text"><i class="fas fa-phone-alt"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
+            : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
+
+
+
   
          /***
           *  write document once
@@ -527,6 +551,8 @@
                  openBody,
                  summaryBioString,
                  openFooter,
+                 webstring,
+                 cvLink,
                  closeFooter,
                  closeBody,
                  closeBodyWrapper,
