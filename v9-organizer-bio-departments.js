@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.2
+     *     @version 9.12.3
      * 
      * */
 
@@ -254,6 +254,9 @@
              primaryImagePath: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="path/*" />'),
              rolloverImage: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="image/*" />'),
              rolloverImagePath: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="path/*" />'),
+             webPage: getContentValues('<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />'),
+             cvPath: getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="path/*" />'),
+             cvApp:getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="application/*" />'),
              fullTextLink: getContentValues('<t4 type="content" name="Name" output="fulltext" use-element="true" filename-element="Name" modifiers="striptags,htmlentities" />'),
              contentId: getContentValues('<t4 type="meta" meta="content_id" />')
  
