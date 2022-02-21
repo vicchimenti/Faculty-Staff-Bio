@@ -51,6 +51,12 @@
 .departmentBioWrapper .departBioHeader h3 {
 
     font-family:  "Montserrat", sans-serif;
+    margin: 0;
+}
+
+.departmentBioWrapper p.card-subtitle {
+
+    margin: 0;
 }
 
 .departmentBioWrapper .list-group-item:first-child {
@@ -74,6 +80,7 @@
 
     background-color: transparent;
     border: none;
+    padding: 0 2rem;
 }
 
 .departmentBioWrapper ul li:before {
