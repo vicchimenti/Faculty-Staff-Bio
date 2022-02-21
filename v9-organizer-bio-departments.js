@@ -523,10 +523,26 @@
           *  parse for personal website
           * 
           * */
-         let cvLink =
+         let cvString =
             (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
             ? '<span class="cvPath card-text"><i class="fas fa-phone-alt"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Read the curriculum vitae of ' + departmentBioDict.fullName.content + '">Curriculum Vitae</a></span>'
             : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
+
+
+
+
+        /***
+          *  define footer
+          * 
+          * */
+         let footerString =
+            (departmentBioDict.webPage.content && departmentBioDict.cvPath.content)
+            ? '<footer class="deptBioFooter"><p class="card-text">' + webstring + ' | ' + cvString + '</p></footer>'
+            : (departmentBioDict.webPage.content && !departmentBioDict.cvPath.content)
+            ? '<footer class="deptBioFooter"><p class="card-text">' + webstring + '</p></footer>'
+            : (!departmentBioDict.webPage.content && departmentBioDict.cvPath.content)
+            ? '<footer class="deptBioFooter"><p class="card-text">' + cvString + '</p></footer>'
+            : '<footer class="deptBioFooter visually-hidden hidden"><span class="card-text visually-hidden hidden">No footer provided</span></footer>';
 
 
 
@@ -550,11 +566,10 @@
                  closeCardHeader,
                  openBody,
                  summaryBioString,
-                 openFooter,
-                 webstring,
-                 cvLink,
-                 closeFooter,
                  closeBody,
+                 openFooter,
+                 footerString,
+                 closeFooter,
                  closeBodyWrapper,
                  closeRow,
                  endingHTML
