@@ -453,9 +453,10 @@
                  openCardHeader,
                  titleLink,
                  subtitleString,
+                 conactString,
+
                  closeCardHeader,
                  openBody,
-                 conactString,
                  emailAddressString,
                  phoneString,
                  bldgRoomString,
