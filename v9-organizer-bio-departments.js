@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.11
+     *     @version 9.9.12
      * 
      * */
 
@@ -218,6 +218,8 @@
              firstName: getContentValues('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
              degrees: getContentValues('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
              positionTitle: getContentValues('<t4 type="content" name="Position Title(s)" output="normal" modifiers="striptags,htmlentities" />'),
+             college: getContentValues('<t4 type="content" name="College" output="normal" modifiers="striptags,htmlentities" />'),
+             description: getContentValues('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />'),
              officePhone: getContentValues('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />'),
              emailAddress: getContentValues('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities,encode_emails" />'),
              bldgRoom: getContentValues('<t4 type="content" name="Building/Room Number" output="normal" modifiers="striptags,htmlentities" />'),
@@ -364,6 +366,18 @@
 
 
 
+
+        /***
+         *  parse college
+         * 
+         * */
+        let collegeSub =
+            (departmentBioDict.college.content)
+            ? '<span class="college card-text">' + departmentBioDict.college.content + '</span>'
+            : '<span class="college visually-hidden hidden">No location entered</span>';
+
+
+
  
         /***
          *  parse degrees and display only the first degree
@@ -375,7 +389,7 @@
             : null;
          let degreeSub =
             (arrayOfDegrees)
-            ? '<span class="degree card-text"><em>' + arrayOfDegrees[0] + '</em></span>'
+            ? '<span class="degree card-text">' + arrayOfDegrees[0] + '</span>'
             : '<span class="degree visually-hidden hidden">No degree entered</span>';
 
 
@@ -403,12 +417,20 @@
           * 
           * */
          let subtitleString =
-            (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
-            ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
-            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content)
-            ? '<p class="card-subtitle">' + degreeSub + '</p>'
-            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content)
+            (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + ' | ' + collegeSub + '</p>'
+            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ? '<p class="card-subtitle">' + degreeSub + ' | ' + collegeSub + '</p>'
+            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ?'<p class="card-subtitle">' + positionTitleSub + ' | ' + collegeSub + '</p>'
+            : (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
+            ?'<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
+            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
+            ?'<p class="card-subtitle">' + degreeSub + '</p>'
+            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
             ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
+            : (!departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ?'<p class="card-subtitle">' + collegeSub + '</p>'
             : '<span class="card-subtitle">No subtitle fields entered</span>';
 
  
