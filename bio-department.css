@@ -175,28 +175,29 @@
     background: transparent;
 }
 
-.departmentBioWrapper .list-group-item:first-child {
+.departmentBioWrapper .deptBioFooter .list-group-item:first-child {
 
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding-left: 0;
 }
 
-.departmentBioWrapper .deptBioFooter ul.footerlist {
+.departmentBioWrapper .deptBioFooter ul.footerList {
 
     line-height: 2;
     margin: 0;
 }
 
-.departmentBioWrapper .deptBioFooter ul.footerlist li {
+.departmentBioWrapper .deptBioFooter ul.footerList li {
 
-    display: inline-block;
+    display: inline;
 }
 
 .departmentBioWrapper .deptBioFooter .list-group-item {
 
     background-color: transparent;
     border: none;
+    display: inline-block;
     font-size: 2rem;
     padding: 0 2rem;
 }
@@ -206,12 +207,16 @@
     content: none;
 }
 
-.departmentBioWrapper .deptBioFooter {
+.departmentBioWrapper footer.deptBioFooter {
 
     color: #088099;
     display: inline-block;
 }
 
+.departmentBioWrapper footer.deptBioFooter span {
+
+    color: #088099;
+}
 
 .departmentBioWrapper .deptBioFooter a {
 
@@ -219,12 +224,10 @@
     text-decoration: none;
 }
 
-
 .departmentBioWrapper .deptBioFooter a:hover {
 
     text-decoration: underline;
 }
-
 
 .departmentBioWrapper .deptBioFooter a:active {
 
