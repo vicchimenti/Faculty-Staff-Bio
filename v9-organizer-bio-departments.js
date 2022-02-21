@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.5
+     *     @version 9.9.6
      * 
      * */
 
@@ -336,7 +336,7 @@
           * */
         let phoneString =
             (departmentBioDict.officePhone.content)
-            ? '<span class="officePhone card-text"><span class="fas fa-phone-alt"></span> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></span>'
+            ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></span>'
             : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
 
 
