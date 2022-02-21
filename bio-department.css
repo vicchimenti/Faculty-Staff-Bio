@@ -175,6 +175,62 @@
     background: transparent;
 }
 
+.departmentBioWrapper .list-group-item:first-child {
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 0;
+}
+
+.departmentBioWrapper .deptBioFooter ul.footerlist {
+
+    line-height: 2;
+    margin: 0;
+}
+
+.departmentBioWrapper .deptBioFooter ul.footerlist li {
+
+    display: inline-block;
+}
+
+.departmentBioWrapper .deptBioFooter .list-group-item {
+
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    padding: 0 2rem;
+}
+
+.departmentBioWrapper .deptBioFooter ul li:before {
+
+    content: none;
+}
+
+.departmentBioWrapper .deptBioFooter {
+
+    color: #088099;
+    display: inline-block;
+}
+
+
+.departmentBioWrapper .deptBioFooter a {
+
+    color: #088099;
+    text-decoration: none;
+}
+
+
+.departmentBioWrapper .deptBioFooter a:hover {
+
+    text-decoration: underline;
+}
+
+
+.departmentBioWrapper .deptBioFooter a:active {
+
+    text-decoration: underline;
+}
+
 
 
 
