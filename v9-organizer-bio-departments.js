@@ -444,11 +444,11 @@
                  emailAddressString,
                  phoneString,
                  bldgRoomString,
-                 summaryBioString,
                  closeBody,
                  closeBodyWrapper,
                  closeRow,
                  openFooter,
+                 summaryBioString,
                  closeFooter,
                  endingHTML
              ]
