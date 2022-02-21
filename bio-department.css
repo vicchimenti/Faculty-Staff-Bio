@@ -15,8 +15,6 @@
 */
 .departmentOrganizer .organizer.standardContent {
 
-    border: none;
-    box-shadow: revert;
     margin: 1rem;
     max-width: none;
     padding: 1rem;
@@ -24,7 +22,6 @@
 
 .departmentOrganizer .standardContent h2 {
 
-    box-shadow: revert;
     font-family:  "Montserrat", sans-serif;
     margin-bottom: 3rem;
 }
@@ -39,7 +36,7 @@
 */
 .departmentBioWrapper {
 
-    margin-bottom: 4rem;;
+    margin-bottom: 3rem;;
 }
 
 
@@ -153,7 +150,11 @@
 *
 *
 */
+.departmentBioWrapper .card-body {
 
+    padding: 1rem;
+    margin: 4rem 1rem;
+}
  
 
 
