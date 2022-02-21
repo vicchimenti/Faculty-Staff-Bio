@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.9.13
+     *     @version 9.9.14
      * 
      * */
 
@@ -311,8 +311,8 @@
          * 
          * */
          let summaryBioString =
-            (departmentBioDict.summaryBio.content)
-            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.summaryBio.content + '</p></div>'
+            (departmentBioDict.description.content)
+            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.description.content + '</p></div>'
             : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
@@ -478,8 +478,8 @@
                  conactString,
                  closeCardHeader,
                  openBody,
-                 openFooter,
                  summaryBioString,
+                 openFooter,
                  closeFooter,
                  closeBody,
                  closeBodyWrapper,
