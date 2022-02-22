@@ -292,6 +292,7 @@
 *       Media Queries
 *       
 */
+
 @media screen and (max-width: 1399.98px) {
 
     .departmentBioWrapper .departBioHeader h3 {
@@ -319,9 +320,43 @@
 
         font-size: 1.75rem;
     }
+
+    .departmentBioWrapper .deptBioFooter .list-group-item span {
+
+        font-size: 1.75rem;
+    }
+
 }
 
 
+@media screen and (max-width: 1199.98px) {
+    
+    .departmentBioWrapper .departBioHeader h3 {
+
+        margin: 1rem 0 0 0;
+    }
+
+    .departmentBioWrapper p.card-subtitle {
+
+        font-size: 1.5rem;
+    }
+
+    .departmentBioWrapper .list-group-item {
+
+        font-size: 1.5rem;
+    }
+
+    .departmentBioWrapper .deptBioFooter .list-group-item {
+
+        font-size: 1.5rem;
+    }
+
+    .departmentBioWrapper .deptBioFooter .list-group-item span {
+
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+}
 
 
 @media screen and (max-width: 991.98px) {
