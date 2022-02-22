@@ -345,10 +345,10 @@
 
     .departmentBioWrapper ul .list-group-item {
 
-        line-height: 1.5;
+        line-height: 1.25;
     }
 
-    .departmentBioWrapper .list-group-item {
+    /* .departmentBioWrapper .list-group-item {
 
         font-size: 1.5rem;
     }
@@ -356,11 +356,11 @@
     .departmentBioWrapper .deptBioFooter .list-group-item {
 
         font-size: 1.5rem;
-    }
+    } */
 
     .departmentBioWrapper .deptBioFooter .list-group-item span {
 
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
