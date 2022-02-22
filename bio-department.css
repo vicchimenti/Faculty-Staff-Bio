@@ -411,6 +411,30 @@
 
 
 
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+
+    .departmentBioWrapper .card-header {
+        margin: 1rem 1rem 0 1rem;
+        padding: 0 1rem;
+    }
+
+    .departmentBioWrapper .card-body {
+
+        margin: 0 1rem;
+        padding: 0.2rem 1rem;
+    }
+
+    .departmentBioWrapper .card-body p {
+
+        font-size: 1.35rem;
+        font-weight: 500;
+        line-height: 1.7;
+        margin-bottom: 0;
+    }
+}
+
+
+
 
 
 
