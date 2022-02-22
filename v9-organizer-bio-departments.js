@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.14
+     *     @version 9.12.15
      * 
      * */
 
@@ -272,9 +272,9 @@
          let endingHTML = '</div></article>';
          let openRow = '<div class="row g-0 noGap">';
          let closeRow = '</div>';
-         let openImageWrapper = '<div class="col-12 col-md-4 col-xl-3">';
+         let openImageWrapper = '<div class="col-12 col-md-4 col-lg-3">';
          let closeImageWrapper = '</div>';
-         let openBodyWrapper = '<div class="col-12 col-md-8 col-xl-9">';
+         let openBodyWrapper = '<div class="col-12 col-md-8 col-lg-9">';
          let closeBodyWrapper = '</div>';
          let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
