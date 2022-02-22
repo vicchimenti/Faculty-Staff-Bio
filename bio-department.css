@@ -333,12 +333,19 @@
     
     .departmentBioWrapper .departBioHeader h3 {
 
+        line-height: 1.5;
         margin: 1rem 0 0 0;
     }
 
     .departmentBioWrapper p.card-subtitle {
 
+        line-height: 1.5;
         font-size: 1.5rem;
+    }
+
+    .departmentBioWrapper ul .list-group-item {
+
+        line-height: 1.5;
     }
 
     .departmentBioWrapper .list-group-item {
