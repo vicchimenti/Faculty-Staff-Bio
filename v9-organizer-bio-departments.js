@@ -202,7 +202,7 @@
      * */
      function modifyFooter() {
 
-        return '<div class="departBioFooter card-footer border-0 radius-0 bg-transparent">';
+        return '<div class="departBioFooter card-footer border-0 bg-transparent">';
     }
 
  
@@ -335,9 +335,9 @@
          * 
          * */
          let openFooter = 
-            (departmentBioDict.description.content)
+            (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
             ? modifyFooter()
-            :'<div class="departBioFooter card-footer border-0 radius-0 bg-transparent visually-hidden hidden">';
+            :'<div class="departBioFooter card-footer border-0 bg-transparent visually-hidden hidden">';
      
 
 
@@ -433,14 +433,14 @@
          *  parse degrees and display only the first degree
          * 
          * */
-         let arrayOfDegrees =
-            (departmentBioDict.degrees.content)
-            ? departmentBioDict.degrees.content.split(',')
-            : null;
-         let degreeSub =
-            (arrayOfDegrees)
-            ? '<span class="degree card-text">' + arrayOfDegrees[0] + '</span>'
-            : '<span class="degree visually-hidden hidden">No degree entered</span>';
+        //  let arrayOfDegrees =
+        //     (departmentBioDict.degrees.content)
+        //     ? departmentBioDict.degrees.content.split(',')
+        //     : null;
+        //  let degreeSub =
+        //     (arrayOfDegrees)
+        //     ? '<span class="degree card-text">' + arrayOfDegrees[0] + '</span>'
+        //     : '<span class="degree visually-hidden hidden">No degree entered</span>';
 
 
 
@@ -451,7 +451,7 @@
          * */
          let arrayOfTitles =
             (departmentBioDict.positionTitle.content)
-            ? departmentBioDict.positionTitle.content.split(',')
+            ? departmentBioDict.positionTitle.content.split('\n')
             : null;
          let positionTitleSub =
             (arrayOfTitles)
