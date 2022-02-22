@@ -418,6 +418,11 @@
         padding: 0 1rem;
     }
 
+    .departmentBioWrapper ul.contactList {
+
+        line-height: 1.5;
+    }
+
     .departmentBioWrapper .card-body {
 
         margin: 0 1rem;
