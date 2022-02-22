@@ -262,12 +262,6 @@
 
 
 
-
-
-
-
-
-
 /***
 *       Bootstrap 5 defaults
 *
@@ -340,7 +334,8 @@
     .departmentBioWrapper p.card-subtitle {
 
         line-height: 1.5;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 500;
     }
 
     .departmentBioWrapper ul .list-group-item {
@@ -348,19 +343,16 @@
         line-height: 1.25;
     }
 
-    /* .departmentBioWrapper .list-group-item {
+    .departmentBioWrapper .departBioHeader .list-group-item {
 
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 500;
     }
-
-    .departmentBioWrapper .deptBioFooter .list-group-item {
-
-        font-size: 1.5rem;
-    } */
 
     .departmentBioWrapper .deptBioFooter .list-group-item span {
 
         font-size: 1.25rem;
+        font-weight: 500;
     }
 }
 
