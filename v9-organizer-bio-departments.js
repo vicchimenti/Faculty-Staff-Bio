@@ -467,20 +467,12 @@
           * 
           * */
          let subtitleString =
-            (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-            ? '<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + ' | ' + collegeSub + '</p>'
-            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-            ? '<p class="card-subtitle">' + degreeSub + ' | ' + collegeSub + '</p>'
-            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-            ?'<p class="card-subtitle">' + positionTitleSub + ' | ' + collegeSub + '</p>'
-            : (departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
-            ?'<p class="card-subtitle">' + degreeSub + ' | ' + positionTitleSub + '</p>'
-            : (departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
-            ?'<p class="card-subtitle">' + degreeSub + '</p>'
-            : (!departmentBioDict.degrees.content && departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
-            ?'<p class="card-subtitle">' + positionTitleSub + '</p>'
-            : (!departmentBioDict.degrees.content && !departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-            ?'<p class="card-subtitle">' + collegeSub + '</p>'
+            (departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ? '<p class="card-subtitle">' + positionTitleSub + ' | ' + collegeSub + '</p>'
+            : (!departmentBioDict.positionTitle.content && departmentBioDict.college.content)
+            ? '<p class="card-subtitle">' + collegeSub + '</p>'
+            : (departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
+            ? '<p class="card-subtitle">' + positionTitleSub + '</p>'  
             : '<span class="card-subtitle">No subtitle fields entered</span>';
 
  
