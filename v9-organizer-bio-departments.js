@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.23
+     *     @version 9.12.24
      * 
      * */
 
@@ -104,21 +104,21 @@
      /***
       *      Returns a formatted html img tag
       */
-     function mediaTag(itemId) {
+    //  function mediaTag(itemId) {
  
-         let mediaPath = BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, '<t4 type="media" formatter="path/*" id="' + itemId + '" />');
-         let mediaInfo = getMediaInfo(itemId);
-         let media = readMedia(itemId);
-         let info = new ImageInfo;
-         info.setInput(media);
+    //      let mediaPath = BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, '<t4 type="media" formatter="path/*" id="' + itemId + '" />');
+    //      let mediaInfo = getMediaInfo(itemId);
+    //      let media = readMedia(itemId);
+    //      let info = new ImageInfo;
+    //      info.setInput(media);
  
-         let mediaHTML =
-            (info.check())
-            ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-            : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
+    //      let mediaHTML =
+    //         (info.check())
+    //         ? '<figure class="figure"><img src="' + mediaPath + '" class="deptBioImage figure-img card-fluid" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+    //         : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
  
-         return mediaHTML;
-     }
+    //      return mediaHTML;
+    //  }
  
  
  
@@ -126,17 +126,17 @@
      /***
       *      Returns a formatted html img tag
       */
-     function getTarget(itemId) {
+    //  function getTarget(itemId) {
  
-         let mediaInfo = getMediaInfo(itemId);
-         let media = readMedia(itemId);
-         let info = new ImageInfo;
-         info.setInput(media);
+    //      let mediaInfo = getMediaInfo(itemId);
+    //      let media = readMedia(itemId);
+    //      let info = new ImageInfo;
+    //      info.setInput(media);
  
-         let target = (info.check()) ? '' + mediaInfo.getName() + '' : null;
+    //      let target = (info.check()) ? '' + mediaInfo.getName() + '' : null;
  
-         return target;
-     }
+    //      return target;
+    //  }
  
  
  
@@ -144,20 +144,20 @@
      /***
       *      Returns an array of list items
       */
-     function formatTargets(arrayOfValues) {
+    //  function formatTargets(arrayOfValues) {
  
-         let listValues = '';
+    //      let listValues = '';
  
-         for (let i = 0; i < arrayOfValues.length; i++) {
+    //      for (let i = 0; i < arrayOfValues.length; i++) {
  
-             if (arrayOfValues[i]) {
-                 let cleanValue = arrayOfValues[i].replace(/\s/g, '-');
-                 listValues += '' + cleanValue.trim() + ' ';
-             }
-         }
+    //          if (arrayOfValues[i]) {
+    //              let cleanValue = arrayOfValues[i].replace(/\s/g, '-');
+    //              listValues += '' + cleanValue.trim() + ' ';
+    //          }
+    //      }
  
-         return listValues;
-     }
+    //      return listValues;
+    //  }
  
  
  
@@ -165,20 +165,20 @@
      /***
       *      Returns a formatted html img tag
       */
-     function wrapperTargets(idList) {
+    //  function wrapperTargets(idList) {
  
-         let mediaIdArray = idList.split(',');
-         let targetArray = [];
+    //      let mediaIdArray = idList.split(',');
+    //      let targetArray = [];
  
-         for (mediaId in mediaIdArray) {
+    //      for (mediaId in mediaIdArray) {
  
-             targetArray[mediaId] = getTarget(mediaIdArray[mediaId].trim());
-         }
+    //          targetArray[mediaId] = getTarget(mediaIdArray[mediaId].trim());
+    //      }
  
-         let targets = formatTargets(targetArray);
+    //      let targets = formatTargets(targetArray);
  
-         return targets;
-     }
+    //      return targets;
+    //  }
     
 
 
