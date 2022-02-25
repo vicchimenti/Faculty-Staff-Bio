@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.19
+     *     @version 9.12.20
      * 
      * */
 
@@ -410,9 +410,9 @@
          *  format contact string
          * 
          * */
-        //  let contactArray = [bldgRoomString, emailAddressString, phoneString];
-        //  let conactList = assignList(contactArray);
-        //  let conactString = '<ul class="contactList">' + conactList + '</ul>';
+         let contactArray = [bldgRoomString, emailAddressString, phoneString];
+         let contactList = assignList(contactArray);
+         let contactString = '<ul class="contactList">' + contactList + '</ul>';
 
 
 
@@ -503,10 +503,10 @@
           *  parse for personal website
           * 
           * */
-         let webstring =
-            (departmentBioDict.webPage.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="webPage card-text"><i class="fas fa-link"></i> <a class="webPage card-link" href="' + departmentBioDict.webPage.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
-            : '<span class="webPage visually-hidden hidden">No website entered</span>';
+        //  let webstring =
+        //     (departmentBioDict.webPage.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+        //     ? '<span class="webPage card-text"><i class="fas fa-link"></i> <a class="webPage card-link" href="' + departmentBioDict.webPage.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
+        //     : '<span class="webPage visually-hidden hidden">No website entered</span>';
 
 
 
@@ -515,10 +515,10 @@
           *  parse for personal website
           * 
           * */
-         let cvString =
-            (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-            ? '<span class="cvPath card-text"><i class="fas fa-file-pdf"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Read the curriculum vitae of ' + departmentBioDict.fullName.content + '">Curriculum Vitae</a></span>'
-            : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
+        //  let cvString =
+        //     (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+        //     ? '<span class="cvPath card-text"><i class="fas fa-file-pdf"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Read the curriculum vitae of ' + departmentBioDict.fullName.content + '">Curriculum Vitae</a></span>'
+        //     : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
 
 
 
@@ -527,9 +527,9 @@
          *  format footer
          * 
          * */
-         let footerArray = [bldgRoomString, emailAddressString, phoneString, webstring, cvString];
-         let footerList = assignList(footerArray);
-         let footerUl = '<ul class="footerList">' + footerList + '</ul>';
+        //  let footerArray = [bldgRoomString, emailAddressString, phoneString, webstring, cvString];
+        //  let footerList = assignList(footerArray);
+        //  let footerUl = '<ul class="footerList">' + footerList + '</ul>';
 
 
 
@@ -538,10 +538,10 @@
           *  define footer string
           * 
           * */
-         let footerString =
-            (departmentBioDict.bldgRoom.content || departmentBioDict.emailAddress.content || departmentBioDict.officePhone.content || departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
-            ? '<footer class="deptBioFooter">' + footerUl + '</footer>'
-            : '<footer class="deptBioFooter visually-hidden hidden">No footer provided</footer>';
+        //  let footerString =
+        //     (departmentBioDict.bldgRoom.content || departmentBioDict.emailAddress.content || departmentBioDict.officePhone.content || departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
+        //     ? '<footer class="deptBioFooter">' + footerUl + '</footer>'
+        //     : '<footer class="deptBioFooter visually-hidden hidden">No footer provided</footer>';
 
 
 
@@ -561,14 +561,14 @@
                  openCardHeader,
                  titleLink,
                  subtitleString,
-                //  conactString,
+                 contactString,
                  closeCardHeader,
                  openBody,
                  summaryBioString,
                  closeBody,
-                 openFooter,
-                 footerString,
-                 closeFooter,
+                //  openFooter,
+                //  footerString,
+                //  closeFooter,
                  closeBodyWrapper,
                  closeRow,
                  endingHTML
