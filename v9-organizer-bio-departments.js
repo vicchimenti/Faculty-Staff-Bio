@@ -326,10 +326,10 @@
          *  determine card-footer
          * 
          * */
-         let openFooter = 
-            (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
-            ? modifyFooter()
-            :'<div class="departBioFooter card-footer border-0 bg-transparent visually-hidden hidden">';
+        //  let openFooter = 
+        //     (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
+        //     ? modifyFooter()
+        //     :'<div class="departBioFooter card-footer border-0 bg-transparent visually-hidden hidden">';
      
 
 
