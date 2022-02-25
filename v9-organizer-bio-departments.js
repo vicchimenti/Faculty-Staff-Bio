@@ -410,9 +410,9 @@
          *  format contact string
          * 
          * */
-         let contactArray = [bldgRoomString, emailAddressString, phoneString];
-         let conactList = assignList(contactArray);
-         let conactString = '<ul class="contactList">' + conactList + '</ul>';
+        //  let contactArray = [bldgRoomString, emailAddressString, phoneString];
+        //  let conactList = assignList(contactArray);
+        //  let conactString = '<ul class="contactList">' + conactList + '</ul>';
 
 
 
@@ -527,7 +527,7 @@
          *  format footer
          * 
          * */
-         let footerArray = [webstring, cvString];
+         let footerArray = [bldgRoomString, emailAddressString, phoneString, webstring, cvString];
          let footerList = assignList(footerArray);
          let footerUl = '<ul class="footerList">' + footerList + '</ul>';
 
@@ -539,7 +539,7 @@
           * 
           * */
          let footerString =
-            (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
+            (departmentBioDict.bldgRoom.content || departmentBioDict.emailAddress.content || departmentBioDict.officePhone.content || departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
             ? '<footer class="deptBioFooter">' + footerUl + '</footer>'
             : '<footer class="deptBioFooter visually-hidden hidden">No footer provided</footer>';
 
@@ -561,7 +561,7 @@
                  openCardHeader,
                  titleLink,
                  subtitleString,
-                 conactString,
+                //  conactString,
                  closeCardHeader,
                  openBody,
                  summaryBioString,
