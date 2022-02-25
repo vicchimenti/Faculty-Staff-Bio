@@ -241,7 +241,6 @@
              fullName: getContentValues('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
              lastName: getContentValues('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />'),
              firstName: getContentValues('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
-            //  degrees: getContentValues('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
              positionTitle: getContentValues('<t4 type="content" name="Position Title(s)" output="normal" modifiers="striptags,htmlentities" />'),
              college: getContentValues('<t4 type="content" name="College" output="normal" modifiers="striptags,htmlentities" />'),
              description: getContentValues('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />'),
@@ -249,14 +248,7 @@
              emailAddress: getContentValues('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities,encode_emails" />'),
              bldgRoom: getContentValues('<t4 type="content" name="Building/Room Number" output="normal" modifiers="striptags,htmlentities" />'),
              departments: getContentValues('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
-            //  summaryBio: getContentValues('<t4 type="content" name="Summary Biography" output="normal" modifiers="medialibrary,nav_sections" />'),
-            //  primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
              primaryImagePath: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="path/*" />'),
-            //  rolloverImage: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="image/*" />'),
-            //  rolloverImagePath: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="path/*" />'),
-            //  webPage: getContentValues('<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />'),
-            //  cvPath: getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="path/*" />'),
-            //  cvApp:getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="application/*" />'),
              fullTextLink: getContentValues('<t4 type="content" name="Name" output="fulltext" use-element="true" filename-element="Name" modifiers="striptags,htmlentities" />'),
              contentId: getContentValues('<t4 type="meta" meta="content_id" />')
  
@@ -428,22 +420,6 @@
 
 
 
- 
-        /***
-         *  parse degrees and display only the first degree
-         * 
-         * */
-        //  let arrayOfDegrees =
-        //     (departmentBioDict.degrees.content)
-        //     ? departmentBioDict.degrees.content.split(',')
-        //     : null;
-        //  let degreeSub =
-        //     (arrayOfDegrees)
-        //     ? '<span class="degree card-text">' + arrayOfDegrees[0] + '</span>'
-        //     : '<span class="degree visually-hidden hidden">No degree entered</span>';
-
-
-
 
         /***
          *  parse titles and display only the first title
@@ -498,53 +474,6 @@
 
 
 
-
-        /***
-          *  parse for personal website
-          * 
-          * */
-        //  let webstring =
-        //     (departmentBioDict.webPage.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-        //     ? '<span class="webPage card-text"><i class="fas fa-link"></i> <a class="webPage card-link" href="' + departmentBioDict.webPage.content + '" title="Visit the personal website of ' + departmentBioDict.fullName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></span>'
-        //     : '<span class="webPage visually-hidden hidden">No website entered</span>';
-
-
-
-
-        /***
-          *  parse for personal website
-          * 
-          * */
-        //  let cvString =
-        //     (departmentBioDict.cvPath.content && departmentBioDict.fullName.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
-        //     ? '<span class="cvPath card-text"><i class="fas fa-file-pdf"></i> <a class="cvPath card-link" href="' + departmentBioDict.cvPath.content + '" title="Read the curriculum vitae of ' + departmentBioDict.fullName.content + '">Curriculum Vitae</a></span>'
-        //     : '<span class="cvPath visually-hidden hidden">No curriculum vitae provided</span>';
-
-
-
-
-        /***
-         *  format footer
-         * 
-         * */
-        //  let footerArray = [bldgRoomString, emailAddressString, phoneString, webstring, cvString];
-        //  let footerList = assignList(footerArray);
-        //  let footerUl = '<ul class="footerList">' + footerList + '</ul>';
-
-
-
-
-        /***
-          *  define footer string
-          * 
-          * */
-        //  let footerString =
-        //     (departmentBioDict.bldgRoom.content || departmentBioDict.emailAddress.content || departmentBioDict.officePhone.content || departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
-        //     ? '<footer class="deptBioFooter">' + footerUl + '</footer>'
-        //     : '<footer class="deptBioFooter visually-hidden hidden">No footer provided</footer>';
-
-
-
   
          /***
           *  write document once
@@ -566,9 +495,6 @@
                  openBody,
                  summaryBioString,
                  closeBody,
-                //  openFooter,
-                //  footerString,
-                //  closeFooter,
                  closeBodyWrapper,
                  closeRow,
                  endingHTML
