@@ -162,6 +162,10 @@
     padding: 1rem;
     margin: 4rem 1rem;
 }
+
+display: inline-block;
+vertical-align: middle;
+float: none;
  
 
 
