@@ -200,10 +200,10 @@
      *  modify card body
      * 
      * */
-     function modifyFooter() {
+    //  function modifyFooter() {
 
-        return '<div class="departBioFooter card-footer border-0 bg-transparent">';
-    }
+    //     return '<div class="departBioFooter card-footer border-0 bg-transparent">';
+    // }
 
  
  
