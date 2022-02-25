@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.22
+     *     @version 9.12.23
      * 
      * */
 
@@ -241,7 +241,7 @@
              fullName: getContentValues('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
              lastName: getContentValues('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />'),
              firstName: getContentValues('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
-             degrees: getContentValues('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
+            //  degrees: getContentValues('<t4 type="content" name="Degree(s)" output="normal" modifiers="striptags,htmlentities" />'),
              positionTitle: getContentValues('<t4 type="content" name="Position Title(s)" output="normal" modifiers="striptags,htmlentities" />'),
              college: getContentValues('<t4 type="content" name="College" output="normal" modifiers="striptags,htmlentities" />'),
              description: getContentValues('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />'),
@@ -249,14 +249,14 @@
              emailAddress: getContentValues('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities,encode_emails" />'),
              bldgRoom: getContentValues('<t4 type="content" name="Building/Room Number" output="normal" modifiers="striptags,htmlentities" />'),
              departments: getContentValues('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
-             summaryBio: getContentValues('<t4 type="content" name="Summary Biography" output="normal" modifiers="medialibrary,nav_sections" />'),
-             primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
+            //  summaryBio: getContentValues('<t4 type="content" name="Summary Biography" output="normal" modifiers="medialibrary,nav_sections" />'),
+            //  primaryImage: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="image/*" />'),
              primaryImagePath: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="path/*" />'),
-             rolloverImage: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="image/*" />'),
-             rolloverImagePath: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="path/*" />'),
-             webPage: getContentValues('<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />'),
-             cvPath: getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="path/*" />'),
-             cvApp:getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="application/*" />'),
+            //  rolloverImage: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="image/*" />'),
+            //  rolloverImagePath: getContentValues('<t4 type="content" name="Rollover Photo" output="normal" formatter="path/*" />'),
+            //  webPage: getContentValues('<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />'),
+            //  cvPath: getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="path/*" />'),
+            //  cvApp:getContentValues('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="application/*" />'),
              fullTextLink: getContentValues('<t4 type="content" name="Name" output="fulltext" use-element="true" filename-element="Name" modifiers="striptags,htmlentities" />'),
              contentId: getContentValues('<t4 type="meta" meta="content_id" />')
  
