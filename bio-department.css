@@ -163,9 +163,13 @@
     margin: 4rem 1rem;
 }
 
-display: inline-block;
-vertical-align: middle;
-float: none;
+.departmentBioWrapper .bodyWrapper {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
  
 
 
