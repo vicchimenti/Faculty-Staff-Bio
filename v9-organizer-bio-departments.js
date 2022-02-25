@@ -176,7 +176,6 @@
          let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
          let closeBody = '</div>';
-        //  let closeFooter = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
          let beginningHTML = '<article class="departmentBioWrapper col" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-0">';
 
@@ -223,18 +222,6 @@
             (departmentBioDict.description.content)
             ? modifyBody()
             : '<div class="departBioSummary card-body visually-hidden hidden">';
-
-
-
-
-        /***
-         *  determine card-footer
-         * 
-         * */
-        //  let openFooter = 
-        //     (departmentBioDict.webPage.content || departmentBioDict.cvPath.content)
-        //     ? modifyFooter()
-        //     :'<div class="departBioFooter card-footer border-0 bg-transparent visually-hidden hidden">';
      
 
 
