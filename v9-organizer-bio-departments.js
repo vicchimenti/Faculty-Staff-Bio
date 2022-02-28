@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.28
+     *     @version 9.12.29
      * 
      * */
 
@@ -107,7 +107,7 @@
      * */
      function modifyBody() {
 
-        return '<div class="departBioSummary card-body p-0 m-0">';
+        return '<div class="departBioSummary card-body">';
     }
 
 
@@ -221,7 +221,7 @@
          let openBody =
             (departmentBioDict.description.content)
             ? modifyBody()
-            : '<div class="departBioSummary card-body p-0 m-0">';
+            : '<div class="departBioSummary card-body">';
      
 
 
