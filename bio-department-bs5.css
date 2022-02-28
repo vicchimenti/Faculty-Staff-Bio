@@ -7,13 +7,6 @@
 
 
 
-.lawFacultyWrapper img.card-img {
-    margin: 0;
-    width: 100%;
-    width: -moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;
-}
 
 
 
@@ -277,6 +270,13 @@
     width: -webkit-fill-available;
     width: fill-available;
 }
+
+
+.departmentBioWrapper figure {
+
+    display: contents;
+}
+
 
 
 
