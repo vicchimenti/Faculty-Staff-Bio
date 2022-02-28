@@ -55,7 +55,7 @@
     font-family:  "Montserrat", sans-serif;
     font-size: 2.5rem;
     line-height: 2;
-    margin: 2rem 0 0 0;
+    margin: 0;
 }
 
 .departmentBioWrapper p.card-subtitle {
@@ -88,7 +88,7 @@
     background-color: transparent;
     border: none;
     font-size: 1.6rem;
-    padding: 0 2rem;
+    padding: 0;
 }
 
 .departmentBioWrapper ul li:before {
@@ -182,7 +182,7 @@
 *
 *
 */
-.departmentBioWrapper .card-footer {
+/* .departmentBioWrapper .card-footer {
 
     position: relative;
     left: 0;
@@ -251,7 +251,7 @@
 .departmentBioWrapper .deptBioFooter a:active {
 
     text-decoration: underline;
-}
+} */
 
 
 
