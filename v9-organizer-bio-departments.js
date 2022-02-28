@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.25
+     *     @version 9.12.26
      * 
      * */
 
@@ -169,15 +169,15 @@
          let endingHTML = '</div></article>';
          let openRow = '<div class="row g-0 noGap">';
          let closeRow = '</div>';
-         let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3">';
+         let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3 d-flex align-items-center">';
          let closeImageWrapper = '</div>';
-         let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9">';
+         let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9 d-flex align-items-center">';
          let closeBodyWrapper = '</div>';
          let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
          let closeCardHeader = '</div>'
          let closeBody = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
-         let beginningHTML = '<article class="departmentBioWrapper col" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-0">';
+         let beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-0">';
 
 
 
@@ -188,7 +188,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="departmentBioWrapper col" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 shadow-lg border-0">';
+            beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 shadow-lg border-0">';
         }
 
 
