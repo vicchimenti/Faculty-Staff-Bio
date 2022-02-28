@@ -177,7 +177,7 @@
          let closeCardHeader = '</div>'
          let closeBody = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
-         let beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-0">';
+         let beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 w-100 shadow-lg border-0">';
 
 
 
@@ -188,7 +188,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 shadow-lg border-0">';
+            beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 w-100 shadow-lg border-0">';
         }
 
 
