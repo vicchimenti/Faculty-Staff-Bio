@@ -54,7 +54,7 @@
 
     font-family:  "Montserrat", sans-serif;
     font-size: 2rem;
-    line-height: 1;
+    line-height: 1.2;
     margin: 0;
 }
 
@@ -68,7 +68,7 @@
 .departmentBioWrapper p.card-text {
     font-size: 1.25rem;
     line-height: 1.5;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 0 0 0;
 }
 
 .departmentBioWrapper .list-group-item:first-child {
@@ -210,7 +210,7 @@
     .departmentBioWrapper p.card-text {
 
         font-size: 1rem;
-        padding: 0.5rem 0.5rem 0 0.5rem;
+        padding: 0.5rem 0 0 0;
     }
 
     .departmentBioWrapper .list-group-item {
