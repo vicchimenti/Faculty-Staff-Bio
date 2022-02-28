@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.27
+     *     @version 9.12.28
      * 
      * */
 
@@ -107,7 +107,7 @@
      * */
      function modifyBody() {
 
-        return '<div class="departBioSummary card-body">';
+        return '<div class="departBioSummary card-body p-0 m-0">';
     }
 
 
@@ -221,7 +221,7 @@
          let openBody =
             (departmentBioDict.description.content)
             ? modifyBody()
-            : '<div class="departBioSummary card-body">';
+            : '<div class="departBioSummary card-body p-0 m-0">';
      
 
 
@@ -360,7 +360,7 @@
 
             imageString =
                 (info.check())
-                ? '<figure class="figure"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+                ? '<figure class="figure p-0 m-0"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img p-0 m-0" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
                 : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
 
