@@ -271,7 +271,7 @@
          * */
          let contactArray = [bldgRoomString, emailAddressString, phoneString];
          let contactList = assignList(contactArray);
-         let contactString = '<ul class="contactList">' + contactList + '</ul>';
+         let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start">' + contactList + '</ul>';
 
 
 
