@@ -162,8 +162,6 @@
          let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9 d-flex align-items-center">';
          let closeBodyWrapper = '</div>';
          let openBody = '<div class="departBioSummary card-body">';
-        //  let openCardHeader = '<div class="departBioHeader card-header border-0 radius-0 bg-transparent">';
-        //  let closeCardHeader = '</div>'
          let closeBody = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
          let beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 w-100 shadow-lg border-0">';
@@ -199,18 +197,6 @@
 
             modifyWrapper(ariaString.trim());
         }
-
-
-
-
-        /***
-         *  determine card-body
-         * 
-         * */
-        //  let openBody =
-        //     (departmentBioDict.description.content)
-        //     ? modifyBody()
-        //     : '<div class="departBioSummary card-body">';
      
 
 
