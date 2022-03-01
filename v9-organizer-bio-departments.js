@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.31
+     *     @version 9.12.32
      * 
      * */
 
@@ -206,6 +206,8 @@
           * 
           * */
          let titleLink =
+            (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></h3>'
             (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
             : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
