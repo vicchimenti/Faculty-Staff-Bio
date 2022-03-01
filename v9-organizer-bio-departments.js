@@ -63,7 +63,7 @@
 
             if (arrayOfValues[i]) {
 
-                listValues += '<li class="list-group-item d-inline deptBioli">' + arrayOfValues[i].trim() + '</li>';
+                listValues += '<li class="list-group-item d-inline deptBioli p-0 pe-md-4">' + arrayOfValues[i].trim() + '</li>';
             }
          }
  
