@@ -1,0 +1,28 @@
+.embeddedVideoWrapper.contentItem {
+
+    max-width: 1170px;
+    margin: 0 auto !important;
+    margin-bottom: 15px !important;
+}
+
+/* @media screen and (max-width: 1565px) {
+
+    .embeddedVideoWrapper.contentItem {
+        margin: 0 auto !important;
+        margin-bottom: 15px !important;
+    }
+} */
+
+@media screen and (max-width: 1199.98px) {
+
+    .embeddedVideoWrapper.contentItem {
+        padding: 0 15px 5px 15px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .embeddedVideoWrapper.contentItem {
+        padding: 0 30px 5px 30px;
+    }
+}
