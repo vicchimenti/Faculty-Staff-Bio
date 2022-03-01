@@ -101,18 +101,6 @@
  
  
 
-    /***
-     *  modify card body
-     * 
-     * */
-    //  function modifyBody() {
-
-    //     return '<div class="departBioSummary card-body">';
-    // }
-
-
- 
- 
      /***
       *      Write the document
       */
