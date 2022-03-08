@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.38
+     *     @version 9.12.39
      * 
      * */
 
@@ -316,15 +316,6 @@
           *  define subtitle
           * 
           * */
-        //  let subtitleString =
-        //     (departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-        //     ? '<p class="card-subtitle">' + positionTitleSub + ' | ' + collegeSub + '</p>'
-        //     : (!departmentBioDict.positionTitle.content && departmentBioDict.college.content)
-        //     ? '<p class="card-subtitle">' + collegeSub + '</p>'
-        //     : (departmentBioDict.positionTitle.content && !departmentBioDict.college.content)
-        //     ? '<p class="card-subtitle">' + positionTitleSub + '</p>'  
-        //     : '<span class="card-subtitle">No subtitle fields entered</span>';
-
         let subtitleString =
             (departmentBioDict.positionTitle.content)
             ? '<p class="card-subtitle">' + positionTitleSub + '</p>'
