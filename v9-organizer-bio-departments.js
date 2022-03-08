@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.12.34
+     *     @version 9.12.35
      * 
      * */
 
@@ -134,6 +134,7 @@
              fullName: getContentValues('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
              lastName: getContentValues('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />'),
              firstName: getContentValues('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'),
+             pronouns: getContentValues('<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />'),
              positionTitle: getContentValues('<t4 type="content" name="Position Title(s)" output="normal" modifiers="striptags,htmlentities" />'),
              college: getContentValues('<t4 type="content" name="College" output="normal" modifiers="striptags,htmlentities" />'),
              description: getContentValues('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />'),
@@ -206,7 +207,7 @@
           * 
           * */
          let titleLink =
-            (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content)
+            (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && departmentBioDict)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></h3>'
             : (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
