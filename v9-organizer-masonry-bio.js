@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 10.2
+     *     @version 10.2.1
      * 
      * */
 
@@ -155,7 +155,7 @@
           *  default html initializations
           * 
           * */
-         let endingHTML = '</div></article>';
+         let endingHTML = '</article>';
         //  let openRow = '<div class="row g-0 noGap">';
         //  let closeRow = '</div>';
         //  let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3 d-flex align-items-center">';
@@ -165,7 +165,7 @@
          let openBody = '<div class="departBioSummary card-body">';
          let closeBody = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
-         let beginningHTML = '<article class="gridBioWrapper" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + gridBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-2">';
+         let beginningHTML = '<article class="gridBioWrapper card h-100 shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + gridBioDict.contentName.content + '">';
 
 
 
@@ -176,7 +176,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="gridBioWrapper" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 shadow-lg border-2">';
+            beginningHTML = '<article class="gridBioWrapper card h-100 shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + ariaLabel + '">';
         }
 
 
