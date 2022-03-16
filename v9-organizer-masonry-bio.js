@@ -1,7 +1,7 @@
     /***
      *     @author  Victor Chimenti, MSCS
      *     @file    v9-organizer-masonry-bio-departments.js
-     *                  v9/organizer/grid/bio/
+     *                  v9/organizer/grid/bio
      *                  id:203
      *
      *     This layout works with the Grid Organizer.
