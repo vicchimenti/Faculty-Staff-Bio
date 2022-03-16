@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 10.0
+     *     @version 10.2
      * 
      * */
 
@@ -128,7 +128,7 @@
          /***
           *      Dictionary of content
           * */
-         let departmentBioDict = {
+         let gridBioDict = {
  
              contentName: getContentValues('<t4 type="content" name="Name" output="normal" modifiers="striptags,htmlentities" />'),
              fullName: getContentValues('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
@@ -156,16 +156,16 @@
           * 
           * */
          let endingHTML = '</div></article>';
-         let openRow = '<div class="row g-0 noGap">';
-         let closeRow = '</div>';
-         let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3 d-flex align-items-center">';
-         let closeImageWrapper = '</div>';
-         let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9 d-flex align-items-center">';
-         let closeBodyWrapper = '</div>';
+        //  let openRow = '<div class="row g-0 noGap">';
+        //  let closeRow = '</div>';
+        //  let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3 d-flex align-items-center">';
+        //  let closeImageWrapper = '</div>';
+        //  let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9 d-flex align-items-center">';
+        //  let closeBodyWrapper = '</div>';
          let openBody = '<div class="departBioSummary card-body">';
          let closeBody = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
-         let beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + departmentBioDict.contentName.content + '"><div class="card h-100 w-100 shadow-lg border-0">';
+         let beginningHTML = '<article class="gridBioWrapper" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + gridBioDict.contentName.content + '"><div class="card h-100 shadow-lg border-2">';
 
 
 
@@ -176,7 +176,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="departmentBioWrapper col flex-fill" id="departmentBio' + departmentBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 w-100 shadow-lg border-0">';
+            beginningHTML = '<article class="gridBioWrapper" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + ariaLabel + '"><div class="card h-100 shadow-lg border-2">';
         }
 
 
@@ -186,15 +186,15 @@
          *  process and prioritize label options
          * 
          * */
-        if (departmentBioDict.firstName.content && departmentBioDict.lastName.content) {
+        if (gridBioDict.firstName.content && gridBioDict.lastName.content) {
         
-            let ariaString = '' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '';
+            let ariaString = '' + gridBioDict.firstName.content + ' ' + gridBioDict.lastName.content + '';
 
             modifyWrapper(ariaString.trim());
 
-        } else if (departmentBioDict.fullName.content) {
+        } else if (gridBioDict.fullName.content) {
 
-            let ariaString = '' + departmentBioDict.fullName.content + '';
+            let ariaString = '' + gridBioDict.fullName.content + '';
 
             modifyWrapper(ariaString.trim());
         }
@@ -207,17 +207,17 @@
           * 
           * */
          let titleLink =
-            (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a> (' + departmentBioDict.pronouns.content + ')</h3>'
-            : (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && !departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></h3>'
-            : (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content && departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a> (' + departmentBioDict.pronouns.content + ')</h3>'
-            : (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content && !departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
-            : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
-            : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
+            (gridBioDict.fullTextLink.content && gridBioDict.firstName.content && gridBioDict.lastName.content && gridBioDict.pronouns.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.firstName.content + '">' + gridBioDict.firstName.content + ' ' + gridBioDict.lastName.content + '</a> (' + gridBioDict.pronouns.content + ')</h3>'
+            : (gridBioDict.fullTextLink.content && gridBioDict.firstName.content && gridBioDict.lastName.content && !gridBioDict.pronouns.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.firstName.content + '">' + gridBioDict.firstName.content + ' ' + gridBioDict.lastName.content + '</a></h3>'
+            : (gridBioDict.fullTextLink.content && gridBioDict.fullName.content && gridBioDict.pronouns.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.fullName.content + '">' + gridBioDict.fullName.content + '</a> (' + gridBioDict.pronouns.content + ')</h3>'
+            : (gridBioDict.fullTextLink.content && gridBioDict.fullName.content && !gridBioDict.pronouns.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.fullName.content + '">' + gridBioDict.fullName.content + '</a></h3>'
+            : (gridBioDict.fullTextLink.content && !gridBioDict.fullName.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.contentName.content + '">' + gridBioDict.contentName.content + '</a></h3>'
+            : '<h3 class="card-title border-0 bg-transparent">' + gridBioDict.contentName.content + '</h3>';
 
 
 
@@ -226,10 +226,10 @@
          *  parse summary
          * 
          * */
-         let summaryBioString =
-            (departmentBioDict.description.content)
-            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.description.content + '</p></div>'
-            : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
+        //  let summaryBioString =
+        //     (gridBioDict.description.content)
+        //     ? '<div class="summaryBio"><p class="summaryBio card-text">' + gridBioDict.description.content + '</p></div>'
+        //     : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
 
@@ -238,12 +238,12 @@
           *  parse for email
           * 
           * */
-        let emailAddressString =
-            (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
-            : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
-            : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
+        // let emailAddressString =
+        //     (gridBioDict.emailAddress.content && gridBioDict.firstName.content && gridBioDict.fullName.content)
+        //     ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + gridBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + gridBioDict.fullName.content + '">Email ' + gridBioDict.firstName.content + '</a></span>'
+        //     : (gridBioDict.emailAddress.content && gridBioDict.fullName.content)
+        //     ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + gridBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + gridBioDict.fullName.content + '">Email ' + gridBioDict.fullName.content + '</a></span>'
+        //     : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
 
 
 
@@ -252,10 +252,10 @@
           *  parse for phone
           * 
           * */
-        let phoneString =
-            (departmentBioDict.officePhone.content && departmentBioDict.fullName.content)
-            ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></span>'
-            : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
+        // let phoneString =
+        //     (gridBioDict.officePhone.content && gridBioDict.fullName.content)
+        //     ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + gridBioDict.officePhone.content + '" title="Call ' + gridBioDict.fullName.content + '">' + gridBioDict.officePhone.content + '</a></span>'
+        //     : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
 
 
 
@@ -264,10 +264,10 @@
          *  parse titles
          * 
          * */
-        let bldgRoomString =
-            (departmentBioDict.bldgRoom.content)
-            ? '<span class="location card-text"><i class="fas fa-university"></i> ' + departmentBioDict.bldgRoom.content + '</span>'
-            : '<span class="location visually-hidden hidden">No location entered</span>';
+        // let bldgRoomString =
+        //     (gridBioDict.bldgRoom.content)
+        //     ? '<span class="location card-text"><i class="fas fa-university"></i> ' + gridBioDict.bldgRoom.content + '</span>'
+        //     : '<span class="location visually-hidden hidden">No location entered</span>';
 
 
 
@@ -276,9 +276,9 @@
          *  format contact string
          * 
          * */
-         let contactArray = [bldgRoomString, emailAddressString, phoneString];
-         let contactList = assignList(contactArray);
-         let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
+        //  let contactArray = [bldgRoomString, emailAddressString, phoneString];
+        //  let contactList = assignList(contactArray);
+        //  let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
 
 
 
@@ -287,10 +287,10 @@
          *  parse college
          * 
          * */
-        let collegeSub =
-            (departmentBioDict.college.content)
-            ? '<span class="college card-text">' + departmentBioDict.college.content + '</span>'
-            : '<span class="college visually-hidden hidden">No location entered</span>';
+        // let collegeSub =
+        //     (gridBioDict.college.content)
+        //     ? '<span class="college card-text">' + gridBioDict.college.content + '</span>'
+        //     : '<span class="college visually-hidden hidden">No location entered</span>';
 
 
 
@@ -300,8 +300,8 @@
          * 
          * */
          let arrayOfTitles =
-            (departmentBioDict.positionTitle.content)
-            ? departmentBioDict.positionTitle.content.split('\n')
+            (gridBioDict.positionTitle.content)
+            ? gridBioDict.positionTitle.content.split('\n')
             : null;
          let positionTitleSub =
             (arrayOfTitles)
@@ -317,7 +317,7 @@
           * 
           * */
         let subtitleString =
-            (departmentBioDict.positionTitle.content)
+            (gridBioDict.positionTitle.content)
             ? '<p class="card-subtitle">' + positionTitleSub + '</p>'
             : '<span class="card-subtitle">No subtitle fields entered</span>';
 
@@ -328,7 +328,7 @@
          *  Parse for image
          * 
          * */
-        if (departmentBioDict.primaryImagePath.content) {
+        if (gridBioDict.primaryImagePath.content) {
 
             let imageID = content.get('Photo').getID();
             let mediaInfo = getMediaInfo(imageID);
@@ -338,7 +338,7 @@
 
             imageString =
                 (info.check())
-                ? '<figure class="figure p-0 m-0"><img src="' + departmentBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img p-0 m-0" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
+                ? '<figure class="figure p-0 m-0"><img src="' + gridBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img-top p-0 m-0" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
                 : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
 
@@ -352,19 +352,19 @@
          writeDocument(
              [
                  beginningHTML,
-                 openRow,
-                 openImageWrapper,
+                //  openRow,
+                //  openImageWrapper,
                  imageString,
-                 closeImageWrapper,
-                 openBodyWrapper,
+                //  closeImageWrapper,
+                //  openBodyWrapper,
                  openBody,
                  titleLink,
                  subtitleString,
-                 contactString,
-                 summaryBioString,
+                //  contactString,
+                //  summaryBioString,
                  closeBody,
-                 closeBodyWrapper,
-                 closeRow,
+                //  closeBodyWrapper,
+                //  closeRow,
                  endingHTML
              ]
          );
