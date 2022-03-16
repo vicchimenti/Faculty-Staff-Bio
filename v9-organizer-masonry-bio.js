@@ -1,10 +1,10 @@
     /***
      *     @author  Victor Chimenti, MSCS
      *     @file    v9-organizer-masonry-bio-departments.js
-     *                  v9/organizer/masonry/bio/
+     *                  v9/organizer/grid/bio/
      *                  id:203
      *
-     *     This layout works with the Department Organizer.
+     *     This layout works with the Grid Organizer.
      *
      *     Document will write once when the page loads
      * 
