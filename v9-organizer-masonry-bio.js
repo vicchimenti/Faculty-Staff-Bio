@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 10.2.1
+     *     @version 10.2.2
      * 
      * */
 
@@ -164,6 +164,8 @@
         //  let closeBodyWrapper = '</div>';
          let openBody = '<div class="departBioSummary card-body">';
          let closeBody = '</div>';
+         let openFooter = '<div class="card-footer">';
+         let closeFooter = '</div>';
          let imageString = '<span class="bioImage visually-hidden hidden"></span>'
          let beginningHTML = '<article class="gridBioWrapper card h-100 shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + gridBioDict.contentName.content + '">';
 
@@ -359,12 +361,14 @@
                 //  openBodyWrapper,
                  openBody,
                  titleLink,
-                 subtitleString,
                 //  contactString,
                 //  summaryBioString,
                  closeBody,
                 //  closeBodyWrapper,
                 //  closeRow,
+                openFooter,
+                subtitleString,
+                closeFooter,
                  endingHTML
              ]
          );
