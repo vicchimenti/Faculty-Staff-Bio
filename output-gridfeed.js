@@ -1,5 +1,5 @@
 /***
- *     @author Victor Chimenti, MSCS-SE '20
+ *     @author Victor Chimenti, MSCS
  *     @file bio-output-gridfeed.js
  *     @see Seattle University
  *
@@ -12,7 +12,7 @@
  *
  *     Document will write once when the page loads
  *
- *     @version 2.4
+ *     @version 2.5
  */
 
 
