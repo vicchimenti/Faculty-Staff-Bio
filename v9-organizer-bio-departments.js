@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.13.1
+     *     @version 9.13.2
      * 
      * */
 
@@ -58,10 +58,16 @@
         function parseArray(rawValues) {
 
         let results = [];
+        let iterator = rawValues.values();
 
-        for (value in rawValues) {
+        for (let value of iterator) {
             if (value) results.push(value);
         }
+    
+
+        // for (let value in rawValues) {
+        //     if (value) results.push(value);
+        // }
 
         return results;
     }
