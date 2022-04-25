@@ -58,21 +58,8 @@
         function parseArray(rawValues) {
 
         let results = [];
-
-        // for (let j = 0; j < rawValues.length; j++) {
-
-        //     if (rawValues[i]) results.push
-
-        // }
-        // let iterator = rawValues.values();
-
-        // for (let value of iterator) {
-        //     if (value) results.push(value);
-        // }
-    
-
         for (let value in rawValues) {
-            
+
             if (rawValues[value]) results.push(rawValues[value]);
         }
 
