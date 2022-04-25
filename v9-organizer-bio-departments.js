@@ -243,7 +243,7 @@
             ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
             : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
             ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
-            : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
+            : null;
 
 
 
@@ -255,7 +255,7 @@
         let phoneString =
             (departmentBioDict.officePhone.content && departmentBioDict.fullName.content)
             ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + departmentBioDict.officePhone.content + '" title="Call ' + departmentBioDict.fullName.content + '">' + departmentBioDict.officePhone.content + '</a></span>'
-            : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
+            : null;
 
 
 
@@ -267,7 +267,7 @@
         let bldgRoomString =
             (departmentBioDict.bldgRoom.content)
             ? '<span class="location card-text"><i class="fas fa-university"></i> ' + departmentBioDict.bldgRoom.content + '</span>'
-            : '<span class="location visually-hidden hidden">No location entered</span>';
+            : null;
 
 
 
@@ -276,13 +276,13 @@
          *  format contact string
          * 
          * */
-         let contactArray = (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+         let contactArray = (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.emailAddress.content)
                             ? [bldgRoomString, emailAddressString, phoneString]
-                            : (departmentBioDict.officePhone.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+                            : (departmentBioDict.officePhone.content, departmentBioDict.emailAddress.content)
                             ? [emailAddressString, phoneString]
-                            : (departmentBioDict.bldgRoom.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+                            : (departmentBioDict.bldgRoom.content, departmentBioDict.emailAddress.content)
                             ? [bldgRoomString, emailAddressString]
-                            : (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.fullName.content)
+                            : (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content)
                             ? [bldgRoomString, phoneString];
          let contactList = assignList(contactArray);
          let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
