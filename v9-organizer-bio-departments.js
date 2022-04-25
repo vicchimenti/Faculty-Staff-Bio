@@ -276,7 +276,14 @@
          *  format contact string
          * 
          * */
-         let contactArray = [bldgRoomString, emailAddressString, phoneString];
+         let contactArray = (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+                            ? [bldgRoomString, emailAddressString, phoneString]
+                            : (departmentBioDict.officePhone.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+                            ? [emailAddressString, phoneString]
+                            : (departmentBioDict.bldgRoom.content, departmentBioDict.fullName.content, departmentBioDict.emailAddress.content)
+                            ? [bldgRoomString, emailAddressString]
+                            : (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.fullName.content)
+                            ? [bldgRoomString, phoneString];
          let contactList = assignList(contactArray);
          let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
 
