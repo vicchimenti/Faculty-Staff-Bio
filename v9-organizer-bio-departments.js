@@ -276,14 +276,10 @@
          *  format contact string
          * 
          * */
-         let contactArray = (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content, departmentBioDict.emailAddress.content)
-                            ? [bldgRoomString, emailAddressString, phoneString]
-                            : (departmentBioDict.officePhone.content, departmentBioDict.emailAddress.content)
-                            ? [emailAddressString, phoneString]
-                            : (departmentBioDict.bldgRoom.content, departmentBioDict.emailAddress.content)
-                            ? [bldgRoomString, emailAddressString]
-                            : (departmentBioDict.bldgRoom.content, departmentBioDict.officePhone.content)
-                            ? [bldgRoomString, phoneString];
+         let contactArray = [];
+         if (bldgRoomString) contactArray.push(bldgRoomString); 
+         if (emailAddressString) contactArray.push(emailAddressString);
+         if (phoneString) contactArray.push(phoneString);
          let contactList = assignList(contactArray);
          let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
 
