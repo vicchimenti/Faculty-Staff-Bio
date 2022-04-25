@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.13
+     *     @version 9.13.1
      * 
      * */
 
@@ -48,8 +48,25 @@
              }
          }
      }
- 
- 
+
+
+
+
+    /***
+     *      Parses array values for null
+     */
+        function parseArray(rawValues) {
+
+        let results = [];
+
+        for (value in rawValues) {
+            if (value) results.push(value);
+        }
+
+        return results;
+    }
+    
+     
  
  
      /***
@@ -276,12 +293,16 @@
          *  format contact string
          * 
          * */
-         let contactArray = [];
-         if (bldgRoomString) contactArray.push(bldgRoomString); 
-         if (emailAddressString) contactArray.push(emailAddressString);
-         if (phoneString) contactArray.push(phoneString);
-         let contactList = assignList(contactArray);
-         let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
+         let subtitleArray = [bldgRoomString, emailAddressString, phoneString]
+        //  let contactArray = [];
+         let subtitles = parseArray(subtitleArray);
+    
+        //  if (bldgRoomString) contactArray.push(bldgRoomString); 
+        //  if (emailAddressString) contactArray.push(emailAddressString);
+        //  if (phoneString) contactArray.push(phoneString);
+
+         let subtitleList = assignList(subtitles);
+         let subtitleString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + subtitleList + '</ul>';
 
 
 
@@ -319,7 +340,7 @@
           *  define subtitle
           * 
           * */
-        let subtitleString =
+        let titleString =
             (departmentBioDict.positionTitle.content)
             ? '<p class="card-subtitle">' + positionTitleSub + '</p>'
             : '<span class="card-subtitle">No subtitle fields entered</span>';
@@ -362,8 +383,8 @@
                  openBodyWrapper,
                  openBody,
                  titleLink,
+                 titleString,
                  subtitleString,
-                 contactString,
                  summaryBioString,
                  closeBody,
                  closeBodyWrapper,
