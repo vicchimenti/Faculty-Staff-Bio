@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.13.2
+     *     @version 9.13.3
      * 
      * */
 
@@ -294,13 +294,7 @@
          * 
          * */
          let subtitleArray = [bldgRoomString, emailAddressString, phoneString]
-        //  let contactArray = [];
          let subtitles = parseArray(subtitleArray);
-    
-        //  if (bldgRoomString) contactArray.push(bldgRoomString); 
-        //  if (emailAddressString) contactArray.push(emailAddressString);
-        //  if (phoneString) contactArray.push(phoneString);
-
          let subtitleList = assignList(subtitles);
          let subtitleString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + subtitleList + '</ul>';
 
