@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.13.3
+     *     @version 9.13.4
      * 
      * */
 
@@ -224,14 +224,12 @@
           * 
           * */
          let titleLink =
-            (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a> (' + departmentBioDict.pronouns.content + ')</h3>'
-            : (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && !departmentBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a></h3>'
-            : (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content && departmentBioDict.pronouns.content)
+            (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content && departmentBioDict.pronouns.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a> (' + departmentBioDict.pronouns.content + ')</h3>'
             : (departmentBioDict.fullTextLink.content && departmentBioDict.fullName.content && !departmentBioDict.pronouns.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.fullName.content + '">' + departmentBioDict.fullName.content + '</a></h3>'
+            : (departmentBioDict.fullTextLink.content && departmentBioDict.firstName.content && departmentBioDict.lastName.content && departmentBioDict.pronouns.content)
+            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.firstName.content + '">' + departmentBioDict.firstName.content + ' ' + departmentBioDict.lastName.content + '</a> (' + departmentBioDict.pronouns.content + ')</h3>'
             : (departmentBioDict.fullTextLink.content && !departmentBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + departmentBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + departmentBioDict.contentName.content + '">' + departmentBioDict.contentName.content + '</a></h3>'
             : '<h3 class="card-title border-0 bg-transparent">' + departmentBioDict.contentName.content + '</h3>';
