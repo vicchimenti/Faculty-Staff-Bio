@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 9.13.4
+     *     @version 9.13.5
      * 
      * */
 
@@ -255,9 +255,9 @@
           * */
         let emailAddressString =
             (departmentBioDict.emailAddress.content && departmentBioDict.firstName.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Bio Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.firstName.content + '</a></span>'
             : (departmentBioDict.emailAddress.content && departmentBioDict.fullName.content)
-            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
+            ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + departmentBioDict.emailAddress.content + '?subject=From your Bio Profile" title="Email ' + departmentBioDict.fullName.content + '">Email ' + departmentBioDict.fullName.content + '</a></span>'
             : null;
 
 
