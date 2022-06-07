@@ -201,7 +201,7 @@
 @media screen and (max-width: 1399.98px) {}
 
 
-@media screen and (max-width: 1199.98px) {
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
 
     .departmentBioWrapper h3 {
 
@@ -216,7 +216,8 @@
     
     .departmentBioWrapper p.card-text {
 
-        font-size: 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
         padding: 0.5rem 0 0 0;
     }
 
