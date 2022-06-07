@@ -16,10 +16,17 @@
 *
 *
 */
+
+.departmentOrganizer .titleWrapper.standardContent {
+
+    margin-left: 1rem;
+    padding-left: 1rem;
+}
+
 .departmentOrganizer .organizer.standardContent {
 
-    margin: 1rem;
     max-width: none;
+    margin: 1rem;
     padding: 1rem;
 }
 
