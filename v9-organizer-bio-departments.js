@@ -243,7 +243,7 @@
          * */
          let summaryBioString =
             (departmentBioDict.description.content)
-            ? '<div class="summaryBio"><p class="summaryBio card-text">' + departmentBioDict.description.content + '</p></div>'
+            ? '<div class="summaryBio"><p class="summaryBio card-text d-none d-md-block">' + departmentBioDict.description.content + '</p></div>'
             : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
 
