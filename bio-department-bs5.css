@@ -169,10 +169,10 @@
 
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
     .departmentBioWrapper h3 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     .departmentBioWrapper p.card-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
         line-height: 1.2;
     }
     .departmentBioWrapper p.card-text {
@@ -181,7 +181,7 @@
         padding: 0.5rem 0 0 0;
     }
     .departmentBioWrapper .list-group-item {
-        font-size: 1rem;
+        font-size: 0.9rem;
         line-height: 1.5;
         padding: 0 1rem;
     }
