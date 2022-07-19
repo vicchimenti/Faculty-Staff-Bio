@@ -220,6 +220,18 @@
     }
 }
 
+@media screen and (max-width: 575.98px) {
+    .departmentBioWrapper h3 {
+        line-height: 1.4;
+    }
+    .departmentBioWrapper p.card-subtitle {
+        line-height: 1.4;
+    }
+    .departmentBioWrapper .list-group-item {
+        line-height: 1.4;
+    }
+}
+
 
 /***
 *       Faculty and Staff Bio
