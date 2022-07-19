@@ -196,7 +196,17 @@
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991.98px) {}
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .departmentBioWrapper h3 {
+        font-size: 1.15rem;
+    }
+    .departmentBioWrapper p.card-subtitle {
+        font-size: 0.8rem;
+    }
+    .departmentBioWrapper .list-group-item {
+        font-size: 0.8rem;
+    }
+}
 
 
 /***
