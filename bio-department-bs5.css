@@ -6,11 +6,6 @@
 */
 
 
-
-
-
-
-
 /***
 *       Organizer Styles
 *
@@ -18,26 +13,21 @@
 */
 
 .departmentOrganizer .titleWrapper.standardContent {
-
     margin-left: 1rem;
     padding-left: 1rem;
 }
 
 .departmentOrganizer .organizer.standardContent {
-
     max-width: none;
     margin: 1rem;
     padding: 1rem;
 }
 
 .departmentOrganizer .standardContent h2 {
-
-    font-family:  "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 2.25rem;
     margin-bottom: 3rem;
 }
-
-
 
 
 /***
@@ -45,12 +35,10 @@
 *
 *
 */
-.departmentBioWrapper {
 
+.departmentBioWrapper {
     margin-bottom: 3rem;
 }
-
-
 
 
 /***
@@ -58,16 +46,15 @@
 *
 *
 */
-.departmentBioWrapper h3 {
 
-    font-family:  "Montserrat", sans-serif;
+.departmentBioWrapper h3 {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.75rem;
     line-height: 1.2;
     margin: 0;
 }
 
 .departmentBioWrapper p.card-subtitle {
-
     font-size: 1.1rem;
     line-height: 1.2;
     margin: 0;
@@ -80,25 +67,21 @@
 }
 
 .departmentBioWrapper .list-group-item:first-child {
-
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding-left: 0;
 }
 
 .departmentBioWrapper ul.contactList {
-
     line-height: 1.5;
     margin: 0;
 }
 
 .departmentBioWrapper ul.contactList li {
-
     display: inline;
 }
 
 .departmentBioWrapper .list-group-item {
-
     background-color: transparent;
     border: none;
     font-size: 1.2rem;
@@ -106,67 +89,48 @@
 }
 
 .departmentBioWrapper ul li:before {
-
     content: none;
 }
 
 .departmentBioWrapper .contactList .location {
-
     display: inline-block;
 }
 
 .departmentBioWrapper .contactList .emailAddress {
-
     color: #088099;
     display: inline-block;
 }
-
 
 .departmentBioWrapper .contactList .emailAddress a {
-
     color: #088099;
     text-decoration: none;
 }
 
-
 .departmentBioWrapper .contactList .emailAddress a:hover {
-
     text-decoration: underline;
 }
-
 
 .departmentBioWrapper .contactList .emailAddress a:active {
-
     text-decoration: underline;
 }
 
-
 .departmentBioWrapper .contactList .officePhone {
-
     color: #088099;
     display: inline-block;
 }
 
-
 .departmentBioWrapper .contactList .officePhone a {
-
     color: #088099;
     text-decoration: none;
 }
 
-
 .departmentBioWrapper .contactList .officePhone a:hover {
-
     text-decoration: underline;
 }
-
 
 .departmentBioWrapper .contactList .officePhone a:active {
-
     text-decoration: underline;
 }
-
-
 
 
 /***
@@ -174,8 +138,8 @@
 *
 *
 */
+
 .departmentBioWrapper img.deptBioImage {
-    
     margin: 0;
     padding: 0;
     width: 100%;
@@ -184,14 +148,9 @@
     width: fill-available;
 }
 
-
 .departmentBioWrapper figure {
-
     display: contents;
 }
-
-
-
 
 
 /***
@@ -199,53 +158,45 @@
 *       
 */
 
-@media screen and (max-width: 1399.98px) {}
-
-
-@media screen and (min-width: 992px) and (max-width: 1199.98px) {
-
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
     .departmentBioWrapper h3 {
-
         font-size: 1.5rem;
     }
+    .departmentBioWrapper p.card-text {
+        font-size: 1.15rem;
+    }
+}
 
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .departmentBioWrapper h3 {
+        font-size: 1.5rem;
+    }
     .departmentBioWrapper p.card-subtitle {
-    
         font-size: 1rem;
         line-height: 1.2;
     }
-    
     .departmentBioWrapper p.card-text {
-
         font-size: 0.8rem;
         font-weight: 500;
         padding: 0.5rem 0 0 0;
     }
-
     .departmentBioWrapper .list-group-item {
-
         font-size: 1rem;
         line-height: 1.5;
         padding: 0 1rem;
     }
-
 }
 
-
 @media screen and (max-width: 991.98px) {
-
     .departmentBioWrapper h3 {
-
         font-size: 1.5rem;
+    }
+    .departmentBioWrapper .list-group-item {
+        font-size: 1rem;
     }
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 991.98px) {}
-
-
-
-
 
 
 /***
