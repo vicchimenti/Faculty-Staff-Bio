@@ -203,13 +203,9 @@
           * 
           * */
          let titleLink =
-            (gridBioDict.fullTextLink.content && gridBioDict.firstName.content && gridBioDict.lastName.content && gridBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.firstName.content + '">' + gridBioDict.firstName.content + ' ' + gridBioDict.lastName.content + '</a> (' + gridBioDict.pronouns.content + ')</h3>'
-            : (gridBioDict.fullTextLink.content && gridBioDict.firstName.content && gridBioDict.lastName.content && !gridBioDict.pronouns.content)
+            (gridBioDict.fullTextLink.content && gridBioDict.firstName.content && gridBioDict.lastName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.firstName.content + '">' + gridBioDict.firstName.content + ' ' + gridBioDict.lastName.content + '</a></h3>'
-            : (gridBioDict.fullTextLink.content && gridBioDict.fullName.content && gridBioDict.pronouns.content)
-            ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.fullName.content + '">' + gridBioDict.fullName.content + '</a> (' + gridBioDict.pronouns.content + ')</h3>'
-            : (gridBioDict.fullTextLink.content && gridBioDict.fullName.content && !gridBioDict.pronouns.content)
+            : (gridBioDict.fullTextLink.content && gridBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.fullName.content + '">' + gridBioDict.fullName.content + '</a></h3>'
             : (gridBioDict.fullTextLink.content && !gridBioDict.fullName.content)
             ? '<h3 class="card-title border-0 bg-transparent"><a href="' + gridBioDict.fullTextLink.content + '" class="card-link" title="See the full profile of: ' + gridBioDict.contentName.content + '">' + gridBioDict.contentName.content + '</a></h3>'
