@@ -20,6 +20,11 @@
     margin: 0;
 }
 
+.gridBioWrapper p.card-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 
 /***
 *       Media Queries
