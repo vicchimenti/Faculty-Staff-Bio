@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 10.2.3
+     *     @version 10.2.4
      * 
      * */
 
@@ -156,12 +156,6 @@
           * 
           * */
          let endingHTML = '</article>';
-        //  let openRow = '<div class="row g-0 noGap">';
-        //  let closeRow = '</div>';
-        //  let openImageWrapper = '<div class="imageWrapper col-12 col-sm-3 d-flex align-items-center">';
-        //  let closeImageWrapper = '</div>';
-        //  let openBodyWrapper = '<div class="bodyWrapper col-12 col-sm-9 d-flex align-items-center">';
-        //  let closeBodyWrapper = '</div>';
          let openBody = '<div class="departBioSummary card-body">';
          let closeBody = '</div>';
          let openFooter = '<div class="card-footer">';
@@ -224,75 +218,7 @@
 
 
 
-        /***
-         *  parse summary
-         * 
-         * */
-        //  let summaryBioString =
-        //     (gridBioDict.description.content)
-        //     ? '<div class="summaryBio"><p class="summaryBio card-text">' + gridBioDict.description.content + '</p></div>'
-        //     : '<span class="summaryBio visually-hidden hidden">No summary entered</span>';
 
-
-
-
-        /***
-          *  parse for email
-          * 
-          * */
-        // let emailAddressString =
-        //     (gridBioDict.emailAddress.content && gridBioDict.firstName.content && gridBioDict.fullName.content)
-        //     ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + gridBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + gridBioDict.fullName.content + '">Email ' + gridBioDict.firstName.content + '</a></span>'
-        //     : (gridBioDict.emailAddress.content && gridBioDict.fullName.content)
-        //     ? '<span class="emailAddress card-text"><i class="fas fa-envelope"></i> <a class="emailAddress card-link" href="mailto:' + gridBioDict.emailAddress.content + '?subject=From your Faculty Profile" title="Email ' + gridBioDict.fullName.content + '">Email ' + gridBioDict.fullName.content + '</a></span>'
-        //     : '<span class="emailAddress visually-hidden hidden">No email entered</span>';
-
-
-
-
-        /***
-          *  parse for phone
-          * 
-          * */
-        // let phoneString =
-        //     (gridBioDict.officePhone.content && gridBioDict.fullName.content)
-        //     ? '<span class="officePhone card-text"><i class="fas fa-phone-alt"></i> <a class="officePhone card-link" href="tel:' + gridBioDict.officePhone.content + '" title="Call ' + gridBioDict.fullName.content + '">' + gridBioDict.officePhone.content + '</a></span>'
-        //     : '<span class="officePhone visually-hidden hidden">No phone entered</span>';
-
-
-
-
-        /***
-         *  parse titles
-         * 
-         * */
-        // let bldgRoomString =
-        //     (gridBioDict.bldgRoom.content)
-        //     ? '<span class="location card-text"><i class="fas fa-university"></i> ' + gridBioDict.bldgRoom.content + '</span>'
-        //     : '<span class="location visually-hidden hidden">No location entered</span>';
-
-
-
-
-        /***
-         *  format contact string
-         * 
-         * */
-        //  let contactArray = [bldgRoomString, emailAddressString, phoneString];
-        //  let contactList = assignList(contactArray);
-        //  let contactString = '<ul class="contactList d-flex flex-column flex-md-row justify-content-start p-0">' + contactList + '</ul>';
-
-
-
-
-        /***
-         *  parse college
-         * 
-         * */
-        // let collegeSub =
-        //     (gridBioDict.college.content)
-        //     ? '<span class="college card-text">' + gridBioDict.college.content + '</span>'
-        //     : '<span class="college visually-hidden hidden">No location entered</span>';
 
 
 
@@ -353,23 +279,15 @@
           * */
          writeDocument(
              [
-                 beginningHTML,
-                //  openRow,
-                //  openImageWrapper,
-                 imageString,
-                //  closeImageWrapper,
-                //  openBodyWrapper,
-                 openBody,
-                 titleLink,
-                //  contactString,
-                //  summaryBioString,
-                 closeBody,
-                //  closeBodyWrapper,
-                //  closeRow,
+                beginningHTML,
+                imageString,
+                openBody,
+                titleLink,
+                closeBody,
                 openFooter,
                 subtitleString,
                 closeFooter,
-                 endingHTML
+                endingHTML
              ]
          );
  
