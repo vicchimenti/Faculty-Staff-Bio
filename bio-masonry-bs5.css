@@ -3,3 +3,25 @@
     min-width: 250px;
     max-width: 250px;
 }
+
+
+/***
+*       Media Queries
+*       
+*/
+
+@media screen and (max-width: 991.98px) {
+    .gridBioWrapper {
+        margin: 1rem 0;
+        max-width: unset;
+    }
+}
+
+/* @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
+    .departmentBioWrapper h3 {
+        font-size: 1.5rem;
+    }
+    .departmentBioWrapper p.card-text {
+        font-size: 1.05rem;
+    }
+} */
