@@ -166,7 +166,7 @@
          let closeBody = '</div>';
          let openFooter = '<div class="card-footer">';
          let closeFooter = '</div>';
-         let imageString = '<span class="bioImage visually-hidden hidden"></span>'
+         let imageString = '<span class="bioImage visually-hidden hidden"></span>';
          let beginningHTML = '<article class="gridBioWrapper card shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + gridBioDict.contentName.content + '">';
 
 
