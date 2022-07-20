@@ -8,7 +8,7 @@
      *
      *     Document will write once when the page loads
      * 
-     *     @version 10.2.2
+     *     @version 10.2.3
      * 
      * */
 
@@ -40,12 +40,12 @@
              return {
                  isError: false,
                  content: _tag == '' ? null : _tag
-             }
+             };
          } catch (error) {
              return {
                  isError: true,
                  message: error.message
-             }
+             };
          }
      }
  
@@ -178,7 +178,7 @@
          * */
          function modifyWrapper(ariaLabel) {
 
-            beginningHTML = '<article class="gridBioWrapper card h-100 shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + ariaLabel + '">';
+            beginningHTML = '<article class="gridBioWrapper card shadow-lg border-2" id="departmentBio' + gridBioDict.contentId.content + '" aria-label="' + ariaLabel + '">';
         }
 
 
