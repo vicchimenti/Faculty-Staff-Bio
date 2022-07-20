@@ -13,6 +13,11 @@
     max-width: 250px;
 }
 
+.card-group>.gridBioWrapper:first-child {
+    margin-left: 0;
+    border-left: 0;
+}
+
 .gridBioWrapper h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 1.25rem;
@@ -25,6 +30,8 @@
     font-weight: 500;
     margin-bottom: 0;
 }
+
+
 
 
 /***
