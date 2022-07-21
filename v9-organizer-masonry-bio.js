@@ -239,9 +239,34 @@
           *  define subtitle
           * 
           * */
-        let subtitleString = (gridBioDict.positionTitle.content) ?
+          let subtitleString = (gridBioDict.positionTitle.content) ?
             '<p class="card-subtitle">' + positionTitleSub + '</p>' :
             '<span class="card-subtitle">No subtitle fields entered</span>';
+
+
+
+
+        /***
+          *  define popover link
+          * 
+          * */
+         let popoverTitleString = (arrayOfTitles) ?
+            '<span class="title card-text">' + arrayOfTitles[0] + '</span>' :
+            null; 
+         let popoverLink = (popoverTitleString) ?
+            '<a tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="'+ arrayOfTitles[0] +'" data-bs-content="some amazing content, very engaging. Right?"><p class="card-subtitle">' + popoverTitleString + '</p></a>' :         
+            '<span class="card-subtitle">No valid popover</span>';
+
+
+
+         /***
+          *  define popover content
+          * 
+          * */
+        //   let popOverString = (gridBioDict.positionTitle.content && subtitleString) ?
+        //   '<div class="popover" role="tooltip"><div class="popover-arrow"></div><h4 class="popover-header"></h4><div class="popover-body"></div></div>'
+        //   '<p class="card-subtitle">' + positionTitleSub + '</p>' :
+        //   '<span class="card-subtitle">No subtitle fields entered</span>';            
 
  
 
@@ -279,6 +304,7 @@
                 closeBody,
                 openFooter,
                 subtitleString,
+                popoverLink,
                 closeFooter,
                 endingHTML
              ]
