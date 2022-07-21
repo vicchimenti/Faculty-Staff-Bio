@@ -254,7 +254,7 @@
             '<span class="title card-text">' + arrayOfTitles[0] + '</span>' :
             null; 
          let popoverLink = (popoverTitleString) ?
-            '<a tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="'+ arrayOfTitles[0] +'" data-bs-content="some amazing content, very engaging. Right?"><p class="card-subtitle">' + popoverTitleString + '</p></a>' :         
+            '<a tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="'+ arrayOfTitles[0] +'" data-bs-content="some amazing content, very engaging. Right?">'+ arrayOfTitles[0] +'</a>' :         
             '<span class="card-subtitle">No valid popover</span>';
 
 
