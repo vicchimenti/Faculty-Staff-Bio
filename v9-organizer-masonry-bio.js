@@ -223,14 +223,13 @@
          *  parse titles and display only the first title
          * 
          * */
-         let arrayOfTitles =
-            (gridBioDict.positionTitle.content)
-            ? gridBioDict.positionTitle.content.split('\n')
-            : null;
-         let positionTitleSub =
-            (arrayOfTitles)
-            ? '<span class="title card-text">' + arrayOfTitles[0] + '</span>'
-            : '<span class="title visually-hidden hidden">No title entered</span>'; 
+         let arrayOfTitles = (gridBioDict.positionTitle.content) ?
+            gridBioDict.positionTitle.content.split('\n') :
+            null;
+
+         let positionTitleSub = (arrayOfTitles) ?
+            '<span class="title card-text">' + arrayOfTitles[0] + '</span>' :
+            '<span class="title visually-hidden hidden">No title entered</span>'; 
 
  
  
@@ -240,10 +239,9 @@
           *  define subtitle
           * 
           * */
-        let subtitleString =
-            (gridBioDict.positionTitle.content)
-            ? '<p class="card-subtitle">' + positionTitleSub + '</p>'
-            : '<span class="card-subtitle">No subtitle fields entered</span>';
+        let subtitleString = (gridBioDict.positionTitle.content) ?
+            '<p class="card-subtitle">' + positionTitleSub + '</p>' :
+            '<span class="card-subtitle">No subtitle fields entered</span>';
 
  
 
@@ -260,10 +258,9 @@
             let info = new ImageInfo;
             info.setInput(media);
 
-            imageString =
-                (info.check())
-                ? '<figure class="figure p-0 m-0"><img src="' + gridBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img-top p-0 m-0" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>'
-                : '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
+            imageString = (info.check()) ?
+                '<figure class="figure p-0 m-0"><img src="' + gridBioDict.primaryImagePath.content + '" class="deptBioImage figure-img card-img-top p-0 m-0" aria-label="' + mediaInfo.getName() + '" alt="' + mediaInfo.getDescription() + '" width="' + info.getWidth() + '" height="' + info.getHeight() + '" loading="auto" /></figure><figcaption class="figure-caption visually-hidden hidden">' + mediaInfo.getName() + '</figcaption>' :
+                '<span class="deptBioImage visually-hidden hidden">Invalid Image ID</span>';
         }
 
 
