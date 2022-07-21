@@ -111,6 +111,16 @@
              document.write(array[i]);
          }
      }
+
+
+
+
+    /***
+      *      Initialize Popovers
+      */
+     let popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+        trigger: 'focus'
+      })
  
  
  
@@ -304,7 +314,7 @@
                 closeBody,
                 openFooter,
                 subtitleString,
-                popoverLink,
+                // popoverLink,
                 closeFooter,
                 endingHTML
              ]
