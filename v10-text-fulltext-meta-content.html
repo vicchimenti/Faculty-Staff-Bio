@@ -34,7 +34,7 @@
 <t4 type='content' name='Staff Department' output='normal' display_field='value' delimiter=' | ' />
 
 
-<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />
+<t4 type="content" name="Pronouns" output="selective-output" process-format="true" format="<meta property=&quot;profile:pronouns&quot; content=&quot;<t4 type='content' name='Pronouns' output='normal' modifiers='striptags,htmlentities' />&quot;>" />
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-<meta property=&quot;profile:pronouns&quot; content=&quot;<t4 type='content' name='Pronouns' output='normal' modifiers='striptags,htmlentities' />&quot;>
+
 <meta property=&quot;profile:affiliation&quot; content=&quot;&quot;>
 
 
