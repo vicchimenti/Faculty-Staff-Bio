@@ -53,6 +53,24 @@
   
         <aside class="callout text-margin-reset">
           <div class="eyebrow" id="contact-title">Contact Information</div>
+
+          <?php 
+            $phone = '<t4 type="content" name="Phone" output="normal" />';
+            $email = '<t4 type="content" name="Email Address" output="normal" />';
+            if (!empty(trim($phone)) || !empty(trim($email))) : 
+          ?>
+              <ul class="icon-list" id="contact-list">
+                <t4 type="content" name="Phone" output="selective-output" process-format="true" format="<li>
+                  <span class=&quot;icon-list__icon fas fa-phone&quot; aria-hidden=&quot;true&quot;></span>
+                  <span class=&quot;icon-list__content&quot;><a href='tel:<t4 type=&quot;content&quot; name=&quot;Phone&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />'><t4 type=&quot;content&quot; name=&quot;Phone&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></a></span>
+                </li>" />
+
+                <t4 type="content" name="Email Address" output="selective-output" process-format="true" format="<li>
+                  <span class=&quot;icon-list__icon fas fa-envelope&quot; aria-hidden=&quot;true&quot;></span>
+                  <span class=&quot;icon-list__content&quot;><a href='mailto:<t4 type=&quot;content&quot; name=&quot;Email Address&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />'><t4 type=&quot;content&quot; name=&quot;Email Address&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></a></span>
+                </li>" />
+              </ul>
+          <?php endif; ?>
   
           <ul class="icon-list" id="contact-list">
   
