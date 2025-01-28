@@ -27,6 +27,13 @@
                 <?php echo tags_list('<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />','<t4 type="navigation" name="Faculty and Staff Bio Link to Home" id="995" />','typeOfStaff', '|'); ?>
               </ul>
             </div>
+
+            <?php if ('<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />') : ?>
+                <h2 class="tags__heading show-for-sr">Profile Type:</h2>
+                <ul>
+                    <?php echo tags_list('<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />','<t4 type="navigation" name="Faculty and Staff Bio Link to Home" id="995" />','typeOfStaff', '|'); ?>
+                </ul>
+            <?php endif; ?>
   
   
             <div class="wysiwyg">
