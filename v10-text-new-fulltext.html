@@ -150,7 +150,56 @@
           </dd>" />
         </dl>
       </aside>
+
+
+      <?php 
+        $primaryDept = '<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />';
+        $homeCollege = '<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />';
+        $pronouns = '<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />';
+        $expertise = '<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />';
+
+        if ($primaryDept || $homeCollege || $pronouns || $expertise) : 
+      ?>
+        <aside class="school-affiliation text-margin-reset global-spacing--1x">
+          <dl>
+            <t4 type="content" name="Primary Department" output="selective-output" modifiers="nav_sections" process-format="true" format="<dt>Office/Department</dt>
+            <dd>
+              <ul>
+                <li>                      
+                  <t4 type=&quot;content&quot; name=&quot;Primary Department&quot; output=&quot;normal&quot; modifiers=&quot;nav_sections&quot; />
+                </li>
+                <li>                      
+                  <t4 type=&quot;content&quot; name=&quot;Secondary Department&quot; output=&quot;normal&quot; modifiers=&quot;nav_sections&quot; />
+                </li>
+              </ul>
+            </dd>" />
+            <t4 type="content" name="Home College" output="selective-output" modifiers="nav_sections" process-format="true" format="<dt>School/College</dt>
+            <dd>
+              <ul>
+                <li>
+                  <t4 type=&quot;content&quot; name=&quot;Home College&quot; output=&quot;normal&quot; modifiers=&quot;nav_sections&quot; />
+                </li>
+              </ul>
+            </dd>" />
+            <t4 type="content" name="Pronouns" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<dt>Pronouns</dt>
+            <dd>
+              <ul>
+                <li><t4 type=&quot;content&quot; name=&quot;Pronouns&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></li>
+              </ul>
+            </dd>" />
+            <t4 type="content" name="Areas of Expertise" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<dt>Areas of Expertise</dt>
+            <dd>
+              <div class=&quot;wysiwyg&quot;>
+                <t4 type=&quot;content&quot; name=&quot;Areas of Expertise&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />
+              </div>
+            </dd>" />
+          </dl>
+        </aside>
+      <?php endif; ?>
     </div>
+
+
+    
     <div class="cell medium-8">
       <p class="intro-text"><t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" /></p>
       <t4 type="content" name="Extended Biography" output="selective-output" modifiers="medialibrary,nav_sections" process-format="true" format="<div class=&quot;profile--section profile--section__biography global-spacing--5x&quot;>
