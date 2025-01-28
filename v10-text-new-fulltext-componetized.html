@@ -5,69 +5,69 @@
     Version: 1.2.0
 -->
 <?php
-// Content fields dictionary
-$contentFields = [
-    // Hero/Profile Info
-    'photo' => '<t4 type="content" name="Photo" output="normal" />',
-    'name' => '<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />',
-    'staffType' => '<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />',
-    'position' => '<t4 type="content" name="Position Title(s)" output="normal" modifiers="nl2br" />',
-    'description' => '<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />',
-    'extendedBio' => '<t4 type="content" name="Extended Biography" output="normal" modifiers="medialibrary,nav_sections" />',
-    'education' => '<t4 type="content" name="Education" output="normal" modifiers="medialibrary,nav_sections" />',
-    'coursesTaught' => '<t4 type="content" name="Courses Taught" output="normal" modifiers="medialibrary,nav_sections" />',
-    'publications' => '<t4 type="content" name="Publications" output="normal" modifiers="medialibrary,nav_sections" />',
-    
-    // Contact Information
-    'phone' => '<t4 type="content" name="Phone" output="normal" />',
-    'email' => '<t4 type="content" name="Email Address" output="normal" />',
-    'personalWebsite' => '<t4 type="content" name="Personal Website" output="normal" />',
-    
-    // Social Media
-    'tiktok' => '<t4 type="content" name="TikTok URL" output="normal" />',
-    'threads' => '<t4 type="content" name="Threads URL" output="normal" />',
-    'twitter' => '<t4 type="content" name="Twitter/X URL" output="normal" />',
-    'youtube' => '<t4 type="content" name="YouTube URL" output="normal" />',
-    'linkedin' => '<t4 type="content" name="LinkedIn URL" output="normal" />',
-    'instagram' => '<t4 type="content" name="Instagram URL" output="normal" />',
-    'facebook' => '<t4 type="content" name="Facebook URL" output="normal" />',
-    
-    // School Affiliation
-    'primaryDept' => '<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />',
-    'secondaryDept' => '<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />',
-    'homeCollege' => '<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />',
-    'pronouns' => '<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />',
-    'expertise' => '<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />'
-];
+  // Content fields dictionary
+  $contentFields = [
+      // Hero/Profile Info
+      'photo' => '<t4 type="content" name="Photo" output="normal" />',
+      'name' => '<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />',
+      'staffType' => '<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />',
+      'position' => '<t4 type="content" name="Position Title(s)" output="normal" modifiers="nl2br" />',
+      'description' => '<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />',
+      'extendedBio' => '<t4 type="content" name="Extended Biography" output="normal" modifiers="medialibrary,nav_sections" />',
+      'education' => '<t4 type="content" name="Education" output="normal" modifiers="medialibrary,nav_sections" />',
+      'coursesTaught' => '<t4 type="content" name="Courses Taught" output="normal" modifiers="medialibrary,nav_sections" />',
+      'publications' => '<t4 type="content" name="Publications" output="normal" modifiers="medialibrary,nav_sections" />',
+      
+      // Contact Information
+      'phone' => '<t4 type="content" name="Phone" output="normal" />',
+      'email' => '<t4 type="content" name="Email Address" output="normal" />',
+      'personalWebsite' => '<t4 type="content" name="Personal Website" output="normal" />',
+      
+      // Social Media
+      'tiktok' => '<t4 type="content" name="TikTok URL" output="normal" />',
+      'threads' => '<t4 type="content" name="Threads URL" output="normal" />',
+      'twitter' => '<t4 type="content" name="Twitter/X URL" output="normal" />',
+      'youtube' => '<t4 type="content" name="YouTube URL" output="normal" />',
+      'linkedin' => '<t4 type="content" name="LinkedIn URL" output="normal" />',
+      'instagram' => '<t4 type="content" name="Instagram URL" output="normal" />',
+      'facebook' => '<t4 type="content" name="Facebook URL" output="normal" />',
+      
+      // School Affiliation
+      'primaryDept' => '<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />',
+      'secondaryDept' => '<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />',
+      'homeCollege' => '<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />',
+      'pronouns' => '<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />',
+      'expertise' => '<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />'
+  ];
 
-$navFields = [
-    'relatedNews' => '<t4 type="navigation" name="Profile related news" id="994" />',
-    'newsLink' => '<t4 type="navigation" name="Link to News & Stories" id="991" />',
-    'biosBreadcrumb' => '<t4 type="navigation" name="Bios breadcrum v10" id="1028" />'
-];
+  $navFields = [
+      'relatedNews' => '<t4 type="navigation" name="Profile related news" id="994" />',
+      'newsLink' => '<t4 type="navigation" name="Link to News & Stories" id="991" />',
+      'biosBreadcrumb' => '<t4 type="navigation" name="Bios breadcrum v10" id="1028" />'
+  ];
 
-function hasContent($field) {
-    return !empty(trim($field));
-}
+  function hasContent($field) {
+      return !empty(trim($field));
+  }
 
-function hasAnyContent($fields) {
-    return array_reduce($fields, function($carry, $field) {
-        return $carry || hasContent($field);
-    }, false);
-}
+  function hasAnyContent($fields) {
+      return array_reduce($fields, function($carry, $field) {
+          return $carry || hasContent($field);
+      }, false);
+  }
 
-$contactFields = [$contentFields['phone'], $contentFields['email']];
-$socialFields = [
-    $contentFields['tiktok'], $contentFields['threads'], $contentFields['twitter'],
-    $contentFields['youtube'], $contentFields['linkedin'], $contentFields['instagram'],
-    $contentFields['facebook']
-];
-$affiliationFields = [
-    $contentFields['primaryDept'],
-    $contentFields['homeCollege'],
-    $contentFields['pronouns'],
-    $contentFields['expertise']
-];
+  $contactFields = [$contentFields['phone'], $contentFields['email']];
+  $socialFields = [
+      $contentFields['tiktok'], $contentFields['threads'], $contentFields['twitter'],
+      $contentFields['youtube'], $contentFields['linkedin'], $contentFields['instagram'],
+      $contentFields['facebook']
+  ];
+  $affiliationFields = [
+      $contentFields['primaryDept'],
+      $contentFields['homeCollege'],
+      $contentFields['pronouns'],
+      $contentFields['expertise']
+  ];
 ?>
 
 <div class="hero--basic">
