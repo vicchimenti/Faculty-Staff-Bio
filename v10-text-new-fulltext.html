@@ -41,7 +41,7 @@
       <?php 
         $phone = '<t4 type="content" name="Phone" output="normal" />';
         $email = '<t4 type="content" name="Email Address" output="normal" />';
-        $personalWebsite = '<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />';
+        $personalWebsite = '<t4 type="content" name="Personal Website" output="normal" />';
         $tiktok = '<t4 type="content" name="TikTok URL" output="normal" />';
         $threads = '<t4 type="content" name="Threads URL" output="normal" />';
         $twitter = '<t4 type="content" name="Twitter/X URL" output="normal" />';
@@ -75,9 +75,9 @@
 
           <div class="eyebrow" id="social-media-title">Connect</div>
           <?php 
-          if (!empty(trim($tiktok)) || !empty(trim($threads)) || !empty(trim($twitter)) || 
-              !empty(trim($youtube)) || !empty(trim($linkedin)) || !empty(trim($instagram)) || 
-              !empty(trim($facebook))) : 
+            if (!empty(trim($tiktok)) || !empty(trim($threads)) || !empty(trim($twitter)) || 
+                !empty(trim($youtube)) || !empty(trim($linkedin)) || !empty(trim($instagram)) || 
+                !empty(trim($facebook))) : 
           ?>
             <ul class="icon-list social-media global-spacing--4x btn-row" id="social-media-list">
               <t4 type="content" name="TikTok URL" output="selective-output" process-format="true" format="<li>
