@@ -36,6 +36,7 @@
 <div class="grid-container global-spacing--10x">
   <div class="grid-x grid-margin-x">
     <div class="cell medium-4">
+
       <aside class="callout text-margin-reset">
         <div class="eyebrow" id="contact-title">Contact Information</div>
         <?php 
@@ -115,6 +116,97 @@
           </ul>
         <?php endif; ?>
       </aside>
+
+
+
+      <?php 
+        $phone = '<t4 type="content" name="Phone" output="normal" />';
+        $email = '<t4 type="content" name="Email Address" output="normal" />';
+        $personalWebsite = '<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />';
+        $tiktok = '<t4 type="content" name="TikTok URL" output="normal" />';
+        $threads = '<t4 type="content" name="Threads URL" output="normal" />';
+        $twitter = '<t4 type="content" name="Twitter/X URL" output="normal" />';
+        $youtube = '<t4 type="content" name="YouTube URL" output="normal" />';
+        $linkedin = '<t4 type="content" name="LinkedIn URL" output="normal" />';
+        $instagram = '<t4 type="content" name="Instagram URL" output="normal" />';
+        $facebook = '<t4 type="content" name="Facebook URL" output="normal" />';
+
+        if (!empty(trim($phone)) || !empty(trim($email)) || !empty(trim($personalWebsite)) ||
+            !empty(trim($tiktok)) || !empty(trim($threads)) || !empty(trim($twitter)) || 
+            !empty(trim($youtube)) || !empty(trim($linkedin)) || !empty(trim($instagram)) || 
+            !empty(trim($facebook))) : 
+      ?>
+        <aside class="callout text-margin-reset">
+          <div class="eyebrow" id="contact-title">Contact Information</div>
+          <?php if (!empty(trim($phone)) || !empty(trim($email))) : ?>
+            <ul class="icon-list" id="contact-list">
+              <t4 type="content" name="Phone" output="selective-output" process-format="true" format="<li>
+                <span class=&quot;icon-list__icon fas fa-phone&quot; aria-hidden=&quot;true&quot;></span>
+                <span class=&quot;icon-list__content&quot;><a href='tel:<t4 type=&quot;content&quot; name=&quot;Phone&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />'><t4 type=&quot;content&quot; name=&quot;Phone&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></a></span>
+              </li>" />
+              <t4 type="content" name="Email Address" output="selective-output" process-format="true" format="<li>
+                <span class=&quot;icon-list__icon fas fa-envelope&quot; aria-hidden=&quot;true&quot;></span>
+                <span class=&quot;icon-list__content&quot;><a href='mailto:<t4 type=&quot;content&quot; name=&quot;Email Address&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />'><t4 type=&quot;content&quot; name=&quot;Email Address&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></a></span>
+              </li>" />
+            </ul>
+          <?php endif; ?>
+
+          <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
+          <t4 type="content" name="Personal Website" output="selective-output" process-format="true" format="<ul id=&quot;relevant-sites-list&quot;><li><a href=&quot;<t4 type=&quot;content&quot; name=&quot;Personal Website&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot;><t4 type=&quot;content&quot; name=&quot;Personal Website&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; /></a></li></ul>" />
+
+          <div class="eyebrow" id="social-media-title">Connect</div>
+          <?php 
+          if (!empty(trim($tiktok)) || !empty(trim($threads)) || !empty(trim($twitter)) || 
+              !empty(trim($youtube)) || !empty(trim($linkedin)) || !empty(trim($instagram)) || 
+              !empty(trim($facebook))) : 
+          ?>
+            <ul class="icon-list social-media global-spacing--4x btn-row" id="social-media-list">
+              <t4 type="content" name="TikTok URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;TikTok URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;Tiktok opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>Tiktok</span>
+                  <span class=&quot;fa-brands fa-tiktok&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="Threads URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;Threads URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;Threads opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>Threads</span>
+                  <span class=&quot;fa-brands fa-square-threads&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="Twitter/X URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;Twitter/X URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;Twitter opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>Twitter</span>
+                  <span class=&quot;fa-brands fa-square-x-twitter&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="YouTube URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;YouTube URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;YouTube opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>YouTube</span>
+                  <span class=&quot;fa-brands fa-square-youtube&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="LinkedIn URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;LinkedIn URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;LinkedIn opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>LinkedIn</span>
+                  <span class=&quot;fa-brands fa-linkedin&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="Instagram URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;Instagram URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;Instagram opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>Instagram</span>
+                  <span class=&quot;fa-brands fa-square-instagram&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+              <t4 type="content" name="Facebook URL" output="selective-output" process-format="true" format="<li>
+                <a href=&quot;<t4 type=&quot;content&quot; name=&quot;Facebook URL&quot; output=&quot;normal&quot; modifiers=&quot;striptags,htmlentities&quot; />&quot; target=&quot;_blank&quot; aria-label=&quot;Facebook opens in a new window&quot;>
+                  <span class=&quot;show-for-sr&quot;>Facebook</span>
+                  <span class=&quot;fa-brands fa-square-facebook&quot; aria-hidden=&quot;true&quot;></span>
+                </a>
+              </li>" />
+            </ul>
+          <?php endif; ?>
+        </aside>
+      <?php endif; ?>
 
 
 
