@@ -42,7 +42,7 @@
                     <div class="global-spacing--1x"></div>
                   <?php endif; ?>
                 </div>
-              <?php if ($item['phone'] !== '' || $item['email'] !== '' || $item['buildingRoomNumber'] !== '') : ?>
+              <?php if ($item['phone'] !== '' || $item['email'] !== '') : ?>
                 <div class="cell small-6 medium-3 text-margin-reset">
                   <div class="eyebrow">Contact Information</div>
                   <div class="global-spacing--2x">
