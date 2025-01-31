@@ -269,8 +269,7 @@
   </div>
 </div>
 
-
-<?php if (!empty(htmlspecialchars(preg_replace('/[^\w\s]/u', '', '<t4 type="navigation" name="Profile related news" id="994" />')))) : ?>
+<?php if (strlen('<t4 type="navigation" name="Profile related news" id="994" />') > 0) : ?>
   <section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">
     <div class="grid-container oho-animate-sequence">
       <div class="grid-x grid-margin-x">
