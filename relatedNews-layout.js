@@ -145,6 +145,12 @@ let relatedNewsDict = {
     anchor: getContentValues('<t4 type="meta" meta="html_anchor" />'),
     contentId: getContentValues('<t4 type="meta" meta="content_id" />')
 
+
+    <t4 type=&quot;navigation&quot; name=&quot;Link to News & Stories&quot; id=&quot;991&quot; />">Related News &amp; Stories</a>
+          </div>
+
+
+          <t4 type="navigation" name="Profile related news" id="994" />
 };
 
 
