@@ -1,7 +1,7 @@
 /**
  * @file v10/relatedNews/layout.js
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
- * @version 1.0.1
+ * @version 1.0.2
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  * 
  */
@@ -9,31 +9,7 @@
 /***
  *      Import T4 Utilities
  */
-importClass(com.terminalfour.spring.ApplicationContextProvider);
 importClass(com.terminalfour.publish.utils.BrokerUtils);
-
-/**
- *     Import media libraries<section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">
-  <div class="grid-container oho-animate-sequence">
-    <div class="grid-x grid-margin-x">
-      <div class="cell large-9">
-        <div class="section-heading--basic text-margin-reset">
-          <h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>
-          <div class="section-heading__link global-spacing--2x oho-animate fade-in">
-            <a href="<t4 type=&quot;navigation&quot; name=&quot;Link to News & Stories&quot; id=&quot;991&quot; />">Related News &amp; Stories</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <ul class="grid-x grid-margin-x global-spacing--6x">
-      <t4 type="navigation" name="Profile related news" id="994" />
-    </ul>
-  </div>
-</section>
- */
-
-
-
 
 
 
@@ -140,7 +116,7 @@ try {
   *  News Link
   * 
   * */
-  let newsLink = (relatedNewsDict.newsroomLink.content) ?
+  let newsLinkString = (relatedNewsDict.newsroomLink.content) ?
     '<div class="section-heading__link global-spacing--2x oho-animate fade-in">' + 
     '<a href="' + relatedNewsDict.newsroomLink.content + '">Related News &amp; Stories</a></div>' :
     '<span hidden class="newsLink d-none visually-hidden"></span>';
@@ -152,18 +128,9 @@ try {
   *  News Feed
   * 
   * */
-  let  = (relatedNewsDict.newsFeed.content) ?
+  let  newsFeedString= (relatedNewsDict.newsFeed.content) ?
     '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
     '<span hidden class="newsFeed d-none visually-hidden"></span>';
-
-
-
-
-
-
-
-
-
 
 
 
@@ -174,7 +141,11 @@ try {
   * */
   writeDocument(
       [
-
+        openNewsWrapper,
+        newsLinkString,
+        closeGridWrapper,
+        newsFeedString,
+        closeNewsWrapper
       ]
   );
 
