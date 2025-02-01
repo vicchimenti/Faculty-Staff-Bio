@@ -1,8 +1,9 @@
 /**
  * @file v10/relatedNews/layout.js
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
- * @version 1.2.1
- * @fileoverview Handles the display of related news stories for Faculty and Staff Bio profiles
+ * @version 1.2.2
+ * @fileoverview Handles the display of related news stories for Faculty and Staff Bio Profiles
+ * @requires Nav Object (Return Bio Related News Feed id:1094)
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  * @author Victor Chimenti
  * @copyright 2025 Seattle University
