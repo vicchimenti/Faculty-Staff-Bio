@@ -67,7 +67,7 @@ try {
         throw new Error('Error loading navigation content');
     }
 
-    const hiddenSpan = '<span hidden class="d-none visually-hidden"></span>';
+    const hiddenSpan = '<span hidden class="bioRelatedNews d-none visually-hidden"></span>';
 
     // Concatenate all content into a single string
     let fullContent = '';
