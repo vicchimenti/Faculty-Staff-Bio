@@ -6,7 +6,10 @@
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  * @author Victor Chimenti
  * @copyright 2025 Seattle University
- * @requires com.terminalfour.publish.utils.BrokerUtils, (Return Bio Related News Feed id:1094), (Return Link to News & Stories id:1091)
+ * @requires com.terminalfour.publish.utils.BrokerUtils
+ * @requires Navigation Object (id:1094) - Parent trigger for layout inclusion
+ * @requires Navigation Object (id:994) - Profile related news feed content
+ * @requires Navigation Object (id:991) - Link to News & Stories destination
  * @since 1.0.0
  * @lastModified 2025-02-01
  * 
@@ -16,6 +19,7 @@
  * //   <article class="news-story--item">...</article>
  * // </li>
  * 
+ * @dependency This layout is included when Navigation Object (id:1094) is present in the parent document
  */
 
 /***
