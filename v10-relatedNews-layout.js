@@ -1,7 +1,7 @@
 /**
  * @file v10/relatedNews/layout.js
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
- * @version 1.0.3
+ * @version 1.1.0
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  */
 
