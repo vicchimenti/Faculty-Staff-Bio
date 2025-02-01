@@ -1,8 +1,21 @@
 /**
  * @file v10/relatedNews/layout.js
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
- * @version 1.1.0
+ * @version 1.2.1
+ * @fileoverview Handles the display of related news stories for Faculty and Staff Bio profiles
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
+ * @author Victor Chimenti
+ * @copyright 2025 Seattle University
+ * @requires com.terminalfour.publish.utils.BrokerUtils
+ * @since 1.0.0
+ * @lastModified 2025-02-01
+ * 
+ * @example
+ * // Example of expected navigation tag output structure:
+ * // <li class="cell medium-4 oho-animate fade-in-up oho-animate--in">
+ * //   <article class="news-story--item">...</article>
+ * // </li>
+ * 
  */
 
 /***
