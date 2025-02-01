@@ -17,7 +17,7 @@ importClass(com.terminalfour.publish.utils.BrokerUtils);
  */
 function getContentValues(tag) {
     try {
-        let _tag = BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, tag).trim();
+        let _tag = BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, tag);
         return {
             isError: false,
             content: _tag != '' ? _tag : null 
