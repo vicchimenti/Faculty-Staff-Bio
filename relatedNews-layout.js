@@ -1,10 +1,8 @@
 /***
  *      Import T4 Utilities
  */
-importClass(com.terminalfour.media.IMediaManager);
 importClass(com.terminalfour.spring.ApplicationContextProvider);
 importClass(com.terminalfour.publish.utils.BrokerUtils);
-importClass(com.terminalfour.media.utils.ImageInfo);
 
 
 
