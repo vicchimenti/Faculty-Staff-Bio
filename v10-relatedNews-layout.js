@@ -3,11 +3,10 @@
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
  * @version 1.2.2
  * @fileoverview Handles the display of related news stories for Faculty and Staff Bio Profiles
- * @requires Nav Object (Return Bio Related News Feed id:1094)
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  * @author Victor Chimenti
  * @copyright 2025 Seattle University
- * @requires com.terminalfour.publish.utils.BrokerUtils
+ * @requires com.terminalfour.publish.utils.BrokerUtils, (Return Bio Related News Feed id:1094), (Return Link to News & Stories id:1091)
  * @since 1.0.0
  * @lastModified 2025-02-01
  * 
