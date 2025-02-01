@@ -82,81 +82,79 @@ try {
 
 
 
-/***
-*      Dictionary of content
-* */
-let relatedNewsDict = {
+  /***
+  *      Dictionary of content
+  * */
+  let relatedNewsDict = {
 
-    newsFeed: getContentValues('<t4 type="navigation" name="Profile related news" id="994" />'),
-    newsroomLink: getContentValues('<t4 type="navigation" name="Link to News & Stories" id="991" />')
+      newsFeed: getContentValues('<t4 type="navigation" name="Profile related news" id="994" />'),
+      newsroomLink: getContentValues('<t4 type="navigation" name="Link to News & Stories" id="991" />')
 
-};
-
-
-
-
-/***
-*  Open News Wrapper
-* 
-* */
-let  openNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
-  '<section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">' +
-  '<div class="grid-container oho-animate-sequence">' +
-  '<div class="grid-x grid-margin-x">' +
-  '<div class="cell large-9">' +
-  '<div class="section-heading--basic text-margin-reset">' +
-  '<h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>' :
-  '<span hidden class="newsWrapper d-none visually-hidden"></span>';
+  };
 
 
 
 
-/***
-*  Close Grid Wrapper
-* 
-* */
-let  closeGridWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
-  '</div>' +
-  '</div>' +
-  '</div>' :
-  '<span hidden class="gridWrapper d-none visually-hidden"></span>';
+  /***
+  *  Open News Wrapper
+  * 
+  * */
+  let  openNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+    '<section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">' +
+    '<div class="grid-container oho-animate-sequence">' +
+    '<div class="grid-x grid-margin-x">' +
+    '<div class="cell large-9">' +
+    '<div class="section-heading--basic text-margin-reset">' +
+    '<h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>' :
+    '<span hidden class="newsWrapper d-none visually-hidden"></span>';
 
 
 
 
-/***
-*  Close News Wrapper
-* 
-* */
-let  closeNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
-  '</div>' +
-  '</section>' :
-  '<span hidden class="newsWrapper d-none visually-hidden"></span>';
+  /***
+  *  Close Grid Wrapper
+  * 
+  * */
+  let  closeGridWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+    '</div>' +
+    '</div>' +
+    '</div>' :
+    '<span hidden class="gridWrapper d-none visually-hidden"></span>';
 
 
 
 
-/***
-*  News Link
-* 
-* */
-let newsLink = (relatedNewsDict.newsroomLink.content) ?
-  '<div class="section-heading__link global-spacing--2x oho-animate fade-in">' + 
-  '<a href="' + relatedNewsDict.newsroomLink.content + '">Related News &amp; Stories</a></div>' :
-  '<span hidden class="newsLink d-none visually-hidden"></span>';
+  /***
+  *  Close News Wrapper
+  * 
+  * */
+  let  closeNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+    '</div>' +
+    '</section>' :
+    '<span hidden class="newsWrapper d-none visually-hidden"></span>';
 
 
 
 
-/***
-*  News Feed
-* 
-* */
-let  = (relatedNewsDict.newsFeed.content) ?
-  '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
-  '<span hidden class="newsFeed d-none visually-hidden"></span>';
+  /***
+  *  News Link
+  * 
+  * */
+  let newsLink = (relatedNewsDict.newsroomLink.content) ?
+    '<div class="section-heading__link global-spacing--2x oho-animate fade-in">' + 
+    '<a href="' + relatedNewsDict.newsroomLink.content + '">Related News &amp; Stories</a></div>' :
+    '<span hidden class="newsLink d-none visually-hidden"></span>';
 
 
+
+
+  /***
+  *  News Feed
+  * 
+  * */
+  let  = (relatedNewsDict.newsFeed.content) ?
+    '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
+    '<span hidden class="newsFeed d-none visually-hidden"></span>';
 
 
 
@@ -168,15 +166,17 @@ let  = (relatedNewsDict.newsFeed.content) ?
 
 
 
-/***
-*  write document once
-* 
-* */
-writeDocument(
-    [
 
-    ]
-);
+
+  /***
+  *  write document once
+  * 
+  * */
+  writeDocument(
+      [
+
+      ]
+  );
 
 
 
