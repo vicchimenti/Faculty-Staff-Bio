@@ -174,34 +174,7 @@ let jobTitleString = (mentorDict.jobTitle.content) ?
 * */
 writeDocument(
     [
-        beginningHTML,
-        openImageWrapper,
-        imageString,
-        closeImageWrapper,
-        openSummaryWrapper,
-        nameString,
-        openSummary,
-        jobTitleString,
-        companyString,
-        industryString,
-        mentorSinceString,
-        studentTypeString,
-        linkedInString,
-        closeSummary,
-        closeSummaryWrapper,
-        endingHTML,
-        openArticle,
-        background,
-        jobDescriptionString,
-        companyDescriptionString,
-        employmentHistoryString,
-        educationString,
-        civicInvolvementString,
-        objectivesString,
-        yourMeetingsString,
-        additionalInfoString,
-        closeArticle,
-        endingHTML
+
     ]
 );
 
