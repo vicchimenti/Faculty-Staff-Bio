@@ -33,21 +33,7 @@ importClass(com.terminalfour.publish.utils.BrokerUtils);
  */
 
 
-/***
-*  Set defaults
-* 
-* */
-let beginningHTML = '<div class="hero--basic"><div class="grid-container"><div class="grid-x grid-margin-x">';
-let endingHTML = '</div></div></div>';
-let openImageWrapper = '<div class="cell medium-4 global-spacing--5x">';
-let closeImageWrapper = '</div>';
-let openSummaryWrapper = '<div class="cell auto global-spacing--5x"><div class="hero--basic__text hero--profile__text text-margin-reset">';
-let closeSummaryWrapper = '</div></div>';
-let openSummary = '<div class="wysiwyg"><p>';
-let closeSummary = '</p></div>';
-let openArticle = '<div class="grid-container global-spacing--10x"><div class="grid-x grid-margin-x"><div class="cell medium-8">';
-let closeArticle = '</div></div></div>';
-let background = '<h2>Background</h2>';
+
 
 
 
@@ -120,6 +106,31 @@ let  openNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.news
   '<div class="cell large-9">' +
   '<div class="section-heading--basic text-margin-reset">' +
   '<h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>' :
+  '<span hidden class="newsWrapper d-none visually-hidden"></span>';
+
+
+
+
+/***
+*  Close Grid Wrapper
+* 
+* */
+let  closeGridWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+  '</div>' +
+  '</div>' +
+  '</div>' :
+  '<span hidden class="gridWrapper d-none visually-hidden"></span>';
+
+
+
+
+/***
+*  Close News Wrapper
+* 
+* */
+let  closeNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+  '</div>' +
+  '</section>' :
   '<span hidden class="newsWrapper d-none visually-hidden"></span>';
 
 
