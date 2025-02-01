@@ -1,7 +1,7 @@
 /**
  * @file v10/relatedNews/layout.js
  * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
- * @version 1.2.3
+ * @version 1.2.4
  * @fileoverview Handles the display of related news stories for Faculty and Staff Bio Profiles
  * @desc Tagged News Story Layout for the Faculty and Staff Bio content type fulltext
  * @author Victor Chimenti
