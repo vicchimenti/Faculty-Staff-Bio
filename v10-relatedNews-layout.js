@@ -114,7 +114,8 @@ function writeDocument(array) {
 try {
 
 
-
+<t4 type="navigation" name="Profile related news" id="994" />
+<t4 type="navigation" name="Link to News & Stories" id="991" />
 /***
 *      Dictionary of content
 * */
