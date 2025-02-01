@@ -110,13 +110,24 @@ let relatedNewsDict = {
 
 
 /***
+*  News Link
+* 
+* */
+let newsLink = (relatedNewsDict.newsroomLink.content) ?
+  '<div class="section-heading__link global-spacing--2x oho-animate fade-in">' + 
+  '<a href="' + relatedNewsDict.newsroomLink.content + '">Related News &amp; Stories</a></div>' :
+  '<span hidden class="newsLink d-none visually-hidden"></span>';
+
+
+
+
+/***
 *  News Feed
 * 
 * */
 let  = (relatedNewsDict.newsFeed.content) ?
   '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
   '<span hidden class="newsFeed d-none visually-hidden"></span>';
-
 
 
 
