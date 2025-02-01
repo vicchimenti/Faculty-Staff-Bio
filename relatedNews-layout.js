@@ -1,3 +1,11 @@
+/**
+ * @file relatedNews-layout.js
+ * @inheritdoc Faculty and Staff Bio (v10/text/new-fulltext id:203)
+ * @version 1.0
+ * @desc Layout for the Faculty and Staff Bio content type
+ * 
+ */
+
 /***
  *      Import T4 Utilities
  */
