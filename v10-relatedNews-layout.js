@@ -78,25 +78,6 @@ function getContentValues(tag) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /***
  *      Write the document
  */
@@ -114,8 +95,7 @@ function writeDocument(array) {
 try {
 
 
-<t4 type="navigation" name="Profile related news" id="994" />
-<t4 type="navigation" name="Link to News & Stories" id="991" />
+
 /***
 *      Dictionary of content
 * */
@@ -129,18 +109,16 @@ let relatedNewsDict = {
 
 
 
-
-
-
-
-
 /***
-*  Job Title
+*  News Feed
 * 
 * */
-let jobTitleString = (mentorDict.jobTitle.content) ?
-    '<strong>Job Title: </strong>' + mentorDict.jobTitle.content + '<br>' :
-    '<span class="jobTitle d-none hidden visually-hidden">No job title entered</span>';
+let  = (relatedNewsDict.newsFeed.content) ?
+  '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
+  '<span hidden class="newsFeed d-none visually-hidden"></span>';
+
+
+
 
 
 
