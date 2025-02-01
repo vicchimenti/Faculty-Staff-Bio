@@ -110,6 +110,22 @@ let relatedNewsDict = {
 
 
 /***
+*  Open News Wrapper
+* 
+* */
+let  openNewsWrapper = (relatedNewsDict.newsFeed.content && relatedNewsDict.newsroomLink.content) ?
+  '<section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">' +
+  '<div class="grid-container oho-animate-sequence">' +
+  '<div class="grid-x grid-margin-x">' +
+  '<div class="cell large-9">' +
+  '<div class="section-heading--basic text-margin-reset">' +
+  '<h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>' :
+  '<span hidden class="newsWrapper d-none visually-hidden"></span>';
+
+
+
+
+/***
 *  News Link
 * 
 * */
@@ -128,6 +144,11 @@ let newsLink = (relatedNewsDict.newsroomLink.content) ?
 let  = (relatedNewsDict.newsFeed.content) ?
   '<ul class="grid-x grid-margin-x global-spacing--6x">' + relatedNewsDict.newsFeed.content + '</ul>' :
   '<span hidden class="newsFeed d-none visually-hidden"></span>';
+
+
+
+
+
 
 
 
