@@ -12,7 +12,7 @@
 * @requires Navigation Object (id:1028) - Bio breadcrumb
 * @requires Navigation Object (id:995) - Bio Link to Home
 * @since 1.0.0
-* @lastModified 2025-02-02
+* @lastModified 2025-02-03
 * 
 * @example
 * // The profile layout includes:
