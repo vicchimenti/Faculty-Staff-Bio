@@ -193,7 +193,7 @@ function getContentValues(tag) {
         throw new Error("Required content is missing");
     }
 
-    const hiddenSpan = '<span hidden class="d-none visually-hidden"></span>';
+    const hiddenSpan = '<span hidden class="d-none visually-hidden hidden"></span>';
 
     // Build full content with template literal
     let fullContent = `
