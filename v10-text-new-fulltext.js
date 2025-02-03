@@ -125,7 +125,7 @@ function getContentValues(tag) {
  */
  function processLinks(linkTag) {
     let queryItem = processQuery(linkTag);
-    return `<li><a href="/office-directory/?typeOfOffice=${queryItem}" data-t4-ajax-link="true" title="${linkTag}">${linkTag}</a></li>`;
+    return `<li><a href="/directory/?typeOfStaff=${queryItem}" data-t4-ajax-link="true" title="${linkTag}">${linkTag}</a></li>`;
  }
  
  /***
