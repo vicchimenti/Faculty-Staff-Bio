@@ -142,7 +142,7 @@ function getContentValues(tag) {
  */
  let contentDict = {
     // Profile Info
-    photo: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="v10/image/pxl-crop" cdn="true" pxl-filter-id="66" />'),
+    photo: getContentValues('<t4 type="content" name="Photo" output="normal" formatter="path/*" />'),
     name: getContentValues('<t4 type="content" name="Name of Faculty or Staff Member" output="normal" modifiers="striptags,htmlentities" />'),
     staffType: getContentValues('<t4 type="content" name="Type of Staff" output="normal" display_field="value" delimiter="|" />'),
     position: getContentValues('<t4 type="content" name="Position Title(s)" output="normal" modifiers="nl2br" />'),
