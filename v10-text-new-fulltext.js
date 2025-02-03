@@ -1,6 +1,6 @@
 /**
 * @file v10/text/new-fulltext.js
-* @version 1.2.1
+* @version 1.2.2
 * @fileoverview Faculty and Staff Bio Profile Layout
 * @desc Profile layout for Faculty and Staff Bio content type
 * @author Victor Chimenti
@@ -12,7 +12,7 @@
 * @requires Navigation Object (id:1028) - Bio breadcrumb
 * @requires Navigation Object (id:995) - Bio Link to Home
 * @since 1.0.0
-* @lastModified 2025-02-01
+* @lastModified 2025-02-02
 * 
 * @example
 * // The profile layout includes:
