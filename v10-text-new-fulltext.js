@@ -150,7 +150,7 @@ function getContentValues(tag) {
  
     // Contact Info
     phone: getContentValues('<t4 type="content" name="Phone" output="normal" />'),
-    email: getContentValues('<t4 type="content" name="Email Address" output="normal" />'),
+    email: getContentValues('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities,encode_emails" />'),
     personalWebsite: getContentValues('<t4 type="content" name="Personal Website" output="normal" />'),
  
     // Social Media
