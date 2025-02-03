@@ -335,7 +335,7 @@ function getContentValues(tag) {
                                         <span class="fa-brands fa-square-facebook" aria-hidden="true"></span>
                                     </a>
                                 </li>` : ''
-                            }`;
+                            }
                         </ul>` :
                         hiddenSpan
                     }
