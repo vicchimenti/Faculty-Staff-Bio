@@ -166,6 +166,8 @@ function getContentValues(tag) {
     primaryDept: getContentValues('<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />'),
     secondaryDept: getContentValues('<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />'),
     homeCollege: getContentValues('<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />'),
+    homeCollegeLinkText: getContentValues('<t4 type="content" name="Home College" output="linktext" modifiers="nav_sections" />'),
+
     pronouns: getContentValues('<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />'),
     expertise: getContentValues('<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />'),
  
