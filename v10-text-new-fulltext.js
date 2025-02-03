@@ -349,39 +349,39 @@ function getContentValues(tag) {
                         `<aside class="school-affiliation text-margin-reset global-spacing--1x">
                             <dl>
                                 ${contentDict.primaryDeptLinkText.content ?
-                                `<dt>Office/Department</dt>
-                                <dd>
-                                    <ul>
-                                        <li><a href="${contentDict.primaryDeptURL.content}">${contentDict.primaryDeptLinkText.content}</a></li>
-                                        ${contentDict.secondaryDeptLinkText.content ?
-                                            `<li><a href="${contentDict.secondaryDeptURL.content}">${contentDict.secondaryDeptLinkText.content}</a></li>` : ''
-                                        }
-                                    </ul>
-                                </dd>` : ''
+                                    `<dt>Office/Department</dt>
+                                    <dd>
+                                        <ul>
+                                            <li><a href="${contentDict.primaryDeptURL.content}">${contentDict.primaryDeptLinkText.content}</a></li>
+                                            ${contentDict.secondaryDeptLinkText.content ?
+                                                `<li><a href="${contentDict.secondaryDeptURL.content}">${contentDict.secondaryDeptLinkText.content}</a></li>` : ''
+                                            }
+                                        </ul>
+                                    </dd>` : ''
                                 }
                                 ${contentDict.homeCollegeLinkText.content ?
-                                `<dt>School/College</dt>
-                                <dd>
-                                    <ul>
-                                        <li><a href="${contentDict.HomeCollegeURL.content}">${contentDict.homeCollegeLinkText.content}</a></li>
-                                    </ul>
-                                </dd>` : ''
+                                    `<dt>School/College</dt>
+                                    <dd>
+                                        <ul>
+                                            <li><a href="${contentDict.HomeCollegeURL.content}">${contentDict.homeCollegeLinkText.content}</a></li>
+                                        </ul>
+                                    </dd>` : ''
                                 }                                
                                 ${contentDict.pronouns.content ?
-                                `<dt>Pronouns</dt>
-                                <dd>
-                                    <ul>
-                                        <li>${contentDict.pronouns.content}</li>
-                                    </ul>
-                                </dd>` : ''
+                                    `<dt>Pronouns</dt>
+                                    <dd>
+                                        <ul>
+                                            <li>${contentDict.pronouns.content}</li>
+                                        </ul>
+                                    </dd>` : ''
                                 }
                                 ${contentDict.expertise.content ?
-                                `<dt>Areas of Expertise</dt>
-                                <dd>
-                                    <div class="wysiwyg">
-                                        ${contentDict.expertise.content}
-                                    </div>
-                                </dd>` : ''
+                                    `<dt>Areas of Expertise</dt>
+                                    <dd>
+                                        <div class="wysiwyg">
+                                            ${contentDict.expertise.content}
+                                        </div>
+                                    </dd>` : ''
                                 }
                             </dl>
                         </aside>` :
