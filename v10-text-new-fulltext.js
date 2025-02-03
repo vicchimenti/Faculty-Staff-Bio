@@ -288,7 +288,54 @@ function getContentValues(tag) {
                                     </a>
                                 </li>` : ''
                             }
-                            <!-- Continue with other social media items -->
+                            ${contentDict.threads.content ?
+                                `<li>
+                                    <a href="${contentDict.threads.content}" target="_blank" aria-label="Threads opens in a new window">
+                                        <span class="show-for-sr">Threads</span>
+                                        <span class="fa-brands fa-square-threads" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            ${contentDict.twitter.content ?
+                                `<li>
+                                    <a href="${contentDict.twitter.content}" target="_blank" aria-label="Twitter opens in a new window">
+                                        <span class="show-for-sr">Twitter</span>
+                                        <span class="fa-brands fa-square-x-twitter" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            ${contentDict.youtube.content ?
+                                `<li>
+                                    <a href="${contentDict.youtube.content}" target="_blank" aria-label="YouTube opens in a new window">
+                                        <span class="show-for-sr">YouTube</span>
+                                        <span class="fa-brands fa-square-youtube" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            ${contentDict.linkedin.content ?
+                                `<li>
+                                    <a href="${contentDict.linkedin.content}" target="_blank" aria-label="LinkedIn opens in a new window">
+                                        <span class="show-for-sr">LinkedIn</span>
+                                        <span class="fa-brands fa-linkedin" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            ${contentDict.instagram.content ?
+                                `<li>
+                                    <a href="${contentDict.instagram.content}" target="_blank" aria-label="Instagram opens in a new window">
+                                        <span class="show-for-sr">Instagram</span>
+                                        <span class="fa-brands fa-square-instagram" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            ${contentDict.facebook.content ?
+                                `<li>
+                                    <a href="${contentDict.facebook.content}" target="_blank" aria-label="Facebook opens in a new window">
+                                        <span class="show-for-sr">Facebook</span>
+                                        <span class="fa-brands fa-square-facebook" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }`;
                         </ul>` :
                         hiddenSpan
                     }
