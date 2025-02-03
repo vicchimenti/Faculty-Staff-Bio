@@ -163,13 +163,10 @@ function getContentValues(tag) {
     facebook: getContentValues('<t4 type="content" name="Facebook URL" output="normal" />'),
  
     // Affiliations
-    // primaryDept: getContentValues('<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />'),
     primaryDeptLinkText: getContentValues('<t4 type="content" name="Primary Department" output="linktext" modifiers="nav_sections" />'),
     primaryDeptURL: getContentValues('<t4 type="content" name="Primary Department" output="linkurl" modifiers="nav_sections" />'),
-    // secondaryDept: getContentValues('<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />'),
     secondaryDeptLinkText: getContentValues('<t4 type="content" name="Secondary Department" output="linktext" modifiers="nav_sections" />'),
     secondaryDeptURL: getContentValues('<t4 type="content" name="Secondary Department" output="linkurl" modifiers="nav_sections" />'),
-    // homeCollege: getContentValues('<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />'),
     homeCollegeLinkText: getContentValues('<t4 type="content" name="Home College" output="linktext" modifiers="nav_sections" />'),
     HomeCollegeURL: getContentValues('<t4 type="content" name="Home College" output="linkurl" modifiers="nav_sections" />'),
     pronouns: getContentValues('<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />'),
