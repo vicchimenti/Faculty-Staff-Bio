@@ -346,17 +346,40 @@ function getContentValues(tag) {
                         `<aside class="school-affiliation text-margin-reset global-spacing--1x">
                             <dl>
                                 ${contentDict.primaryDept.content ?
-                                    `<dt>Office/Department</dt>
-                                    <dd>
-                                        <ul>
-                                            <li>${contentDict.primaryDept.content}</li>
-                                            ${contentDict.secondaryDept.content ?
-                                                `<li>${contentDict.secondaryDept.content}</li>` : ''
-                                            }
-                                        </ul>
-                                    </dd>` : ''
+                                `<dt>Office/Department</dt>
+                                <dd>
+                                    <ul>
+                                        <li>${contentDict.primaryDept.content}</li>
+                                        ${contentDict.secondaryDept.content ?
+                                            `<li>${contentDict.secondaryDept.content}</li>` : ''
+                                        }
+                                    </ul>
+                                </dd>` : ''
                                 }
-                                <!-- Continue with other affiliation items -->
+                                ${contentDict.homeCollege.content ?
+                                `<dt>School/College</dt>
+                                <dd>
+                                    <ul>
+                                        <li>${contentDict.homeCollege.content}</li>
+                                    </ul>
+                                </dd>` : ''
+                                }
+                                ${contentDict.pronouns.content ?
+                                `<dt>Pronouns</dt>
+                                <dd>
+                                    <ul>
+                                        <li>${contentDict.pronouns.content}</li>
+                                    </ul>
+                                </dd>` : ''
+                                }
+                                ${contentDict.expertise.content ?
+                                `<dt>Areas of Expertise</dt>
+                                <dd>
+                                    <div class="wysiwyg">
+                                        ${contentDict.expertise.content}
+                                    </div>
+                                </dd>` : ''
+                                }
                             </dl>
                         </aside>` :
                         hiddenSpan
