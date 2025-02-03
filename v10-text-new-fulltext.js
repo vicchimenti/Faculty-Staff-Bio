@@ -358,23 +358,26 @@ function getContentValues(tag) {
             </div>
         </div>
 
-        <section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">
-            <div class="grid-container oho-animate-sequence">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell large-9">
-                        <div class="section-heading--basic text-margin-reset">
-                            <h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>
-                            <div class="section-heading__link global-spacing--2x oho-animate fade-in">
-                            <a href="<t4 type=&quot;navigation&quot; name=&quot;Link to News & Stories&quot; id=&quot;991&quot; />">Related News &amp; Stories</a>
+        <!-- Related News & Stories Section -->
+        ${(navDict.relatedNewsFeed.content) ?
+            `<section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">
+                <div class="grid-container oho-animate-sequence">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell large-9">
+                            <div class="section-heading--basic text-margin-reset">
+                                <h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>
+                                <div class="section-heading__link global-spacing--2x oho-animate fade-in">
+                                <a href="${navDict.newsroomLink.content}">Related News &amp; Stories</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <ul class="grid-x grid-margin-x global-spacing--6x">
+                        ${navDict.relatedNewsFeed.content}
+                    </ul>
                 </div>
-                <ul class="grid-x grid-margin-x global-spacing--6x">
-                    <t4 type="navigation" name="Profile related news" id="994" />
-                </ul>
-            </div>
-        </section>
+            </section>`: hiddenSpan
+        }
     `;
 
     // Write full content to document
