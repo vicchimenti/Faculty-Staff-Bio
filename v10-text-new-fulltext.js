@@ -173,7 +173,10 @@ function getContentValues(tag) {
     extendedBio: getContentValues('<t4 type="content" name="Extended Biography" output="normal" modifiers="medialibrary,nav_sections" />'),
     education: getContentValues('<t4 type="content" name="Education" output="normal" modifiers="medialibrary,nav_sections" />'),
     coursesTaught: getContentValues('<t4 type="content" name="Courses Taught" output="normal" modifiers="medialibrary,nav_sections" />'),
-    publications: getContentValues('<t4 type="content" name="Publications" output="normal" modifiers="medialibrary,nav_sections" />')
+    publications: getContentValues('<t4 type="content" name="Publications" output="normal" modifiers="medialibrary,nav_sections" />'),
+
+    // Meta Tags
+    itemId: getContentValues('<t4 type="meta" meta="content_id" />')
  };
  
  /***
@@ -188,7 +191,7 @@ function getContentValues(tag) {
 
  try {
     // Test for required content
-    if (!contentDict.photo || !contentDict.name) {
+    if (!contentDict.photo || !contentDict.name || !contentDict.itemId) {
         throw new Error("Required content is missing");
     }
 
@@ -196,7 +199,7 @@ function getContentValues(tag) {
 
     // Build full content with template literal
     let fullContent = `
-        <div class="hero--basic">
+        <div class="hero--basic" id="bio${contentDict.itemId.content}">
             <div class="grid-container">
                 <div class="grid-x grid-margin-x">
                     <div class="cell medium-4">
