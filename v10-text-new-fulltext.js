@@ -163,11 +163,15 @@ function getContentValues(tag) {
     facebook: getContentValues('<t4 type="content" name="Facebook URL" output="normal" />'),
  
     // Affiliations
-    primaryDept: getContentValues('<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />'),
-    secondaryDept: getContentValues('<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />'),
-    homeCollege: getContentValues('<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />'),
+    // primaryDept: getContentValues('<t4 type="content" name="Primary Department" output="normal" modifiers="nav_sections" />'),
+    primaryDeptLinkText: getContentValues('<t4 type="content" name="Primary Department" output="linktext" modifiers="nav_sections" />'),
+    primaryDeptURL: getContentValues('<t4 type="content" name="Primary Department" output="linkurl" modifiers="nav_sections" />'),
+    // secondaryDept: getContentValues('<t4 type="content" name="Secondary Department" output="normal" modifiers="nav_sections" />'),
+    secondaryDeptLinkText: getContentValues('<t4 type="content" name="Secondary Department" output="linktext" modifiers="nav_sections" />'),
+    secondaryDeptURL: getContentValues('<t4 type="content" name="Secondary Department" output="linkurl" modifiers="nav_sections" />'),
+    // homeCollege: getContentValues('<t4 type="content" name="Home College" output="normal" modifiers="nav_sections" />'),
     homeCollegeLinkText: getContentValues('<t4 type="content" name="Home College" output="linktext" modifiers="nav_sections" />'),
-
+    HomeCollegeURL: getContentValues('<t4 type="content" name="Home College" output="linkurl" modifiers="nav_sections" />'),
     pronouns: getContentValues('<t4 type="content" name="Pronouns" output="normal" modifiers="striptags,htmlentities" />'),
     expertise: getContentValues('<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />'),
  
@@ -343,29 +347,29 @@ function getContentValues(tag) {
                     }
 
                     <!-- Affiliation Section -->
-                    ${(contentDict.primaryDept.content || contentDict.homeCollege.content ||
-                      contentDict.pronouns.content || contentDict.expertise.content) ?
+                    ${(contentDict.primaryDeptURL.content || contentDict.HomeCollegeURL.content ||
+                      contentDict.pronouns.content || contentDict.expertise.content || contentDict.secondaryDeptURL.content) ?
                         `<aside class="school-affiliation text-margin-reset global-spacing--1x">
                             <dl>
-                                ${contentDict.primaryDept.content ?
+                                ${contentDict.primaryDeptLinkText.content ?
                                 `<dt>Office/Department</dt>
                                 <dd>
                                     <ul>
-                                        <li>${contentDict.primaryDept.content}</li>
-                                        ${contentDict.secondaryDept.content ?
-                                            `<li>${contentDict.secondaryDept.content}</li>` : ''
+                                        <li><a href="${contentDict.primaryDeptURL.content}">${contentDict.primaryDeptLinkText.content}</a></li>
+                                        ${contentDict.secondaryDeptLinkText.content ?
+                                            `<li><a href="${contentDict.secondaryDeptURL.content}">${contentDict.secondaryDeptLinkText.content}</a></li>` : ''
                                         }
                                     </ul>
                                 </dd>` : ''
                                 }
-                                ${contentDict.homeCollege.content ?
+                                ${contentDict.homeCollegeLinkText.content ?
                                 `<dt>School/College</dt>
                                 <dd>
                                     <ul>
-                                        <li>${contentDict.homeCollege.content}</li>
+                                        <li><a href="${contentDict.HomeCollegeURL.content}">${contentDict.homeCollegeLinkText.content}</a></li>
                                     </ul>
                                 </dd>` : ''
-                                }
+                                }                                
                                 ${contentDict.pronouns.content ?
                                 `<dt>Pronouns</dt>
                                 <dd>
