@@ -182,7 +182,9 @@ function getContentValues(tag) {
  */
  let navDict = {
     biosBreadcrumb: getNavValues('<t4 type="navigation" name="Bios breadcrum v10" id="1028" />'),
-    bioHomeLink: getNavValues('<t4 type="navigation" name="Faculty and Staff Bio Link to Home" id="995" />')
+    bioHomeLink: getNavValues('<t4 type="navigation" name="Faculty and Staff Bio Link to Home" id="995" />'),
+    relatedNewsFeed: getNavValues('<t4 type="navigation" name="Profile related news" id="994" />'),
+    newsroomLink: getNavValues('<t4 type="navigation" name="Newsroom Link" id="993" />')
  };
 
  try {
