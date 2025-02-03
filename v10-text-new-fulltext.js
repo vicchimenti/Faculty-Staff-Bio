@@ -1,6 +1,6 @@
 /**
 * @file v10/text/new-fulltext.js
-* @version 1.1.25
+* @version 1.2.0
 * @fileoverview Faculty and Staff Bio Profile Layout
 * @desc Profile layout for Faculty and Staff Bio content type
 * @author Victor Chimenti
@@ -184,3 +184,182 @@ function getContentValues(tag) {
     biosBreadcrumb: getNavValues('<t4 type="navigation" name="Bios breadcrum v10" id="1028" />'),
     bioHomeLink: getNavValues('<t4 type="navigation" name="Faculty and Staff Bio Link to Home" id="995" />')
  };
+
+ try {
+    // Test for required content
+    if (!contentDict.photo || !contentDict.name) {
+        throw new Error("Required content is missing");
+    }
+
+    const hiddenSpan = '<span hidden class="d-none visually-hidden"></span>';
+
+    // Build full content with template literal
+    let fullContent = `
+        <div class="hero--basic">
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell medium-4">
+                        ${getProfilePhoto() || hiddenSpan}
+                    </div>
+                    <div class="cell auto">
+                        <div class="hero--basic__text hero--profile__text text-margin-reset">
+                            ${contentDict.name.content ? 
+                                `<h1 class="h2">${contentDict.name.content}</h1>` : 
+                                hiddenSpan
+                            }
+                            ${contentDict.staffType.content ?
+                                `<div class="tags tags__links">
+                                    <h2 class="tags__heading show-for-sr">Profile Type:</h2>
+                                    <ul>${processStaffType(contentDict.staffType.content)}</ul>
+                                </div>` :
+                                hiddenSpan
+                            }
+                            ${contentDict.position.content ?
+                                `<div class="wysiwyg">
+                                    <p>${contentDict.position.content}</p>
+                                </div>` :
+                                hiddenSpan
+                            }
+                            ${navDict.biosBreadcrumb.content || ''}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container global-spacing--10x">
+            <div class="grid-x grid-margin-x">
+                <div class="cell medium-4">
+                    
+                    <!-- Contact Section -->
+                    ${(contentDict.phone.content || contentDict.email.content || contentDict.personalWebsite.content) ?
+                        `<aside class="callout text-margin-reset">
+                            ${(contentDict.phone.content || contentDict.email.content) ?
+                                `<div class="eyebrow" id="contact-title">Contact Information</div>
+                                <ul class="icon-list" id="contact-list">
+                                    ${contentDict.phone.content ?
+                                        `<li>
+                                            <span class="icon-list__icon fas fa-phone" aria-hidden="true"></span>
+                                            <span class="icon-list__content">
+                                                <a href="tel:${contentDict.phone.content}">${contentDict.phone.content}</a>
+                                            </span>
+                                        </li>` : ''
+                                    }
+                                    ${contentDict.email.content ?
+                                        `<li>
+                                            <span class="icon-list__icon fas fa-envelope" aria-hidden="true"></span>
+                                            <span class="icon-list__content">
+                                                <a href="mailto:${contentDict.email.content}">${contentDict.email.content}</a>
+                                            </span>
+                                        </li>` : ''
+                                    }
+                                </ul>` : ''
+                            }
+
+                            ${contentDict.personalWebsite.content ?
+                                `<div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
+                                <ul id="relevant-sites-list">
+                                    <li>
+                                        <a href="${contentDict.personalWebsite.content}">
+                                            ${contentDict.personalWebsite.content}
+                                        </a>
+                                    </li>
+                                </ul>` : ''
+                            }
+                        </aside>` : 
+                        hiddenSpan
+                    }
+
+                    <!-- Social Media Section -->
+                    ${(contentDict.tiktok.content || contentDict.threads.content || contentDict.twitter.content ||
+                      contentDict.youtube.content || contentDict.linkedin.content || contentDict.instagram.content ||
+                      contentDict.facebook.content) ?
+                        `<div class="eyebrow" id="social-media-title">Connect</div>
+                        <ul class="icon-list social-media global-spacing--4x btn-row" id="social-media-list">
+                            ${contentDict.tiktok.content ?
+                                `<li>
+                                    <a href="${contentDict.tiktok.content}" target="_blank" aria-label="Tiktok opens in a new window">
+                                        <span class="show-for-sr">Tiktok</span>
+                                        <span class="fa-brands fa-tiktok" aria-hidden="true"></span>
+                                    </a>
+                                </li>` : ''
+                            }
+                            <!-- Continue with other social media items -->
+                        </ul>` :
+                        hiddenSpan
+                    }
+
+                    <!-- Affiliation Section -->
+                    ${(contentDict.primaryDept.content || contentDict.homeCollege.content ||
+                      contentDict.pronouns.content || contentDict.expertise.content) ?
+                        `<aside class="school-affiliation text-margin-reset global-spacing--1x">
+                            <dl>
+                                ${contentDict.primaryDept.content ?
+                                    `<dt>Office/Department</dt>
+                                    <dd>
+                                        <ul>
+                                            <li>${contentDict.primaryDept.content}</li>
+                                            ${contentDict.secondaryDept.content ?
+                                                `<li>${contentDict.secondaryDept.content}</li>` : ''
+                                            }
+                                        </ul>
+                                    </dd>` : ''
+                                }
+                                <!-- Continue with other affiliation items -->
+                            </dl>
+                        </aside>` :
+                        hiddenSpan
+                    }
+                </div>
+
+                <!-- Main Content Section -->
+                <div class="cell medium-8">
+                    ${contentDict.description.content ?
+                        `<p class="intro-text">${contentDict.description.content}</p>` : ''
+                    }
+                    
+                    <!-- Accordion Sections -->
+                    ${[
+                        {name: 'biography', title: 'Biography', content: contentDict.extendedBio.content},
+                        {name: 'education', title: 'Education', content: contentDict.education.content},
+                        {name: 'courses-taught', title: 'Courses Taught', content: contentDict.coursesTaught.content},
+                        {name: 'publications', title: 'Publications', content: contentDict.publications.content}
+                    ].map((section, index) => section.content ?
+                        `<div class="profile--section profile--section__${section.name} global-spacing--5x">
+                            <div class="more-less">
+                                <div class="global-spacing--1x">
+                                    <button type="button" class="more-less__toggle"
+                                        data-button-open-text=""
+                                        data-button-close-text=""
+                                        data-button-enable-at="0"
+                                        data-button-disable-at="-1"
+                                        data-button-open-class="more-less-open"
+                                        data-button-open-class-element=".more-less"
+                                        aria-live="polite"
+                                        aria-label="Expand to see the full text"
+                                        id="expand-to-see-the-full-text--button-toggle-${index + 1}"
+                                        data-toggle-type="accordion"
+                                        aria-expanded="true">
+                                        <span>Compare</span>
+                                    </button>
+                                </div>
+                                <div class="more-less__content">
+                                    <div class="more-less__item">
+                                        <h2 class="h3">${section.title}</h2>
+                                        <div class="wysiwyg">${section.content}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>` : ''
+                    ).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Write full content to document
+    document.write(fullContent);
+
+} catch (err) {
+    document.write(err.message);
+}
