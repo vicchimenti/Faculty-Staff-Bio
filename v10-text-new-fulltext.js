@@ -91,8 +91,8 @@ function getContentValues(tag) {
  *      for profile photo with required attributes
  */
  function getProfilePhoto(mediaPath) {
-    let imageW1 = ' 422w, ';
-    let imageW2 = ' 844w';
+    // let imageW1 = ' 422w, ';
+    // let imageW2 = ' 844w';
     let itemId = content.get('Photo').getID();
     let mediaInfo = getMediaInfo(itemId);
     let media = readMedia(itemId);
@@ -102,8 +102,8 @@ function getContentValues(tag) {
     let mediaHTML = (info.check()) ? 
         `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
             <img loading="eager" 
-                 src="${mediaInfo.getUrlPath()}"
-                 alt="${mediaInfo.getAltText()}"
+                 src="${mediaPath}"
+                 alt="${mediaInfo.getDescription()}"
                  width="${info.getWidth()}"
                  height="${info.getHeight()}">
         </figure>` : '';
