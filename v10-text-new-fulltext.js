@@ -1,6 +1,6 @@
 /**
 * @file v10/text/new-fulltext.js
-* @version 1.2.3
+* @version 1.2.4
 * @fileoverview Faculty and Staff Bio Profile Layout
 * @desc Profile layout for Faculty and Staff Bio content type
 * @author Victor Chimenti
