@@ -90,7 +90,7 @@ function getContentValues(tag) {
  *      Returns a formatted html img tag
  *      for profile photo with required attributes
  */
- function getProfilePhoto() {
+ function getProfilePhoto(mediaPath) {
     let imageW1 = ' 422w, ';
     let imageW2 = ' 844w';
     let itemId = content.get('Photo').getID();
@@ -201,7 +201,7 @@ function getContentValues(tag) {
             <div class="grid-container">
                 <div class="grid-x grid-margin-x">
                     <div class="cell medium-4">
-                        ${getProfilePhoto() || hiddenSpan}
+                        ${(contentDict.photo.content) ? getProfilePhoto(contentDict.photo.content) : hiddenSpan}
                     </div>
                     <div class="cell auto">
                         <div class="hero--basic__text hero--profile__text text-margin-reset">
