@@ -195,7 +195,7 @@ function getContentValues(tag) {
 
  try {
     // Test for valid item
-    if (!contentDict.name || !contentDict.itemId) {
+    if (!contentDict.name || !contentDict.itemId || !contentDict.photo.content) {
         throw new Error("Required content is missing");
     }
 
@@ -209,7 +209,10 @@ function getContentValues(tag) {
                     <div class="cell medium-4">
                         ${(contentDict.photo.content && contentDict.photoAlt.content) ?
                             `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-                                <img loading="eager" href="${content.photo.content}" alt="${content.photoAlt.content}" ></figure>` : hiddenSpan
+                                <img loading="eager" href="${content.photo.content}" alt="${content.photoAlt.content}" ></figure>` :
+                        (contentDict.photo.content) ?
+                            `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
+                                <img loading="eager" href="${content.photo.content}" alt="" ></figure>` : hiddenSpan
                         }
                     </div>
                     <div class="cell auto">
