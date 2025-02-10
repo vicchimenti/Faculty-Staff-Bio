@@ -164,10 +164,10 @@ function getContentValues(tag) {
                     <div class="cell medium-4">
                         ${(contentDict.photo.content && contentDict.photoAlt.content) ?
                             `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-                                <img loading="eager" href="${content.photo.content}" alt="${content.photoAlt.content}" ></figure>` :
+                                <img loading="eager" src="${contentDict.photo.content}" alt="${contentDict.photoAlt.content}" ></figure>` :
                         (contentDict.photo.content) ?
                             `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-                                <img loading="eager" href="${content.photo.content}" alt="" ></figure>` : hiddenSpan
+                                <img loading="eager" src="${contentDict.photo.content}" alt="" ></figure>` : hiddenSpan
                         }
                     </div>
                     <div class="cell auto">
