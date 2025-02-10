@@ -194,7 +194,7 @@ function getContentValues(tag) {
  };
 
  try {
-    // Test for required content
+    // Test for valid item
     if (!contentDict.name || !contentDict.itemId) {
         throw new Error("Required content is missing");
     }
