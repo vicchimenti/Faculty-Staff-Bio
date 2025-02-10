@@ -1,6 +1,6 @@
 /**
 * @file v10/text/new-fulltext.js
-* @version 1.3.0
+* @version 1.3.1
 * @fileoverview Faculty and Staff Bio Profile Layout
 * @desc Profile layout for Faculty and Staff Bio content type
 * @author Victor Chimenti
@@ -12,7 +12,7 @@
 * @requires Navigation Object (id:1028) - Bio breadcrumb
 * @requires Navigation Object (id:995) - Bio Link to Home
 * @since 1.0.0
-* @lastModified 2025-02-03
+* @lastModified 2025-02-10
 * 
 * @example
 * // The profile layout includes:
@@ -25,10 +25,8 @@
 /***
 *      Import T4 Utilities
 */
-importClass(com.terminalfour.media.IMediaManager);
 importClass(com.terminalfour.spring.ApplicationContextProvider);
 importClass(com.terminalfour.publish.utils.BrokerUtils);
-importClass(com.terminalfour.media.utils.ImageInfo);
 
 /***
 *      Extract values from T4 element tags
