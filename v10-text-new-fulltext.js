@@ -195,7 +195,7 @@ function getContentValues(tag) {
 
  try {
     // Test for required content
-    if (!contentDict.photo || !contentDict.name || !contentDict.itemId) {
+    if (!contentDict.name || !contentDict.itemId) {
         throw new Error("Required content is missing");
     }
 
