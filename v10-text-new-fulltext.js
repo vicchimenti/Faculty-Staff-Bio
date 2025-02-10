@@ -91,8 +91,7 @@ function getContentValues(tag) {
  *      for profile photo with required attributes
  */
  function getProfilePhoto(mediaPath) {
-    // let imageW1 = ' 422w, ';
-    // let imageW2 = ' 844w';
+
     let itemId = content.get('Photo').getID();
     let mediaInfo = getMediaInfo(itemId);
     let media = readMedia(itemId);
