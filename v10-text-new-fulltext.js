@@ -67,49 +67,7 @@ function getContentValues(tag) {
         };
     }
  }
- 
- /***
- *      Returns a media object
- */
-//  function getMediaInfo(mediaID) {
-//     let mediaManager = ApplicationContextProvider.getBean(IMediaManager);
-//     let media = mediaManager.get(mediaID, language);
-//     return media;
-//  }
- 
- /***
- *      Returns a media stream object
- */
-//  function readMedia(mediaID) {
-//     let mediaObj = getMediaInfo(mediaID);
-//     let oMediaStream = mediaObj.getMedia();
-//     return oMediaStream;
-//  }
- 
- /***
- *      Returns a formatted html img tag
- *      for profile photo with required attributes
- */
-//  function getProfilePhoto(mediaPath) {
-
-//     let itemId = content.get('Photo').getID();
-//     let mediaInfo = getMediaInfo(itemId);
-//     let media = readMedia(itemId);
-//     let info = new ImageInfo();
-//     info.setInput(media);
-    
-//     let mediaHTML = (info.check()) ? 
-//         `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-//             <img loading="eager" 
-//                  src="${mediaPath}"
-//                  alt="${mediaInfo.getDescription()}"
-//                  width="${info.getWidth()}"
-//                  height="${info.getHeight()}">
-//         </figure>` : '';
- 
-//     return mediaHTML;
-//  }
- 
+  
  /***
  *      Process query by replacing spaces with URL encoding
  */
