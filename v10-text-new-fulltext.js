@@ -209,7 +209,7 @@ function getContentValues(tag) {
                     <div class="cell medium-4">
                         ${(contentDict.photo.content && contentDict.photoAlt.content) ?
                             `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-                                <img loading="eager" ></figure>` : hiddenSpan
+                                <img loading="eager" href="${content.photo.content}" alt="${content.photoAlt.content}" ></figure>` : hiddenSpan
                         }
                     </div>
                     <div class="cell auto">
