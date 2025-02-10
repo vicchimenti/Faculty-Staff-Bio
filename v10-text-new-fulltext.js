@@ -207,7 +207,10 @@ function getContentValues(tag) {
             <div class="grid-container">
                 <div class="grid-x grid-margin-x">
                     <div class="cell medium-4">
-                        ${(contentDict.photo.content) ? getProfilePhoto(contentDict.photo.content) : hiddenSpan}
+                        ${(contentDict.photo.content && contentDict.photoAlt.content) ?
+                            `<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
+                                <img loading="eager" ></figure>` : hiddenSpan
+                        }
                     </div>
                     <div class="cell auto">
                         <div class="hero--basic__text hero--profile__text text-margin-reset">
