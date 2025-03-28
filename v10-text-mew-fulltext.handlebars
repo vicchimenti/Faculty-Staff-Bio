@@ -152,34 +152,6 @@
                             <dd>
                                 <ul>
                                     {{#each (selected element="Staff College") ~}}
-                                        {{#eq name "Albers School of Business & Economics"~}}
-                                            {{nav name="Path to Albers School of Business & Economics" id="1098"}}
-                                        {{~/eq}}
-                                        {{#eq name "College of Arts & Sciences"~}}
-                                            {{nav name="Path to College of Arts & Sciences" id="1099"}}
-                                        {{~/eq}}
-                                        {{#eq name "College of Education"~}}
-                                            {{nav name="Path to College of Education" id="1100"}}
-                                        {{~/eq}}
-                                        {{#eq name "College of Nursing"~}}
-                                            {{nav name="Path to College of Nursing" id="1101"}}
-                                        {{~/eq}}
-                                        {{#eq name "College of Science & Engineering"~}}
-                                            {{nav name="Path to College of Science & Engineering" id="1102"}}
-                                        {{~/eq}}
-                                        {{#eq name "School of Law"~}}
-                                            <a href="https://law.seattleu.edu/">School of Law</a>
-                                        {{~/eq}}
-                                        {{#not @last}}, {{/not}}
-                                    {{~/each}}
-                                </ul>
-                            </dd>
-                        {{~/ifSet}}
-                        {{#ifSet element="Staff College" ~}}
-                            <dt>School/College</dt>
-                            <dd>
-                                <ul>
-                                    {{#each (selected element="Staff College") ~}}
                                         <li>
                                             {{#eq name "Albers School of Business & Economics"~}}
                                                 {{nav name="Path to Albers School of Business & Economics" id="1098"}}
