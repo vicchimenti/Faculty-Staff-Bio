@@ -2,14 +2,7 @@
   <article class="profiles-section--item">
     {{#ifSet element="Photo"}}
       <figure class="aspect-ratio-frame" style="--aspect-ratio: 320/284">
-        <img
-          src="{{embed layout="v10/text/profile-photo"}}"
-          loading="lazy"
-          alt="{{{publish
-            element="Name of Faculty or Staff Member"
-            modifiers="striptags,htmlentities"
-          }}}"
-        />
+        {{embed layout="v10/text/staff-photo-related"}}
       </figure>
     {{/ifSet}}
 
