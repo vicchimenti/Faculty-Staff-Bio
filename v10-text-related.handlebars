@@ -7,20 +7,7 @@
     {{/ifSet}}
 
     <div class="text-margin-reset funderline">
-      <a
-        href="{{{link
-          element="Name of Faculty or Staff Member"
-          output="fulltext"
-          use-element="true"
-          filename-element="Name of Faculty or Staff Member"
-          modifiers="striptags,htmlentities"
-        }}}"
-      >
-        {{{publish
-          element="Name of Faculty or Staff Member"
-          modifiers="striptags,htmlentities"
-        }}}
-      </a>
+        {{fulltext linkText="View Profile"}}
 
       {{#ifSet element="Position Title(s)"}}
         <div class="global-spacing--1x">
@@ -32,3 +19,9 @@
     </div>
   </article>
 </li>
+
+  {{~#fulltext}}: {{publish element="Headline"}}{{/fulltext~}}
+
+{{~#fulltext}}:{{{link element="Name of Faculty or Staff Member"}}}{{/fulltext~}}
+
+<a href="{{extractHref (fulltext linkText="View Profile")}}">{{publish element="Name of Faculty or Staff Member"}}</a>
