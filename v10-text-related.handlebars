@@ -1,0 +1,41 @@
+<li class="swiper-slide oho-animate fade-in-up">
+  <article class="profiles-section--item">
+    {{#ifSet element="Photo"}}
+      <figure class="aspect-ratio-frame" style="--aspect-ratio: 320/284">
+        <img
+          src="{{embed layout="v10/text/profile-photo"}}"
+          loading="lazy"
+          alt="{{{publish
+            element="Name of Faculty or Staff Member"
+            modifiers="striptags,htmlentities"
+          }}}"
+        />
+      </figure>
+    {{/ifSet}}
+
+    <div class="text-margin-reset funderline">
+      <a
+        href="{{{link
+          element="Name of Faculty or Staff Member"
+          output="fulltext"
+          use-element="true"
+          filename-element="Name of Faculty or Staff Member"
+          modifiers="striptags,htmlentities"
+        }}}"
+      >
+        {{{publish
+          element="Name of Faculty or Staff Member"
+          modifiers="striptags,htmlentities"
+        }}}
+      </a>
+
+      {{#ifSet element="Position Title(s)"}}
+        <div class="global-spacing--1x">
+          <p>
+            {{{publish element="Position Title(s)" modifiers="nl2br"}}}
+          </p>
+        </div>
+      {{/ifSet}}
+    </div>
+  </article>
+</li>
