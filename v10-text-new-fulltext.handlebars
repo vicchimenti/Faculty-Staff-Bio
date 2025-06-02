@@ -168,11 +168,26 @@
                                             {{#eq name "College of Science & Engineering"~}}
                                                 {{nav name="Path to College of Science & Engineering" id="1102"}}
                                             {{~/eq}}
+                                            {{#eq name "Cornish College of the Arts"~}}
+                                                {{nav name="Path to Cornish College of Arts" id="1107"}}
+                                            {{~/eq}}
                                             {{#eq name "School of Law"~}}
                                                 <a href="https://law.seattleu.edu/">School of Law</a>
                                             {{~/eq}}
                                         </li>
                                     {{~/each}}
+                                </ul>
+                            </dd>
+                        {{~/ifSet}}
+                        {{#ifSet element="Campus" ~}}
+                            <dt>Campus</dt>
+                            <dd>
+                                <ul>
+                                    {{#each (selected element="Campus") ~}}
+                                        <li>
+                                            {{selectedValues element="Campus"}}
+                                        </li>
+                                    {{~/each}}   
                                 </ul>
                             </dd>
                         {{~/ifSet}}
