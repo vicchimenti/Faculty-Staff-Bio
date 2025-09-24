@@ -8,7 +8,10 @@ try {
 
 
   let list = {};
-  let sortName = String(processTags('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />') + processTags('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />'));
+  let sortName = String(processTags('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />')
+    + ', ' + 
+    processTags('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />')
+  );
   let lastName = processTags('<t4 type="content" name="Last Name" output="normal" modifiers="striptags,htmlentities" />');
   let firstName = processTags('<t4 type="content" name="First Name" output="normal" modifiers="striptags,htmlentities" />');
 
