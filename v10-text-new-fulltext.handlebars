@@ -1,327 +1,569 @@
 <!-- v10/text/new-fulltext -->
 <div class="hero--basic">
-    <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell medium-4">
-              	<figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
-                    {{embed layout="v10/text/staff-photo"}}
-              	</figure>
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell medium-4">
+        <figure class="aspect-ratio-frame" style="--aspect-ratio: 422/360">
+          {{embed layout="v10/text/staff-photo"}}
+        </figure>
+      </div>
+      <div class="cell auto">
+        <div class="hero--basic__text hero--profile__text text-margin-reset">
+          <h1 class="h2">
+            {{publish element="Name of Faculty or Staff Member"}}
+
+            {{#or
+              (ifSet element="Type of Staff")
+              (ifSet element="Primary Title")
+              (ifSet element="Staff Department")
+              (ifSet element="Staff College")
+              (ifSet element="Areas of Expertise")
+            ~}}
+              <span class="show-for-sr">
+                —
+                {{! Type of Staff (multi) }}
+                {{#ifSet element="Type of Staff"~}}
+                  {{#each (selected element="Type of Staff")~}}
+                    {{#if name}}{{name}}{{else}}{{value}}{{/if}}{{#unless
+                      @last
+                    }} - {{/unless}}
+                  {{~/each}}
+                  {{#or
+                    (ifSet element="Primary Title")
+                    (ifSet element="Staff Department")
+                    (ifSet element="Staff College")
+                    (ifSet element="Areas of Expertise")
+                  ~}}; {{~/or}}
+                {{~/ifSet}}
+
+                {{! Primary Title (single) }}
+                {{#ifSet element="Primary Title"~}}
+                  {{publish element="Primary Title"}}
+                  {{#or
+                    (ifSet element="Staff Department")
+                    (ifSet element="Staff College")
+                    (ifSet element="Areas of Expertise")
+                  ~}}; {{~/or}}
+                {{~/ifSet}}
+
+                {{! Department / College }}
+                {{#or
+                  (ifSet element="Staff Department")
+                  (ifSet element="Staff College")
+                ~}}
+                  {{#ifSet element="Staff Department"~}}
+                    {{#each (selected element="Staff Department")~}}
+                      {{#if name}}{{name}}{{else}}{{value}}{{/if}}{{#unless
+                        @last
+                      }} - {{/unless}}
+                    {{~/each}}
+                  {{~/ifSet}}
+
+                  {{#and
+                    (ifSet element="Staff Department")
+                    (ifSet element="Staff College")
+                  ~}}, {{~/and}}
+
+                  {{#ifSet element="Staff College"~}}
+                    {{#each (selected element="Staff College")~}}
+                      {{#if name}}{{name}}{{else}}{{value}}{{/if}}{{#unless
+                        @last
+                      }} - {{/unless}}
+                    {{~/each}}
+                  {{~/ifSet}}
+
+                  {{#ifSet element="Areas of Expertise"~}}; {{~/ifSet}}
+                {{~/or}}
+
+                {{! Areas of Expertise (plaintext, pipe-separated; output as-is) }}
+                {{#ifSet element="Areas of Expertise"~}}
+                  Areas of Expertise:
+                  {{publish element="Areas of Expertise"}}
+                {{~/ifSet}}
+                .
+              </span>
+            {{~/or}}
+          </h1>
+          {{#ifSet element="Type of Staff"~}}
+            <div class="tags tags__links">
+              <h2 class="tags__heading show-for-sr">Profile Type:</h2>
+              <ul>
+                {{#each (selected element="Type of Staff")~}}
+                  <li><a
+                      href="{{nav
+                        id="995"
+                        name="Faculty and Staff Bio Link to Home"
+                      }}?typeOfStaff={{value}}"
+                    >{{value}}</a></li>
+                {{~/each}}
+              </ul>
             </div>
-            <div class="cell auto">
-                <div class="hero--basic__text hero--profile__text text-margin-reset">
-                    <h1 class="h2">
-                        {{publish element="Name of Faculty or Staff Member"}}
-                    </h1>
-                    {{#ifSet element="Type of Staff" ~}}
-                        <div class="tags tags__links">
-                            <h2 class="tags__heading show-for-sr">Profile Type:</h2>
-                            <ul>
-                                {{#each (selected element="Type of Staff") ~}}
-                                    <li><a href="{{nav id="995" name="Faculty and Staff Bio Link to Home"}}?typeOfStaff={{value}}">{{value}}</a></li>
-                                {{~/each}}
-                            </ul>
-                        </div>
-                    {{~/ifSet}}
-                    {{#ifSet element="Position Title(s)" ~}}
-                        <div class="wysiwyg">
-                            <p>
-                                {{{publish element="Position Title(s)"}}}
-                            </p>
-                        </div>
-                    {{~/ifSet}}
-                    {{nav id="1028" name="Bios breadcrum v10"}}
-                </div>
+          {{~/ifSet}}
+          {{#ifSet element="Position Title(s)"~}}
+            <div class="wysiwyg">
+              <p>
+                {{{publish element="Position Title(s)"}}}
+              </p>
             </div>
+          {{~/ifSet}}
+          {{nav id="1028" name="Bios breadcrum v10"}}
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="grid-container global-spacing--10x">
-    <div class="grid-x grid-margin-x">
-        <div class="cell medium-4">
-            {{#or (ifSet element="Phone") (ifSet element="Email Address") (ifSet element="Personal Website") (ifSet element="TikTok URL") (ifSet element="Threads URL") (ifSet element="Twitter/X URL") (ifSet element="YouTube URL") (ifSet element="LinkedIn URL") (ifSet element="Instagram URL") (ifSet element="Facebook URL") (ifSet element="Curriculum Vitae")~}}
-                <aside class="callout text-margin-reset">
-                    <div class="eyebrow" id="contact-title">Contact Information</div>
-                    {{#or (ifSet element="Phone") (ifSet element="Email Address")~}}
-                        <ul class="icon-list" id="contact-list">
-                            {{#ifSet element="Phone" ~}}
-                                <li>
-                                    <span class="icon-list__icon fas fa-phone" aria-hidden="true"></span>
-                                    <span class="icon-list__content"><a href='tel:{{publish element="Phone"}}'>{{publish element="Phone"}}</a></span>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="Email Address" ~}}
-                                <li>
-                                    <span class="icon-list__icon fas fa-envelope" aria-hidden="true"></span>
-                                    <span class="icon-list__content"><a href='mailto:{{publish element="Email Address"}}'>{{publish element="Email Address"}}</a></span>
-                                </li>
-                            {{~/ifSet}}
-                        </ul>
-                    {{~/or}}
-                    {{#ifSet element="Personal Website" ~}}
-                        <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
-                        <ul id="relevant-sites-list">
-                            <li><a href="{{publish element="Personal Website"}}">{{publish element="Personal Website"}}</a></li>
-                        </ul>
-                    {{~/ifSet}}
-                    {{#or (ifSet element="TikTok URL") (ifSet element="Threads URL") (ifSet element="Twitter/X URL") (ifSet element="YouTube URL") (ifSet element="LinkedIn URL") (ifSet element="Instagram URL") (ifSet element="Facebook URL")~}}
-                        <div class="eyebrow" id="social-media-title">Connect</div>
-                        <ul class="icon-list social-media global-spacing--4x btn-row" id="social-media-list">
-                            {{#ifSet element="TikTok URL" ~}}
-                                <li>
-                                    <a href="{{publish element="TikTok URL"}}" target="_blank" aria-label="Tiktok opens in a new window">
-                                    <span class="show-for-sr">Tiktok</span>
-                                    <span class="fa-brands fa-tiktok" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="Threads URL" ~}}
-                                <li>
-                                    <a href="{{publish element="Threads URL"}}" target="_blank" aria-label="Threads opens in a new window">
-                                    <span class="show-for-sr">Threads</span>
-                                    <span class="fa-brands fa-square-threads" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="Twitter/X URL" ~}}
-                                <li>
-                                    <a href="{{publish element="Twitter/X URL"}}" target="_blank" aria-label="Twitter opens in a new window">
-                                    <span class="show-for-sr">Twitter</span>
-                                    <span class="fa-brands fa-square-x-twitter" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="YouTube URL" ~}}
-                                <li>
-                                    <a href="{{publish element="YouTube URL"}}" target="_blank" aria-label="YouTube opens in a new window">
-                                    <span class="show-for-sr">YouTube</span>
-                                    <span class="fa-brands fa-square-youtube" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="LinkedIn URL" ~}}
-                                <li>
-                                    <a href="{{publish element="LinkedIn URL"}}" target="_blank" aria-label="LinkedIn opens in a new window">
-                                    <span class="show-for-sr">LinkedIn</span>
-                                    <span class="fa-brands fa-linkedin" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="Instagram URL" ~}}
-                                <li>
-                                    <a href="{{publish element="Instagram URL"}}" target="_blank" aria-label="Instagram opens in a new window">
-                                    <span class="show-for-sr">Instagram</span>
-                                    <span class="fa-brands fa-square-instagram" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                            {{#ifSet element="Facebook URL" ~}}
-                                <li>
-                                    <a href="{{publish element="Facebook URL"}}" target="_blank" aria-label="Facebook opens in a new window">
-                                    <span class="show-for-sr">Facebook</span>
-                                    <span class="fa-brands fa-square-facebook" aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            {{~/ifSet}}
-                        </ul>
-                    {{~/or}}
-                  	{{#ifSet element="Curriculum Vitae" ~}}
-                        <ul class="global-spacing--2x">
-                            <li><a href="{{{media id=(mediaId element="Curriculum Vitae") layout="path/*"}}}">CV</a></li>
-                        </ul>
-                    {{~/ifSet}}
-                </aside>
+  <div class="grid-x grid-margin-x">
+    <div class="cell medium-4">
+      {{#or
+        (ifSet element="Phone")
+        (ifSet element="Email Address")
+        (ifSet element="Personal Website")
+        (ifSet element="TikTok URL")
+        (ifSet element="Threads URL")
+        (ifSet element="Twitter/X URL")
+        (ifSet element="YouTube URL")
+        (ifSet element="LinkedIn URL")
+        (ifSet element="Instagram URL")
+        (ifSet element="Facebook URL")
+        (ifSet element="Curriculum Vitae")
+      ~}}
+        <aside class="callout text-margin-reset">
+          <div class="eyebrow" id="contact-title">Contact Information</div>
+          {{#or (ifSet element="Phone") (ifSet element="Email Address")~}}
+            <ul class="icon-list" id="contact-list">
+              {{#ifSet element="Phone"~}}
+                <li>
+                  <span
+                    class="icon-list__icon fas fa-phone"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="icon-list__content"><a
+                      href="tel:{{publish element="Phone"}}"
+                    >{{publish element="Phone"}}</a></span>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Email Address"~}}
+                <li>
+                  <span
+                    class="icon-list__icon fas fa-envelope"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="icon-list__content"><a
+                      href="mailto:{{publish element="Email Address"}}"
+                    >{{publish element="Email Address"}}</a></span>
+                </li>
+              {{~/ifSet}}
+            </ul>
+          {{~/or}}
+          {{#ifSet element="Personal Website"~}}
+            <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
+            <ul id="relevant-sites-list">
+              <li><a href="{{publish element="Personal Website"}}">{{publish
+                    element="Personal Website"
+                  }}</a></li>
+            </ul>
+          {{~/ifSet}}
+          {{#or
+            (ifSet element="TikTok URL")
+            (ifSet element="Threads URL")
+            (ifSet element="Twitter/X URL")
+            (ifSet element="YouTube URL")
+            (ifSet element="LinkedIn URL")
+            (ifSet element="Instagram URL")
+            (ifSet element="Facebook URL")
+          ~}}
+            <div class="eyebrow" id="social-media-title">Connect</div>
+            <ul
+              class="icon-list social-media global-spacing--4x btn-row"
+              id="social-media-list"
+            >
+              {{#ifSet element="TikTok URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="TikTok URL"}}"
+                    target="_blank"
+                    aria-label="Tiktok opens in a new window"
+                  >
+                    <span class="show-for-sr">Tiktok</span>
+                    <span class="fa-brands fa-tiktok" aria-hidden="true"></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Threads URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Threads URL"}}"
+                    target="_blank"
+                    aria-label="Threads opens in a new window"
+                  >
+                    <span class="show-for-sr">Threads</span>
+                    <span
+                      class="fa-brands fa-square-threads"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Twitter/X URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Twitter/X URL"}}"
+                    target="_blank"
+                    aria-label="Twitter opens in a new window"
+                  >
+                    <span class="show-for-sr">Twitter</span>
+                    <span
+                      class="fa-brands fa-square-x-twitter"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="YouTube URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="YouTube URL"}}"
+                    target="_blank"
+                    aria-label="YouTube opens in a new window"
+                  >
+                    <span class="show-for-sr">YouTube</span>
+                    <span
+                      class="fa-brands fa-square-youtube"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="LinkedIn URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="LinkedIn URL"}}"
+                    target="_blank"
+                    aria-label="LinkedIn opens in a new window"
+                  >
+                    <span class="show-for-sr">LinkedIn</span>
+                    <span
+                      class="fa-brands fa-linkedin"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Instagram URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Instagram URL"}}"
+                    target="_blank"
+                    aria-label="Instagram opens in a new window"
+                  >
+                    <span class="show-for-sr">Instagram</span>
+                    <span
+                      class="fa-brands fa-square-instagram"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Facebook URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Facebook URL"}}"
+                    target="_blank"
+                    aria-label="Facebook opens in a new window"
+                  >
+                    <span class="show-for-sr">Facebook</span>
+                    <span
+                      class="fa-brands fa-square-facebook"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+            </ul>
+          {{~/or}}
+          {{#ifSet element="Curriculum Vitae"~}}
+            <ul class="global-spacing--2x">
+              <li><a
+                  href="{{{media
+                    id=(mediaId element="Curriculum Vitae")
+                    layout="path/*"
+                  }}}"
+                >CV</a></li>
+            </ul>
+          {{~/ifSet}}
+        </aside>
+      {{~/or}}
+      {{#or
+        (ifSet element="Primary Department")
+        (ifSet element="Secondary Department")
+        (ifSet element="Staff College")
+        (ifSet element="Pronouns")
+        (ifSet element="Areas of Expertise")
+      ~}}
+        <aside class="school-affiliation text-margin-reset global-spacing--1x">
+          <dl>
+            {{#or
+              (ifSet element="Primary Department")
+              (ifSet element="Secondary Department")
+            ~}}
+              <dt>Office/Department</dt>
+              <dd>
+                <ul>
+                  {{#ifSet element="Primary Department"~}}
+                    <li>{{{publish element="Primary Department"}}}</li>
+                  {{~/ifSet}}
+                  {{#ifSet element="Secondary Department"~}}
+                    <li>{{{publish element="Secondary Department"}}}</li>
+                  {{~/ifSet}}
+                </ul>
+              </dd>
             {{~/or}}
-            {{#or (ifSet element="Primary Department") (ifSet element="Secondary Department") (ifSet element="Staff College") (ifSet element="Pronouns") (ifSet element="Areas of Expertise")~}}
-                <aside class="school-affiliation text-margin-reset global-spacing--1x">
-                    <dl>
-                        {{#or (ifSet element="Primary Department") (ifSet element="Secondary Department")~}}
-                            <dt>Office/Department</dt>
-                            <dd>
-                                <ul>
-                                    {{#ifSet element="Primary Department" ~}}
-                                        <li>{{{publish element="Primary Department"}}}</li>
-                                    {{~/ifSet}}
-                                    {{#ifSet element="Secondary Department" ~}}
-                                        <li>{{{publish element="Secondary Department"}}}</li>
-                                    {{~/ifSet}}
-                                </ul>
-                            </dd>
-                        {{~/or}}
-                        {{#ifSet element="Staff College" ~}}
-                            <dt>School/College</dt>
-                            <dd>
-                                <ul>
-                                    {{#each (selected element="Staff College") ~}}
-                                        <li>
-                                            {{#eq name "Albers School of Business & Economics"~}}
-                                                {{nav name="Path to Albers School of Business & Economics" id="1098"}}
-                                            {{~/eq}}
-                                            {{#eq name "College of Arts & Sciences"~}}
-                                                {{nav name="Path to College of Arts & Sciences" id="1099"}}
-                                            {{~/eq}}
-                                            {{#eq name "College of Education"~}}
-                                                {{nav name="Path to College of Education" id="1100"}}
-                                            {{~/eq}}
-                                            {{#eq name "College of Nursing"~}}
-                                                {{nav name="Path to College of Nursing" id="1101"}}
-                                            {{~/eq}}
-                                            {{#eq name "College of Science & Engineering"~}}
-                                                {{nav name="Path to College of Science & Engineering" id="1102"}}
-                                            {{~/eq}}
-                                            {{#eq name "Cornish College of the Arts"~}}
-                                                {{nav name="Path to Cornish College of Arts" id="1107"}}
-                                            {{~/eq}}
-                                            {{#eq name "School of Law"~}}
-                                                <a href="https://law.seattleu.edu/">School of Law</a>
-                                            {{~/eq}}
-                                        </li>
-                                    {{~/each}}
-                                </ul>
-                            </dd>
-                        {{~/ifSet}}
-                        {{#ifSet element="Campus" ~}}
-                            <dt>Campus</dt>
-                            <dd>
-                                <ul>
-                                    {{#each (selected element="Campus") ~}}
-                                        <li>
-                                            {{value}}
-                                        </li>
-                                    {{~/each}}   
-                                </ul>
-                            </dd>
-                        {{~/ifSet}}
-                        {{#ifSet element="Pronouns" ~}}
-                            <dt>Pronouns</dt>
-                            <dd>
-                                <ul>
-                                    <li>
-                                        {{publish element="Pronouns"}}
-                                    </li>
-                                </ul>
-                            </dd>
-                        {{~/ifSet}}
-                        {{#ifSet element="Areas of Expertise" ~}}
-                            <dt>Areas of Expertise</dt>
-                            <dd>
-                                <div class="wysiwyg">
-                                    {{publish element="Areas of Expertise"}}
-                                </div>
-                            </dd>
-                        {{~/ifSet}}
-                    </dl>
-                </aside>
-            {{~/or}}
-        </div>
-        <div class="cell medium-8">
-            {{#ifSet element="Description" ~}}
-                <p class="intro-text">
-                    {{publish element="Description"}}
-                </p>
+            {{#ifSet element="Staff College"~}}
+              <dt>School/College</dt>
+              <dd>
+                <ul>
+                  {{#each (selected element="Staff College")~}}
+                    <li>
+                      {{#eq name "Albers School of Business & Economics"~}}
+                        {{nav
+                          name="Path to Albers School of Business & Economics"
+                          id="1098"
+                        }}
+                      {{~/eq}}
+                      {{#eq name "College of Arts & Sciences"~}}
+                        {{nav
+                          name="Path to College of Arts & Sciences"
+                          id="1099"
+                        }}
+                      {{~/eq}}
+                      {{#eq name "College of Education"~}}
+                        {{nav name="Path to College of Education" id="1100"}}
+                      {{~/eq}}
+                      {{#eq name "College of Nursing"~}}
+                        {{nav name="Path to College of Nursing" id="1101"}}
+                      {{~/eq}}
+                      {{#eq name "College of Science & Engineering"~}}
+                        {{nav
+                          name="Path to College of Science & Engineering"
+                          id="1102"
+                        }}
+                      {{~/eq}}
+                      {{#eq name "Cornish College of the Arts"~}}
+                        {{nav name="Path to Cornish College of Arts" id="1107"}}
+                      {{~/eq}}
+                      {{#eq name "School of Law"~}}
+                        <a href="https://law.seattleu.edu/">School of Law</a>
+                      {{~/eq}}
+                    </li>
+                  {{~/each}}
+                </ul>
+              </dd>
             {{~/ifSet}}
-            {{#ifSet element="Extended Biography" ~}}
-                <div class="profile--section profile--section__biography global-spacing--5x">
-                    <div class="more-less">
-                        <div class="global-spacing--1x">
-                            <button type="button" class=" more-less__toggle" data-button-open-text="" data-button-close-text=""
-                                data-button-enable-at="0" data-button-disable-at="-1 " data-button-open-class="more-less-open"
-                                data-button-open-class-element=".more-less" aria-live="polite" aria-label="Expand to see the full text"
-                                id="expand-to-see-the-full-text--button-toggle-1" data-toggle-type="accordion" aria-expanded="true">
-                                <span>Compare</span> </button>
-                        </div>
-                        <div class="more-less__content">
-                            <div class="more-less__item">
-                                <h2 class="h3">Biography</h2>
-                                <div class="wysiwyg">
-                                    {{{publish element="Extended Biography"}}}
-                                </div><!-- /.wysiwyg -->
-                            </div>
-                        </div>
-                    </div>
+            {{#ifSet element="Campus"~}}
+              <dt>Campus</dt>
+              <dd>
+                <ul>
+                  {{#each (selected element="Campus")~}}
+                    <li>
+                      {{value}}
+                    </li>
+                  {{~/each}}
+                </ul>
+              </dd>
+            {{~/ifSet}}
+            {{#ifSet element="Pronouns"~}}
+              <dt>Pronouns</dt>
+              <dd>
+                <ul>
+                  <li>
+                    {{publish element="Pronouns"}}
+                  </li>
+                </ul>
+              </dd>
+            {{~/ifSet}}
+            {{#ifSet element="Areas of Expertise"~}}
+              <dt>Areas of Expertise</dt>
+              <dd>
+                <div class="wysiwyg">
+                  {{publish element="Areas of Expertise"}}
                 </div>
+              </dd>
             {{~/ifSet}}
-            {{#ifSet element="Education" ~}}
-                <div class="profile--section profile--section__education global-spacing--5x">
-                    <div class="more-less">
-                        <div class="global-spacing--1x">
-                            <button type="button" class=" more-less__toggle" data-button-open-text="" data-button-close-text=""
-                                data-button-enable-at="0" data-button-disable-at="-1 " data-button-open-class="more-less-open"
-                                data-button-open-class-element=".more-less" aria-live="polite" aria-label="Expand to see the full text"
-                                id="expand-to-see-the-full-text--button-toggle-2" data-toggle-type="accordion" aria-expanded="true">
-                                <span>Compare</span> </button>
-                        </div>
-                        <div class="more-less__content">
-                            <div class="more-less__item">
-                                <h2 class="h3">Education</h2>
-                                <div class="wysiwyg">
-                                    {{{publish element="Education"}}}
-                                </div><!-- /.wysiwyg -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{~/ifSet}}
-            {{#ifSet element="Courses Taught" ~}}
-                <div class="profile--section profile--section__courses-taught global-spacing--5x">
-                    <div class="more-less">
-                        <div class="global-spacing--1x">
-                            <button type="button" class=" more-less__toggle" data-button-open-text="" data-button-close-text=""
-                                data-button-enable-at="0" data-button-disable-at="-1 " data-button-open-class="more-less-open"
-                                data-button-open-class-element=".more-less" aria-live="polite" aria-label="Expand to see the full text"
-                                id="expand-to-see-the-full-text--button-toggle-3" data-toggle-type="accordion" aria-expanded="true">
-                                <span>Compare</span> </button>
-                        </div>
-                        <div class="more-less__content">
-                            <div class="more-less__item">
-                                <h2 class="h3">Courses Taught</h2>
-                                <div class="wysiwyg">
-                                    {{{publish element="Courses Taught"}}}
-                                </div><!-- /.wysiwyg -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{~/ifSet}}
-            {{#ifSet element="Publications" ~}}
-                <div class="profile--section profile--section__publications global-spacing--5x">
-                    <div class="more-less">
-                        <div class="global-spacing--1x">
-                            <button type="button" class=" more-less__toggle" data-button-open-text="" data-button-close-text=""
-                                data-button-enable-at="0" data-button-disable-at="-1 " data-button-open-class="more-less-open"
-                                data-button-open-class-element=".more-less" aria-live="polite" aria-label="Expand to see the full text"
-                                id="expand-to-see-the-full-text--button-toggle-4" data-toggle-type="accordion" aria-expanded="true">
-                                <span>Compare</span> </button>
-                        </div>
-                        <div class="more-less__content">
-                            <div class="more-less__item">
-                                <h2 class="h3">Publications</h2>
-                                <div class="wysiwyg">
-                                    {{{publish element="Publications"}}}
-                                </div><!-- /.wysiwyg -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{~/ifSet}}
-        </div>
+          </dl>
+        </aside>
+      {{~/or}}
     </div>
+    <div class="cell medium-8">
+      {{#ifSet element="Description"~}}
+        <p class="intro-text">
+          {{publish element="Description"}}
+        </p>
+      {{~/ifSet}}
+      {{#ifSet element="Extended Biography"~}}
+        <div
+          class="profile--section profile--section__biography global-spacing--5x"
+        >
+          <div class="more-less">
+            <div class="global-spacing--1x">
+              <button
+                type="button"
+                class="more-less__toggle"
+                data-button-open-text=""
+                data-button-close-text=""
+                data-button-enable-at="0"
+                data-button-disable-at="-1 "
+                data-button-open-class="more-less-open"
+                data-button-open-class-element=".more-less"
+                aria-live="polite"
+                aria-label="Expand to see the full text"
+                id="expand-to-see-the-full-text--button-toggle-1"
+                data-toggle-type="accordion"
+                aria-expanded="true"
+              >
+                <span>Compare</span>
+              </button>
+            </div>
+            <div class="more-less__content">
+              <div class="more-less__item">
+                <h2 class="h3">Biography</h2>
+                <div class="wysiwyg">
+                  {{{publish element="Extended Biography"}}}
+                </div><!-- /.wysiwyg -->
+              </div>
+            </div>
+          </div>
+        </div>
+      {{~/ifSet}}
+      {{#ifSet element="Education"~}}
+        <div
+          class="profile--section profile--section__education global-spacing--5x"
+        >
+          <div class="more-less">
+            <div class="global-spacing--1x">
+              <button
+                type="button"
+                class="more-less__toggle"
+                data-button-open-text=""
+                data-button-close-text=""
+                data-button-enable-at="0"
+                data-button-disable-at="-1 "
+                data-button-open-class="more-less-open"
+                data-button-open-class-element=".more-less"
+                aria-live="polite"
+                aria-label="Expand to see the full text"
+                id="expand-to-see-the-full-text--button-toggle-2"
+                data-toggle-type="accordion"
+                aria-expanded="true"
+              >
+                <span>Compare</span>
+              </button>
+            </div>
+            <div class="more-less__content">
+              <div class="more-less__item">
+                <h2 class="h3">Education</h2>
+                <div class="wysiwyg">
+                  {{{publish element="Education"}}}
+                </div><!-- /.wysiwyg -->
+              </div>
+            </div>
+          </div>
+        </div>
+      {{~/ifSet}}
+      {{#ifSet element="Courses Taught"~}}
+        <div
+          class="profile--section profile--section__courses-taught global-spacing--5x"
+        >
+          <div class="more-less">
+            <div class="global-spacing--1x">
+              <button
+                type="button"
+                class="more-less__toggle"
+                data-button-open-text=""
+                data-button-close-text=""
+                data-button-enable-at="0"
+                data-button-disable-at="-1 "
+                data-button-open-class="more-less-open"
+                data-button-open-class-element=".more-less"
+                aria-live="polite"
+                aria-label="Expand to see the full text"
+                id="expand-to-see-the-full-text--button-toggle-3"
+                data-toggle-type="accordion"
+                aria-expanded="true"
+              >
+                <span>Compare</span>
+              </button>
+            </div>
+            <div class="more-less__content">
+              <div class="more-less__item">
+                <h2 class="h3">Courses Taught</h2>
+                <div class="wysiwyg">
+                  {{{publish element="Courses Taught"}}}
+                </div><!-- /.wysiwyg -->
+              </div>
+            </div>
+          </div>
+        </div>
+      {{~/ifSet}}
+      {{#ifSet element="Publications"~}}
+        <div
+          class="profile--section profile--section__publications global-spacing--5x"
+        >
+          <div class="more-less">
+            <div class="global-spacing--1x">
+              <button
+                type="button"
+                class="more-less__toggle"
+                data-button-open-text=""
+                data-button-close-text=""
+                data-button-enable-at="0"
+                data-button-disable-at="-1 "
+                data-button-open-class="more-less-open"
+                data-button-open-class-element=".more-less"
+                aria-live="polite"
+                aria-label="Expand to see the full text"
+                id="expand-to-see-the-full-text--button-toggle-4"
+                data-toggle-type="accordion"
+                aria-expanded="true"
+              >
+                <span>Compare</span>
+              </button>
+            </div>
+            <div class="more-less__content">
+              <div class="more-less__item">
+                <h2 class="h3">Publications</h2>
+                <div class="wysiwyg">
+                  {{{publish element="Publications"}}}
+                </div><!-- /.wysiwyg -->
+              </div>
+            </div>
+          </div>
+        </div>
+      {{~/ifSet}}
+    </div>
+  </div>
 </div>
 {{#if (nav id="994" name="Profile related news")~}}
-    <section class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient">
-        <div class="grid-container oho-animate-sequence">
-            <div class="grid-x grid-margin-x">
-                <div class="cell large-9">
-                    <div class="section-heading--basic text-margin-reset">
-                        <h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>
-                        <div class="section-heading__link global-spacing--2x oho-animate fade-in">
-                            <a href="{{nav id="991" name="Link to News & Stories"}}">Related News &amp; Stories</a>
-                        </div>
-                    </div>
-                </div>
+  <section
+    class="related-news-stories-section global-padding--15x bg--dark bg--blue bg--gradient"
+  >
+    <div class="grid-container oho-animate-sequence">
+      <div class="grid-x grid-margin-x">
+        <div class="cell large-9">
+          <div class="section-heading--basic text-margin-reset">
+            <h2 class="oho-animate fade-in">Similar News &amp; Stories</h2>
+            <div
+              class="section-heading__link global-spacing--2x oho-animate fade-in"
+            >
+              <a href="{{nav id="991" name="Link to News & Stories"}}">Related
+                News &amp; Stories</a>
             </div>
-            <ul class="grid-x grid-margin-x global-spacing--6x">
-                {{nav id="994" name="Profile related news"}}
-            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+      <ul class="grid-x grid-margin-x global-spacing--6x">
+        {{nav id="994" name="Profile related news"}}
+      </ul>
+    </div>
+  </section>
 {{~/if}}
