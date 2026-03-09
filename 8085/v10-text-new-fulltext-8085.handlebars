@@ -1,4 +1,3 @@
-<!-- v10/text/new-fulltext/8085 -->
 <article class="profile-detail">
 <div class="hero--basic">
   <div class="grid-container">
@@ -13,7 +12,6 @@
           <h1 class="h2">
             {{publish element="Name of Faculty or Staff Member"}}
 
-            <!-- add hidden taxonomies to handle descriptive h1 heading -->
             {{#or
               (ifSet element="Type of Staff")
               (ifSet element="Primary Title")
@@ -116,6 +114,7 @@
         (ifSet element="Phone")
         (ifSet element="Email Address")
         (ifSet element="Pronouns")
+        (ifSet element="Personal Website")
         (ifSet element="TikTok URL")
         (ifSet element="Threads URL")
         (ifSet element="Twitter/X URL")
@@ -274,16 +273,6 @@
               {{~/ifSet}}
             </ul>
           {{~/or}}
-          {{#ifSet element="Curriculum Vitae"~}}
-            <ul class="global-spacing--2x">
-              <li><a
-                  href="{{{media
-                    id=(mediaId element="Curriculum Vitae")
-                    layout="path/*"
-                  }}}"
-                >CV</a></li>
-            </ul>
-          {{~/ifSet}}
         </aside>
       {{~/or}}
       {{#or
@@ -382,7 +371,6 @@
         (ifSet element="ORCID URL")
         (ifSet element="Google Scholar URL")
         (ifSet element="Curriculum Vitae")
-        (ifSet element="Personal Website")
         (ifSet element="Areas of Expertise")
       ~}}
         <aside class="professional-affiliation callout text-margin-reset global-spacing--1x">
