@@ -279,15 +279,11 @@
         (ifSet element="Primary Department")
         (ifSet element="Secondary Department")
         (ifSet element="Staff College")
-        
-        (ifSet element="Areas of Expertise")
+        (ifSet element="Campus")
       ~}}
         <aside class="school-affiliation text-margin-reset global-spacing--1x">
           <dl>
-            {{#or
-              (ifSet element="Primary Department")
-              (ifSet element="Secondary Department")
-            ~}}
+            {{#or (ifSet element="Primary Department") (ifSet element="Secondary Department") ~}}
               <dt>Office/Department</dt>
               <dd>
                 <ul>
@@ -342,24 +338,6 @@
                     </li>
                   {{~/each}}
                 </ul>
-              </dd>
-            {{~/ifSet}}
-            {{#ifSet element="Pronouns"~}}
-              <dt>Pronouns</dt>
-              <dd>
-                <ul>
-                  <li>
-                    {{publish element="Pronouns"}}
-                  </li>
-                </ul>
-              </dd>
-            {{~/ifSet}}
-            {{#ifSet element="Areas of Expertise"~}}
-              <dt>Areas of Expertise</dt>
-              <dd>
-                <div class="wysiwyg">
-                  {{publish element="Areas of Expertise"}}
-                </div>
               </dd>
             {{~/ifSet}}
           </dl>
