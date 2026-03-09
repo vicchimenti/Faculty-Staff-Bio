@@ -1,8 +1,8 @@
 /**
  * @file text-json-ld-bio.js
- * @version 1.0.5
+ * @version 2.0.0
  * @created 2026-03-09
- * @modified 2026-03-09
+ * @modified 2026-03-10
  * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
  *               faculty and staff profile pages in the directory at
  *               seattleu.edu/directory/. Outputs a standalone structured
@@ -26,7 +26,6 @@
  *   name           ← Full Name
  *   jobTitle       ← Primary Title
  *   description    ← Description
- *   image          ← Photo (relative path → full HTTPS URL)
  *   email          ← Email Address
  *   telephone      ← Phone
  *   url            ← Name of Faculty or Staff Member fulltext path
@@ -36,10 +35,9 @@
  *   worksFor       ← Staff College + Staff Department (conditional nesting)
  *   affiliation    ← Static @id reference to CollegeOrUniversity entity
  *   sameAs         ← All social + academic profile URL fields (combined array)
- *   subjectOf      ← Curriculum Vitae (full HTTPS URL → CreativeWork object)
  *
  * ProfilePage fields:
- *   dateModified   ← item-level last_modified meta tag (UTC ISO 8601 date)
+ *   dateModified   ← item-level last_modified meta tag (date only)
  *
  * worksFor nesting logic:
  *   Both college and department present → college wraps department as
@@ -48,13 +46,11 @@
  *   Department only → department object, no URL
  *   Neither → worksFor omitted entirely
  *
- * dateModified note:
- *   Uses item-level last_modified (not section-level revised or
- *   section-publish-date). Parsed from T4's yyyy/MM/dd format and output
- *   as UTC ISO 8601 date. Full datetime output (HH:mm:ssZ) is pending the
- *   ProfilePage meta-content file conversion from HTML to JS programmable
- *   layout — that fix will resolve the T4 tag builder timezone bug for
- *   both the meta tag and this JSON-LD field simultaneously.
+ * Deferred:
+ *   image          ← Photo — media formatter behavior TBD
+ *   dateModified   ← Full UTC ISO 8601 datetime pending ProfilePage
+ *                    meta-content file conversion from HTML to JS
+ *                    programmable layout
  */
 
 /* eslint-disable no-undef, no-unused-vars */
@@ -67,7 +63,7 @@ try {
     // ========================================================================
 
     /**
-     * Processes a T4 tag string and returns the resolved value.
+     * Processes a T4 tag string and returns the resolved value as a string.
      *
      * @param {string} t4Tag - The T4 tag markup to evaluate.
      * @returns {string} The resolved tag value from the content item.
@@ -115,54 +111,19 @@ try {
      * multiple spaces, and trims leading/trailing whitespace.
      *
      * @param {string} str - Raw string from T4.
-     * @returns {string} Sanitized string ready for JSON-LD, or empty
-     *                    string if input is null, undefined, or empty.
+     * @returns {string} Sanitized string, or empty string if falsy.
      */
     function sanitizeText(str) {
         if (!str) return "";
         var clean = decodeHtmlEntities(str);
         clean = clean
             .replace(/\r\n/g, " ")
-            .replace(/\r/g, " ")
-            .replace(/\n/g, " ")
-            .replace(/\t/g, " ")
+            .replace(/\r/g,   " ")
+            .replace(/\n/g,   " ")
+            .replace(/\t/g,   " ")
             .replace(/\s{2,}/g, " ")
             .trim();
         return clean;
-    }
-
-    /**
-     * Removes null, undefined, and empty-string properties from an object.
-     * Also removes empty arrays. Operates on the top level only.
-     *
-     * @param {Object} obj - The object to clean.
-     * @returns {Object} The same object with empty properties removed.
-     */
-    function filterEmpty(obj) {
-        Object.keys(obj).forEach(function (key) {
-            var val = obj[key];
-            if (val === null || val === undefined || val === "") {
-                delete obj[key];
-            } else if (Array.isArray(val) && val.length === 0) {
-                delete obj[key];
-            }
-        });
-        return obj;
-    }
-
-    /**
-     * Returns the raw T4 last_modified string as-is for dateModified.
-     * Full UTC ISO 8601 conversion is deferred pending the ProfilePage
-     * meta-content file conversion from HTML to JS programmable layout,
-     * which will resolve the T4 tag builder timezone bug for both the
-     * meta tag and this field simultaneously.
-     *
-     * @param {string} rawDate - Raw date string from T4 last_modified meta.
-     * @returns {string} Trimmed date string, or empty string if invalid.
-     */
-    function formatDateModified(rawDate) {
-        if (!rawDate || rawDate.trim() === "") return "";
-        return rawDate.trim();
     }
 
     // ========================================================================
@@ -189,7 +150,6 @@ try {
     list["fullName"]      = processTags('<t4 type="content" name="Full Name" output="normal" modifiers="striptags,htmlentities" />');
     list["primaryTitle"]  = processTags('<t4 type="content" name="Primary Title" output="normal" modifiers="striptags,htmlentities" />');
     list["description"]   = processTags('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />');
-    list["photo"]         = processTags('<t4 type="content" name="Photo" output="normal" formatter="path/*" />');
     list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
     list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
     list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
@@ -215,9 +175,6 @@ try {
     list["threads"]       = processTags('<t4 type="content" name="Threads URL" output="normal" modifiers="striptags,htmlentities" />');
     list["personalSite"]  = processTags('<t4 type="content" name="Personal Website" output="normal" modifiers="striptags,htmlentities" />');
 
-    // CV — full HTTPS URL stored directly in field
-    list["cv"]            = processTags('<t4 type="content" name="Curriculum Vitae" output="normal" formatter="path/*" />');
-
     // ========================================================================
     // Step 2: Bail early if Full Name is missing
     // ========================================================================
@@ -229,14 +186,7 @@ try {
     } else {
 
         // ====================================================================
-        // Step 3: Build image URL from relative photo path
-        // ====================================================================
-
-        var photoPath = sanitizeText(list["photo"]);
-        var imageUrl = photoPath ? "https://www.seattleu.edu" + photoPath : null;
-
-        // ====================================================================
-        // Step 4: Build knowsAbout array from pipe-delimited expertise field
+        // Step 3: Build knowsAbout array from pipe-delimited expertise field
         // ====================================================================
 
         var knowsAbout = list["expertise"]
@@ -245,7 +195,7 @@ try {
             .filter(function (s) { return s !== ""; });
 
         // ====================================================================
-        // Step 5: Build sameAs array — academic profiles then social URLs
+        // Step 4: Build sameAs array — academic profiles then social URLs
         // ====================================================================
 
         var sameAs = [
@@ -265,7 +215,7 @@ try {
         .filter(function (s) { return s !== ""; });
 
         // ====================================================================
-        // Step 6: Build worksFor with conditional college → department nesting
+        // Step 5: Build worksFor with conditional college → department nesting
         // ====================================================================
 
         var collegeName    = list["college"].split("|")[0].trim();
@@ -275,94 +225,67 @@ try {
         var worksFor = null;
 
         if (collegeName && departmentName) {
-            worksFor = {
-                "@type": "EducationalOrganization",
-                "name": collegeName,
-                "subOrganization": {
-                    "@type": "EducationalOrganization",
-                    "name": departmentName
-                }
-            };
+            worksFor = { "@type": "EducationalOrganization", "name": collegeName };
             if (collegeUrl) worksFor["url"] = collegeUrl;
+            worksFor["subOrganization"] = { "@type": "EducationalOrganization", "name": departmentName };
         } else if (collegeName) {
-            worksFor = {
-                "@type": "EducationalOrganization",
-                "name": collegeName
-            };
+            worksFor = { "@type": "EducationalOrganization", "name": collegeName };
             if (collegeUrl) worksFor["url"] = collegeUrl;
         } else if (departmentName) {
-            worksFor = {
-                "@type": "EducationalOrganization",
-                "name": departmentName
-            };
+            worksFor = { "@type": "EducationalOrganization", "name": departmentName };
         }
 
         // ====================================================================
-        // Step 7: Build subjectOf CreativeWork for CV
-        // ====================================================================
-
-        var cvPath = sanitizeText(list["cv"]);
-        var cvUrl = cvPath ? "https://www.seattleu.edu" + cvPath : null;
-        var subjectOf = cvUrl ? {
-            "@type": "CreativeWork",
-            "name": "Curriculum Vitae",
-            "url": cvUrl
-        } : null;
-
-        // ====================================================================
-        // Step 8: Format dateModified from item-level last_modified
-        // ====================================================================
-
-        // var dateModified = formatDateModified(list["lastModified"]);
-        var dateModified = (list["lastModified"]);
-
-
-        // ====================================================================
-        // Step 9: Assemble Person entity
+        // Step 6: Assemble Person entity — conditional assignment, no nulls
         // ====================================================================
 
         var person = {
-            "@type":       "Person",
-            "name":        fullName,
-            "jobTitle":    sanitizeText(list["primaryTitle"]),
-            "description": sanitizeText(list["description"]),
-            "image":       imageUrl,
-            "email":       sanitizeText(list["email"]),
-            "telephone":   sanitizeText(list["phone"]),
-            "url":         sanitizeText(list["url"]),
-            "knowsAbout":  knowsAbout.length > 0 ? knowsAbout : null,
-            "worksFor":    worksFor,
-            "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "@id":   "https://www.seattleu.edu/#organization"
-            },
-            "sameAs":      sameAs.length > 0 ? sameAs : null,
-            "subjectOf":   subjectOf
+            "@type": "Person",
+            "name":  fullName
         };
 
-        filterEmpty(person);
+        var jobTitle    = sanitizeText(list["primaryTitle"]);
+        var description = sanitizeText(list["description"]);
+        var email       = sanitizeText(list["email"]);
+        var telephone   = sanitizeText(list["phone"]);
+        var profileUrl  = sanitizeText(list["url"]);
+
+        if (jobTitle)                  person["jobTitle"]    = jobTitle;
+        if (description)               person["description"] = description;
+        if (email)                     person["email"]       = email;
+        if (telephone)                 person["telephone"]   = telephone;
+        if (profileUrl)                person["url"]         = profileUrl;
+        if (knowsAbout.length > 0)     person["knowsAbout"]  = knowsAbout;
+        if (worksFor)                  person["worksFor"]    = worksFor;
+
+        person["affiliation"] = {
+            "@type": "CollegeOrUniversity",
+            "@id":   "https://www.seattleu.edu/#organization"
+        };
+
+        if (sameAs.length > 0) person["sameAs"] = sameAs;
 
         // ====================================================================
-        // Step 10: Assemble ProfilePage wrapper
+        // Step 7: Assemble ProfilePage wrapper
         // ====================================================================
 
         var jsonLD = {
-            "@context":     "https://schema.org",
-            "@type":        "ProfilePage",
-            "dateModified": dateModified || null,
-            "mainEntity":   person
+            "@context":   "https://schema.org",
+            "@type":      "ProfilePage",
+            "mainEntity": person
         };
 
-        filterEmpty(jsonLD);
+        var dateModified = sanitizeText(list["lastModified"]);
+        if (dateModified) jsonLD["dateModified"] = dateModified;
 
         // ====================================================================
-        // Step 11: Output JSON-LD script block
+        // Step 8: Output JSON-LD script block
         // ====================================================================
 
         document.write(
             '<script type="application/ld+json" id="bio-profile-jsonld">' +
                 JSON.stringify(jsonLD, null, 2) +
-            '</script>'
+            '<\/script>'
         );
 
     }
