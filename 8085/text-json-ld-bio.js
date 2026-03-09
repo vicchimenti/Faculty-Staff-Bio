@@ -1,9 +1,9 @@
 /**
  * @file text-json-ld-bio.js
- * @version 2.0.4
+ * @version 2.1.0
  * @created 2026-03-09
  * @modified 2026-03-09
- * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
+ * @fileoverview Generates Person JSON-LD for Seattle University
  *               faculty and staff profile pages in the directory at
  *               seattleu.edu/directory/. Outputs a standalone structured
  *               data block alongside existing Funnelback microdata meta
@@ -293,7 +293,7 @@ try {
         // ====================================================================
 
         document.write(
-            '<script type="application/ld+json" id="bio-profile-jsonld">' +
+            '<script type="application/ld+json" id="person-jsonld">' +
                 JSON.stringify(jsonLD, null, 2) +
             '<\/script>'
         );
