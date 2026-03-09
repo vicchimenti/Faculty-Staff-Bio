@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld-bio.js
- * @version 2.0.1
+ * @version 2.0.0
  * @created 2026-03-09
  * @modified 2026-03-09
  * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
@@ -47,7 +47,7 @@
  *   Neither → worksFor omitted entirely
  *
  * Deferred:
- *   image          ← Photo (relative path → full HTTPS URL)
+ *   image          ← Photo — media formatter behavior TBD
  *   dateModified   ← Full UTC ISO 8601 datetime pending ProfilePage
  *                    meta-content file conversion from HTML to JS
  *                    programmable layout
@@ -150,7 +150,6 @@ try {
     list["fullName"]      = processTags('<t4 type="content" name="Full Name" output="normal" modifiers="striptags,htmlentities" />');
     list["primaryTitle"]  = processTags('<t4 type="content" name="Primary Title" output="normal" modifiers="striptags,htmlentities" />');
     list["description"]   = processTags('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />');
-    list["photo"]         = processTags('<t4 type="content" name="Photo" output="normal" formatter="path/*" />');
     list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
     list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
     list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
@@ -245,16 +244,12 @@ try {
             "name":  fullName
         };
 
-        var imageUrl    = sanitizeText(list["photo"]);
-        if (imageUrl) imageUrl = "https://www.seattleu.edu" + imageUrl;
-
         var jobTitle    = sanitizeText(list["primaryTitle"]);
         var description = sanitizeText(list["description"]);
         var email       = sanitizeText(list["email"]);
         var telephone   = sanitizeText(list["phone"]);
         var profileUrl  = sanitizeText(list["url"]);
 
-        if (imageUrl)                  person["image"]       = imageUrl;
         if (jobTitle)                  person["jobTitle"]    = jobTitle;
         if (description)               person["description"] = description;
         if (email)                     person["email"]       = email;
