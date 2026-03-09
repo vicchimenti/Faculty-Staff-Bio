@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld-bio.js
- * @version 2.0.2
+ * @version 2.0.4
  * @created 2026-03-09
  * @modified 2026-03-09
  * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
@@ -35,6 +35,7 @@
  *   worksFor       ← Staff College + Staff Department (conditional nesting)
  *   affiliation    ← Static @id reference to CollegeOrUniversity entity
  *   sameAs         ← All social + academic profile URL fields (combined array)
+ *   subjectOf      ← Curriculum Vitae (full HTTPS URL → CreativeWork object)
  *
  * ProfilePage fields:
  *   dateModified   ← item-level last_modified meta tag (date only)
@@ -151,6 +152,7 @@ try {
     list["primaryTitle"]  = processTags('<t4 type="content" name="Primary Title" output="normal" modifiers="striptags,htmlentities" />');
     list["description"]   = processTags('<t4 type="content" name="Description" output="normal" modifiers="striptags,htmlentities" />');
     list["photo"]         = processTags('<t4 type="content" name="Photo" output="selective-output" process-format="true" format="https://www.seattleu.edu<t4 type=&quot;content&quot; name=&quot;Photo&quot; output=&quot;normal&quot; formatter=&quot;path/*&quot; />" />');
+    list["cv"]            = processTags('<t4 type="content" name="Curriculum Vitae" output="selective-output" process-format="true" format="https://www.seattleu.edu<t4 type=&quot;content&quot; name=&quot;Curriculum Vitae&quot; output=&quot;normal&quot; formatter=&quot;path/*&quot; />" />');
     list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
     list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
     list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
@@ -266,6 +268,12 @@ try {
         };
 
         if (sameAs.length > 0) person["sameAs"] = sameAs;
+
+        if (list["cv"]) person["subjectOf"] = {
+            "@type": "CreativeWork",
+            "name":  "Curriculum Vitae",
+            "url":   list["cv"]
+        };
 
         // ====================================================================
         // Step 7: Assemble ProfilePage wrapper

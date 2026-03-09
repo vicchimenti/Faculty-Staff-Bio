@@ -1,14 +1,14 @@
 /**
- * @file breadcrumbs-bio-fulltext-structured-data.js
- * @version 2.1.1
+ * @file breadcrumbs-structured-data.js
+ * @version 2.0.1
  * @fileoverview Generates valid Breadcrumb JSON-LD using a T4 Navigation Object.
  *               Automatically prepends the full domain (https://www.seattleu.edu)
  *               to any relative links. Includes short-circuit logging for preview.
  * @author Victor Chimenti
- * @copyright 2026
+ * @copyright 2025
  *
  * @requires com.terminalfour.publish.utils.BrokerUtils
- * @requires Navigation Object (id:1130) - "Breadcrumbs Structured Data"
+ * @requires Navigation Object (id:1129) - "Breadcrumbs for Structured Data"
  *
  * @description
  * Parses HTML anchor tags from the T4 Breadcrumb navigation object into a
@@ -63,7 +63,7 @@ try {
   // Step 1: Retrieve and sanitize raw breadcrumb navigation markup
   // ==========================================================================
   var rawNav = String(
-    processT4Tag('<t4 type="navigation" name="Breadcrumbs Structured Data" id="1130" />')
+    processT4Tag('<t4 type="navigation" name="Breadcrumbs for Structured Data" id="1129" />')
   )
     .replace(/\r?\n|\r/g, "")
     .trim();
