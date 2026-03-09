@@ -115,15 +115,14 @@
       {{#or
         (ifSet element="Phone")
         (ifSet element="Email Address")
-        (ifSet element="Personal Website")
+        (ifSet element="Pronouns")
         (ifSet element="TikTok URL")
         (ifSet element="Threads URL")
         (ifSet element="Twitter/X URL")
         (ifSet element="YouTube URL")
-        (ifSet element="LinkedIn URL")
         (ifSet element="Instagram URL")
         (ifSet element="Facebook URL")
-        (ifSet element="Curriculum Vitae")
+      
       ~}}
         <aside class="callout text-margin-reset">
           <div class="eyebrow" id="contact-title">Contact Information</div>
@@ -153,8 +152,20 @@
               {{~/ifSet}}
             </ul>
           {{~/or}}
+          {{#ifSet element="Pronouns"~}}
+            <dl class="global-spacing--2x">
+              <dt>Pronouns</dt>
+              <dd>
+                <ul>
+                  <li>
+                    {{publish element="Pronouns"}}
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          {{~/ifSet}}
           {{#ifSet element="Personal Website"~}}
-            <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
+            <div class="eyebrow" id="relevant-sites-title">Personal Site</div>
             <ul id="relevant-sites-list">
               <li><a href="{{publish element="Personal Website"}}">{{publish
                     element="Personal Website"
@@ -166,11 +177,10 @@
             (ifSet element="Threads URL")
             (ifSet element="Twitter/X URL")
             (ifSet element="YouTube URL")
-            (ifSet element="LinkedIn URL")
             (ifSet element="Instagram URL")
             (ifSet element="Facebook URL")
           ~}}
-            <div class="eyebrow" id="social-media-title">Connect</div>
+            <div class="eyebrow" id="social-media-title">Social</div>
             <ul
               class="icon-list social-media global-spacing--4x btn-row"
               id="social-media-list"
@@ -232,21 +242,6 @@
                   </a>
                 </li>
               {{~/ifSet}}
-              {{#ifSet element="LinkedIn URL"~}}
-                <li>
-                  <a
-                    href="{{publish element="LinkedIn URL"}}"
-                    target="_blank"
-                    aria-label="LinkedIn opens in a new window"
-                  >
-                    <span class="show-for-sr">LinkedIn</span>
-                    <span
-                      class="fa-brands fa-linkedin"
-                      aria-hidden="true"
-                    ></span>
-                  </a>
-                </li>
-              {{~/ifSet}}
               {{#ifSet element="Instagram URL"~}}
                 <li>
                   <a
@@ -295,7 +290,7 @@
         (ifSet element="Primary Department")
         (ifSet element="Secondary Department")
         (ifSet element="Staff College")
-        (ifSet element="Pronouns")
+        
         (ifSet element="Areas of Expertise")
       ~}}
         <aside class="school-affiliation text-margin-reset global-spacing--1x">
@@ -387,86 +382,104 @@
         (ifSet element="ORCID URL")
         (ifSet element="Google Scholar URL")
         (ifSet element="Curriculum Vitae")
+        (ifSet element="Personal Website")
         (ifSet element="Areas of Expertise")
       ~}}
         <aside class="professional-affiliation callout text-margin-reset global-spacing--1x">
           <div class="eyebrow" id="contact-title">Professional Information</div>
-          <dl>
-            {{#ifSet element="Areas of Expertise"~}}
+          
+          {{#ifSet element="Areas of Expertise"~}}
+            <dl class="global-spacing--2x"></dl>
               <dt>Areas of Expertise</dt>
               <dd>
                 <div class="wysiwyg">
                   {{publish element="Areas of Expertise"}}
                 </div>
               </dd>
-            {{~/ifSet}}
-          </dl>
-          <div class="eyebrow" id="social-media-title">Connect</div>
-          <ul
-            class="icon-list social-media global-spacing--4x btn-row"
-            id="social-media-list"
-          >
-            {{#ifSet element="LinkedIn URL"~}}
-              <li>
-                <a
-                  href="{{publish element="LinkedIn URL"}}"
-                  target="_blank"
-                  aria-label="LinkedIn opens in a new window"
-                >
-                  <span class="show-for-sr">LinkedIn</span>
-                  <span
-                    class="fa-brands fa-linkedin"
-                    aria-hidden="true"
-                  ></span>
-                </a>
-              </li>
-            {{~/ifSet}}
-            {{#ifSet element="Research Gate URL"~}}
-              <li>
-                <a
-                  href="{{publish element="Research Gate URL"}}"
-                  target="_blank"
-                  aria-label="Research Gate opens in a new window"
-                >
-                  <span class="show-for-sr">Research Gate</span>
-                  <span
-                    class="fa-brands fa-researchgate"
-                    aria-hidden="true"
-                  ></span>
-                </a>
-              </li>
-            {{~/ifSet}}
-            {{#ifSet element="ORCID URL"~}}
-              <li>
-                <a
-                  href="{{publish element="ORCID URL"}}"
-                  target="_blank"
-                  aria-label="ORCID opens in a new window"
-                >
-                  <span class="show-for-sr">ORCID</span>
-                  <span
-                    class="fa-brands fa-orcid"
-                    aria-hidden="true"
-                  ></span>
-                </a>
-              </li>
-            {{~/ifSet}}
-            {{#ifSet element="Google Scholar URL"~}}
-              <li>
-                <a
-                  href="{{publish element="Google Scholar URL"}}"
-                  target="_blank"
-                  aria-label="Google Scholar opens in a new window"
-                >
-                  <span class="show-for-sr">Google Scholar</span>
-                  <span
-                    class="fa-brands fa-google-scholar"
-                    aria-hidden="true"
-                  ></span>
-                </a>
-              </li>
-            {{~/ifSet}}
-          </ul>
+            </dl>
+          {{~/ifSet}}
+          
+          {{#or
+            (ifSet element="LinkedIn URL")
+            (ifSet element="Research Gate URL")
+            (ifSet element="ORCID URL")
+            (ifSet element="Google Scholar URL")
+          ~}}
+            <div class="eyebrow" id="social-media-title">Professional Profiles</div>
+            <ul
+              class="icon-list social-media global-spacing--4x btn-row"
+              id="social-media-list"
+            >
+              {{#ifSet element="LinkedIn URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="LinkedIn URL"}}"
+                    target="_blank"
+                    aria-label="LinkedIn opens in a new window"
+                  >
+                    <span class="show-for-sr">LinkedIn</span>
+                    <span
+                      class="fa-brands fa-linkedin"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Research Gate URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Research Gate URL"}}"
+                    target="_blank"
+                    aria-label="Research Gate opens in a new window"
+                  >
+                    <span class="show-for-sr">Research Gate</span>
+                    <span
+                      class="fa-brands fa-researchgate"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="ORCID URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="ORCID URL"}}"
+                    target="_blank"
+                    aria-label="ORCID opens in a new window"
+                  >
+                    <span class="show-for-sr">ORCID</span>
+                    <span
+                      class="fa-brands fa-orcid"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+              {{#ifSet element="Google Scholar URL"~}}
+                <li>
+                  <a
+                    href="{{publish element="Google Scholar URL"}}"
+                    target="_blank"
+                    aria-label="Google Scholar opens in a new window"
+                  >
+                    <span class="show-for-sr">Google Scholar</span>
+                    <span
+                      class="fa-brands fa-google-scholar"
+                      aria-hidden="true"
+                    ></span>
+                  </a>
+                </li>
+              {{~/ifSet}}
+            </ul>
+          {{~/or}}
+          {{#ifSet element="Personal Website"~}}
+            <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
+            <ul id="relevant-sites-list">
+              <li><a href="{{publish element="Personal Website"}}">{{publish
+                    element="Personal Website"
+                  }}</a></li>
+            </ul>
+          {{~/ifSet}}
           {{#ifSet element="Curriculum Vitae"~}}
             <ul class="global-spacing--2x">
               <li><a
