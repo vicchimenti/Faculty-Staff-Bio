@@ -1,11 +1,11 @@
 /**
  * @file breadcrumbs-bio-fulltext-structured-data.js
- * @version 2.0.1
+ * @version 2.1.0
  * @fileoverview Generates valid Breadcrumb JSON-LD using a T4 Navigation Object.
  *               Automatically prepends the full domain (https://www.seattleu.edu)
  *               to any relative links. Includes short-circuit logging for preview.
  * @author Victor Chimenti
- * @copyright 2025
+ * @copyright 2026
  *
  * @requires com.terminalfour.publish.utils.BrokerUtils
  * @requires Navigation Object (id:1133) - "Breadcrumbs for Bio Fulltext Structured Data"
