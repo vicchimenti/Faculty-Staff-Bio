@@ -13,6 +13,7 @@
           <h1 class="h2">
             {{publish element="Name of Faculty or Staff Member"}}
 
+            <!-- add hidden taxonomies to handle descriptive h1 heading -->
             {{#or
               (ifSet element="Type of Staff")
               (ifSet element="Primary Title")
@@ -90,12 +91,7 @@
               <h2 class="tags__heading show-for-sr">Profile Type:</h2>
               <ul>
                 {{#each (selected element="Type of Staff")~}}
-                  <li><a
-                      href="{{nav
-                        id="995"
-                        name="Faculty and Staff Bio Link to Home"
-                      }}?typeOfStaff={{value}}"
-                    >{{value}}</a></li>
+                  <li><a href="{{nav id="995" name="Faculty and Staff Bio Link to Home"}}?typeOfStaff={{value}}">{{value}}</a></li>
                 {{~/each}}
               </ul>
             </div>
@@ -327,16 +323,10 @@
                   {{#each (selected element="Staff College")~}}
                     <li>
                       {{#eq name "Albers School of Business & Economics"~}}
-                        {{nav
-                          name="Path to Albers School of Business & Economics"
-                          id="1098"
-                        }}
+                        {{nav name="Path to Albers School of Business & Economics" id="1098"}}
                       {{~/eq}}
                       {{#eq name "College of Arts & Sciences"~}}
-                        {{nav
-                          name="Path to College of Arts & Sciences"
-                          id="1099"
-                        }}
+                        {{nav name="Path to College of Arts & Sciences" id="1099"}}
                       {{~/eq}}
                       {{#eq name "College of Education"~}}
                         {{nav name="Path to College of Education" id="1100"}}
@@ -345,10 +335,7 @@
                         {{nav name="Path to College of Nursing" id="1101"}}
                       {{~/eq}}
                       {{#eq name "College of Science & Engineering"~}}
-                        {{nav
-                          name="Path to College of Science & Engineering"
-                          id="1102"
-                        }}
+                        {{nav name="Path to College of Science & Engineering" id="1102"}}
                       {{~/eq}}
                       {{#eq name "Cornish College of the Arts"~}}
                         {{nav name="Path to Cornish College of Arts" id="1107"}}
