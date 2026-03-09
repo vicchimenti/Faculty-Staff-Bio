@@ -354,7 +354,6 @@
       ~}}
         <aside class="professional-affiliation callout text-margin-reset global-spacing--1x">
           <div class="eyebrow" id="contact-title">Professional Information</div>
-          
           {{#ifSet element="Areas of Expertise"~}}
             <dl class="global-spacing--2x"></dl>
               <dt>Areas of Expertise</dt>
@@ -365,7 +364,6 @@
               </dd>
             </dl>
           {{~/ifSet}}
-          
           {{#or
             (ifSet element="LinkedIn URL")
             (ifSet element="Research Gate URL")
@@ -439,14 +437,6 @@
               {{~/ifSet}}
             </ul>
           {{~/or}}
-          {{#ifSet element="Personal Website"~}}
-            <div class="eyebrow" id="relevant-sites-title">Relevant Sites</div>
-            <ul id="relevant-sites-list">
-              <li><a href="{{publish element="Personal Website"}}">{{publish
-                    element="Personal Website"
-                  }}</a></li>
-            </ul>
-          {{~/ifSet}}
           {{#ifSet element="Curriculum Vitae"~}}
             <ul class="global-spacing--2x">
               <li><a
