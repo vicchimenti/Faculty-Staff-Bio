@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld-bio.js
- * @version 1.0.3
+ * @version 1.0.5
  * @created 2026-03-09
  * @modified 2026-03-09
  * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
@@ -313,7 +313,9 @@ try {
         // Step 8: Format dateModified from item-level last_modified
         // ====================================================================
 
-        var dateModified = formatDateModified(list["lastModified"]);
+        // var dateModified = formatDateModified(list["lastModified"]);
+        var dateModified = (list["lastModified"]);
+
 
         // ====================================================================
         // Step 9: Assemble Person entity
