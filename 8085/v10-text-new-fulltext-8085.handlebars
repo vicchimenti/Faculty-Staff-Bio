@@ -428,6 +428,21 @@
               </a>
             </li>
           {{~/ifSet}}
+          {{#ifSet element="ORCID URL"~}}
+            <li>
+              <a
+                href="{{publish element="ORCID URL"}}"
+                target="_blank"
+                aria-label="LinkedIn opens in a new window"
+              >
+                <span class="show-for-sr">ORCID</span>
+                <span
+                  class="fa-brands fa-orcid"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </li>
+          {{~/ifSet}}
 
           {{#ifSet element="Curriculum Vitae"~}}
             <ul class="global-spacing--2x">
