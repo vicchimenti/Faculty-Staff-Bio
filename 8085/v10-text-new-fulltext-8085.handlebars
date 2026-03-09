@@ -381,6 +381,67 @@
           </dl>
         </aside>
       {{~/or}}
+      {{#or
+        (ifSet element="LinkedIn URL")
+        (ifSet element="Research Gate")
+        (ifSet element="ORCID URL")
+        (ifSet element="Google Scholar URL")
+        (ifSet element="Curriculum Vitae")
+        (ifSet element="Areas of Expertise")
+      ~}}
+        <aside class="professional-affiliation text-margin-reset global-spacing--1x">
+          {{#ifSet element="Areas of Expertise"~}}
+            <dt>Areas of Expertise</dt>
+            <dd>
+              <div class="wysiwyg">
+                {{publish element="Areas of Expertise"}}
+              </div>
+            </dd>
+          {{~/ifSet}}
+          {{#ifSet element="LinkedIn URL"~}}
+            <li>
+              <a
+                href="{{publish element="LinkedIn URL"}}"
+                target="_blank"
+                aria-label="LinkedIn opens in a new window"
+              >
+                <span class="show-for-sr">LinkedIn</span>
+                <span
+                  class="fa-brands fa-linkedin"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </li>
+          {{~/ifSet}}
+          {{#ifSet element="Research Gate"~}}
+            <li>
+              <a
+                href="{{publish element="Research Gate"}}"
+                target="_blank"
+                aria-label="LinkedIn opens in a new window"
+              >
+                <span class="show-for-sr">Research Gate</span>
+                <span
+                  class="fa-brands fa-researchgate"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </li>
+          {{~/ifSet}}
+
+          {{#ifSet element="Curriculum Vitae"~}}
+            <ul class="global-spacing--2x">
+              <li><a
+                  href="{{{media
+                    id=(mediaId element="Curriculum Vitae")
+                    layout="path/*"
+                  }}}"
+                >CV</a></li>
+            </ul>
+          {{~/ifSet}}
+        </aside>
+      
+
     </div>
     <div class="cell medium-8">
       {{#ifSet element="Description"~}}
