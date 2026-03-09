@@ -8,7 +8,7 @@
  * @copyright 2026
  *
  * @requires com.terminalfour.publish.utils.BrokerUtils
- * @requires Navigation Object (id:1133) - "Breadcrumbs for Bio Fulltext Structured Data"
+ * @requires Navigation Object (id:1130) - "Breadcrumbs Structured Data"
  *
  * @description
  * Parses HTML anchor tags from the T4 Breadcrumb navigation object into a
@@ -63,7 +63,7 @@ try {
   // Step 1: Retrieve and sanitize raw breadcrumb navigation markup
   // ==========================================================================
   var rawNav = String(
-    processT4Tag('<t4 type="navigation" name="Breadcrumbs for Bio Fulltext Structured Data" id="1133" />')
+    processT4Tag('<t4 type="navigation" name="Breadcrumbs Structured Data" id="1130" />')
   )
     .replace(/\r?\n|\r/g, "")
     .trim();
