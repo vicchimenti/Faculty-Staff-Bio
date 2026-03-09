@@ -1,5 +1,4 @@
 <article class="profile-detail">
-{{! v10/text/new/fulltext ID8085 }}
 <div class="hero--basic">
   <div class="grid-container">
     <div class="grid-x grid-margin-x">
@@ -22,7 +21,6 @@
             ~}}
               <span class="show-for-sr">
                 —
-                {{! Type of Staff (multi) }}
                 {{#ifSet element="Type of Staff"~}}
                   {{#each (selected element="Type of Staff")~}}
                     {{#if name}}{{name}}{{else}}{{value}}{{/if}}{{#unless
@@ -36,8 +34,6 @@
                     (ifSet element="Areas of Expertise")
                   ~}}; {{~/or}}
                 {{~/ifSet}}
-
-                {{! Primary Title (single) }}
                 {{#ifSet element="Primary Title"~}}
                   {{publish element="Primary Title"}}
                   {{#or
@@ -46,8 +42,6 @@
                     (ifSet element="Areas of Expertise")
                   ~}}; {{~/or}}
                 {{~/ifSet}}
-
-                {{! Department / College }}
                 {{#or
                   (ifSet element="Staff Department")
                   (ifSet element="Staff College")
@@ -75,8 +69,6 @@
 
                   {{#ifSet element="Areas of Expertise"~}}; {{~/ifSet}}
                 {{~/or}}
-
-                {{! Areas of Expertise (plaintext, pipe-separated; output as-is) }}
                 {{#ifSet element="Areas of Expertise"~}}
                   Areas of Expertise:
                   {{publish element="Areas of Expertise"}}
