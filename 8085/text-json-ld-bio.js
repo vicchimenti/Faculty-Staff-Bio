@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld-bio.js
- * @version 1.0.2
+ * @version 1.0.3
  * @created 2026-03-09
  * @modified 2026-03-09
  * @fileoverview Generates ProfilePage + Person JSON-LD for Seattle University
@@ -151,27 +151,18 @@ try {
     }
 
     /**
-     * Converts a T4 last_modified date string to a UTC ISO 8601 date string.
-     * Input format expected: yyyy/MM/dd (T4 rolled-back format pending
-     * the full programmable layout fix for the meta-content file).
-     * Output format: yyyy-MM-dd.
+     * Returns the raw T4 last_modified string as-is for dateModified.
+     * Full UTC ISO 8601 conversion is deferred pending the ProfilePage
+     * meta-content file conversion from HTML to JS programmable layout,
+     * which will resolve the T4 tag builder timezone bug for both the
+     * meta tag and this field simultaneously.
      *
      * @param {string} rawDate - Raw date string from T4 last_modified meta.
-     * @returns {string} ISO 8601 date string, or empty string if invalid.
+     * @returns {string} Trimmed date string, or empty string if invalid.
      */
     function formatDateModified(rawDate) {
         if (!rawDate || rawDate.trim() === "") return "";
-        try {
-            var sdf = new java.text.SimpleDateFormat("yyyy/MM/dd");
-            sdf.setTimeZone(java.util.TimeZone.getTimeZone("America/Los_Angeles"));
-            var parsed = sdf.parse(rawDate.trim());
-            var outSdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-            outSdf.setTimeZone(java.util.TimeZone.getTimeZone("UTC"));
-            return String(outSdf.format(parsed));
-        } catch (dateErr) {
-            isPreview && document.write("<!-- dateModified parse error: " + dateErr + " -->");
-            return "";
-        }
+        return rawDate.trim();
     }
 
     // ========================================================================
