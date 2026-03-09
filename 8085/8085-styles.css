@@ -62,3 +62,71 @@
   -webkit-text-decoration-color: #aa0000;
   text-decoration-color: #aa0000;
 }
+
+
+
+
+.personal-affiliation .callout ul a {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.personal-affiliation {
+  background-color: #eee;
+  padding: 1.5rem;
+}
+@media print, screen and (min-width: 64.0625em) {
+  .personal-affiliation {
+    padding: 2rem;
+  }
+}
+.personal-affiliation dt {
+  font-family:
+    Montserrat,
+    Gill Sans,
+    sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+@media print, screen and (min-width: 64.0625em) {
+  .personal-affiliation dt {
+    font-size: 1rem;
+  }
+}
+.personal-affiliation dt:not(:first-child) {
+  margin-top: 1rem;
+}
+@media print, screen and (min-width: 48.0625em) {
+  .personal-affiliation dt:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+}
+.personal-affiliation dd {
+  -webkit-margin-start: 0;
+  margin-inline-start: 0;
+  margin-left: 0;
+  margin-top: 0.5rem;
+}
+.personal-affiliation dd ul {
+  list-style: none;
+  padding: 0;
+}
+.personal-affiliation dd li + li,
+.personal-affiliation dd .wysiwyg p + p {
+  margin-top: 0.625rem;
+}
+.personal-affiliation dd li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  -webkit-text-decoration-color: #aa0000;
+  text-decoration-color: #aa0000;
+  font-weight: 700;
+}
+.personal-affiliation dd li a:hover,
+.personal-affiliation dd li a:focus {
+  color: #000000;
+  -webkit-text-decoration-color: #aa0000;
+  text-decoration-color: #aa0000;
+}
