@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.1
+ * @version 3.0.2
  * @created 2026-03-10
  * @modified 2026-03-10
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -26,7 +26,7 @@
  * @requires com.terminalfour.content.IContentManager
  * @requires com.terminalfour.version.Version
  * @requires Content Type: Faculty/Staff Bio - ID: 203
- * @requires Navigation Object: Person JSON-LD
+ * @requires Navigation Object: JSON-LD Meta Tags - ID 1128
  * @t4layout text/json-ld
  *
  * @description
