@@ -1,6 +1,6 @@
 /**
  * @file v10-text-fulltext-json-ld.js
- * @version 1.0.0
+ * @version 1.0.1
  * @created 2026-03-10
  * @modified 2026-03-10
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -27,6 +27,7 @@
  * @requires com.terminalfour.version.Version
  * @requires Content Type: Faculty/Staff Bio - ID: 8085
  * @requires Navigation Object: Fulltext JSON-LD
+ * @augments v10/text/fulltext/json-ld
  *
  * @description
  * Wraps a Schema.org Person entity inside a ProfilePage using JSON-LD.
