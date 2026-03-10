@@ -1,6 +1,6 @@
 /**
  * @file v10-text-fulltext-breadcrumbs-json-ld.js
- * @version 1.0.1
+ * @version 3.0.0
  * @created 2026-03-10
  * @modified 2026-03-10
  * @fileoverview Generates BreadcrumbList JSON-LD for Seattle University
