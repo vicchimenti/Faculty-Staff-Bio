@@ -207,7 +207,9 @@ try {
             list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
             list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
             list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
+            list["dateCreated"]  = processTags('<t4 type="meta" meta="publish_date" format="yyyy-MM-dd'T'HH:MM:ss'Z'" />');
             list["lastModified"]  = processTags('<t4 type="meta" meta="last_modified" format="yyyy-MM-dd" />');
+
 
             // Expertise and organizational fields
             list["expertise"]     = processTags('<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />');
