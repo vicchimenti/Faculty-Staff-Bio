@@ -326,18 +326,21 @@ try {
                     "url":   list["cv"]
                 };
 
+
                 // ============================================================
                 // Step 7: Assemble ProfilePage wrapper
                 // ============================================================
 
                 var jsonLD = {
-                    "@context":   "https://schema.org",
-                    "@type":      "ProfilePage",
-                    "mainEntity": person
+                    "@context": "https://schema.org",
+                    "@type":    "ProfilePage"
                 };
 
                 var dateModified = sanitizeText(list["lastModified"]);
                 if (dateModified) jsonLD["dateModified"] = dateModified;
+
+                jsonLD["mainEntity"] = person;
+
 
                 // ============================================================
                 // Step 8: Output JSON-LD script block
