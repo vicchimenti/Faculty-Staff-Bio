@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.3
+ * @version 3.0.4
  * @created 2026-03-10
  * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -207,7 +207,7 @@ try {
             list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
             list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
             list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
-            list["dateCreated"]  = processTags('<t4 type="meta" meta="publish_date" format="yyyy-MM-dd'T'HH:MM:ss'Z'" />');
+            list["publishDate"]  = processTags('<t4 type="meta" meta="publish_date" format="yyyy-MM-dd'T'HH:MM:ss'Z'" />');
             list["lastModified"]  = processTags('<t4 type="meta" meta="last_modified" format="yyyy-MM-dd" />');
 
 
@@ -338,8 +338,11 @@ try {
                     "mainEntity": person
                 };
 
+                var dateCreated = sanitizeText(list["publishDate"]);
+                if (dateCreated) jsonLD["dateCreated"] = dateCreated;
                 var dateModified = sanitizeText(list["lastModified"]);
                 if (dateModified) jsonLD["dateModified"] = dateModified;
+
 
                 // ============================================================
                 // Step 8: Output JSON-LD script block
