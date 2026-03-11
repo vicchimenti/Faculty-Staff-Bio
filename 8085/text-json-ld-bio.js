@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.5
+ * @version 3.1.0
  * @created 2026-03-10
  * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -328,21 +328,23 @@ try {
                     "url":   list["cv"]
                 };
 
+
                 // ============================================================
                 // Step 7: Assemble ProfilePage wrapper
                 // ============================================================
 
                 var jsonLD = {
-                    "@context":   "https://schema.org",
-                    "@type":      "ProfilePage",
-                    "mainEntity": person
+                    "@context": "https://schema.org",
+                    "@type":    "ProfilePage"
                 };
 
-                var dateCreated = sanitizeText(list["publishDate"]);
-                if (dateCreated) jsonLD["dateCreated"] = dateCreated;
+                var dateCreated  = sanitizeText(list["publishDate"]);
                 var dateModified = sanitizeText(list["lastModified"]);
+
+                if (dateCreated)  jsonLD["dateCreated"]  = dateCreated;
                 if (dateModified) jsonLD["dateModified"] = dateModified;
 
+                jsonLD["mainEntity"] = person;
 
                 // ============================================================
                 // Step 8: Output JSON-LD script block
