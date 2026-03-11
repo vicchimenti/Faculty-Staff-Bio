@@ -1,8 +1,8 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.0
+ * @version 3.0.1
  * @created 2026-03-10
- * @modified 2026-03-10
+ * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
  *               faculty and staff profile pages in the directory at
  *               seattleu.edu/directory/. Outputs a standalone structured
