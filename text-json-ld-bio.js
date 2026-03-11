@@ -1,8 +1,8 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.2
+ * @version 3.0.3
  * @created 2026-03-10
- * @modified 2026-03-10
+ * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
  *               faculty and staff profile pages in the directory at
  *               seattleu.edu/directory/. Outputs a standalone structured
@@ -207,7 +207,7 @@ try {
             list["email"]         = processTags('<t4 type="content" name="Email Address" output="normal" modifiers="striptags,htmlentities" />');
             list["phone"]         = processTags('<t4 type="content" name="Phone" output="normal" modifiers="striptags,htmlentities" />');
             list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
-            list["lastModified"]  = processTags('<t4 type="meta" meta="last_modified" format="yyyy/MM/dd" />');
+            list["lastModified"]  = processTags('<t4 type="meta" meta="last_modified" format="yyyy-MM-dd" />');
 
             // Expertise and organizational fields
             list["expertise"]     = processTags('<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />');
