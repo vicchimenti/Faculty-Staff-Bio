@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.0.3
+ * @version 3.1.2
  * @created 2026-03-10
  * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -355,7 +355,6 @@ try {
             }
 
         }
-        // Non-fulltext pages and non-matching items are intentionally silent
 
     }
 
