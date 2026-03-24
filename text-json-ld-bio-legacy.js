@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.2.1
+ * @version 3.2.0
  * @created 2026-03-10
  * @modified 2026-03-24
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -298,7 +298,7 @@ try {
                 // Step 4: Build sameAs array — academic profiles then socials
                 // ============================================================
 
-                var sameAsRaw = [
+                var sameAs = [
                     list["linkedIn"],
                     list["researchGate"],
                     list["orcid"],
@@ -313,14 +313,6 @@ try {
                 ]
                 .map(function (s) { return sanitizeText(s); })
                 .filter(function (s) { return s !== ""; });
-
-                // Deduplicate — preserve first occurrence order
-                var sameAsSeen = {};
-                var sameAs = sameAsRaw.filter(function (s) {
-                    if (sameAsSeen[s]) return false;
-                    sameAsSeen[s] = true;
-                    return true;
-                });
 
                 // ============================================================
                 // Step 5: Build worksFor with conditional college/dept nesting
@@ -407,49 +399,16 @@ try {
                                        .filter(function (p) { return p !== ""; });
                         if (parts.length === 0) continue;
 
-                        // ── Degree variant normalization ──────────────────
-                        // Maps compound or non-standard abbreviations to the
-                        // canonical key present in degree-dictionary.json.
-                        // Add entries here as new variants surface in data.
-                        var degreeNormMap = {
-                            "MSCS": "MS", "MSEE": "MS", "MSME": "MS",
-                            "MSCE": "MS", "MSIS": "MS", "MSBA": "MBA",
-                            "MSPA": "MPA", "MSPH": "MPH", "MSSW": "MSW",
-                            "MSHA": "MS", "MSTE": "MS",
-                            "BSCS": "BS", "BSEE": "BS", "BSME": "BS",
-                            "BSCE": "BS", "BSPH": "BS", "BSHS": "BS",
-                            "BSND": "BS", "BSRT": "BS", "BSRS": "BS",
-                            "BSMT": "BS", "BSHA": "BS", "BSOT": "BS",
-                            "BSPT": "BS", "BSAT": "BS",
-                            "Ph.D": "PhD", "Ph.D.": "PhD", "PHD": "PhD",
-                            "Ed.D": "EdD", "Ed.D.": "EdD", "EDD": "EdD",
-                            "J.D": "JD",  "J.D.": "JD",
-                            "M.S": "MS",  "M.S.": "MS",
-                            "M.A": "MA",  "M.A.": "MA",
-                            "B.S": "BS",  "B.S.": "BS",
-                            "B.A": "BA",  "B.A.": "BA",
-                            "M.F.A": "MFA", "M.F.A.": "MFA",
-                            "M.B.A": "MBA", "M.B.A.": "MBA",
-                            "M.Ed": "MEd", "M.Ed.": "MEd",
-                            "M.S.N": "MSN", "M.S.N.": "MSN",
-                            "M.S.W": "MSW", "M.S.W.": "MSW",
-                            "B.F.A": "BFA", "B.F.A.": "BFA",
-                            "B.S.N": "BSN", "B.S.N.": "BSN"
-                        };
-
                         // ── Find degree token ─────────────────────────────
                         var degreeAbbrev = null;
                         var degreeInfo   = null;
                         var degreeIdx    = -1;
 
                         for (var d = 0; d < parts.length; d++) {
-                            var rawToken       = parts[d];
-                            var normalizedToken = degreeNormMap[rawToken] || rawToken;
-                            if (degreeDict[normalizedToken]) {
-                                degreeAbbrev  = normalizedToken;
-                                degreeInfo    = degreeDict[normalizedToken];
-                                degreeIdx     = d;
-                                parts[d]      = normalizedToken; // replace in-place for clean name output
+                            if (degreeDict[parts[d]]) {
+                                degreeAbbrev = parts[d];
+                                degreeInfo   = degreeDict[parts[d]];
+                                degreeIdx    = d;
                                 break;
                             }
                         }
