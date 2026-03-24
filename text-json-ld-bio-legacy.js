@@ -1,8 +1,8 @@
 /**
  * @file text-json-ld.js
- * @version 3.2.0
+ * @version 3.1.2
  * @created 2026-03-10
- * @modified 2026-03-24
+ * @modified 2026-03-11
  * @fileoverview Generates Person JSON-LD for Seattle University
  *               faculty and staff profile pages in the directory at
  *               seattleu.edu/directory/. Outputs a standalone structured
@@ -24,13 +24,9 @@
  * @requires com.terminalfour.publish.utils.TreeTraversalUtils
  * @requires com.terminalfour.spring.ApplicationContextProvider
  * @requires com.terminalfour.content.IContentManager
- * @requires com.terminalfour.media.IMediaManager
  * @requires com.terminalfour.version.Version
  * @requires Content Type: Faculty/Staff Bio - ID: 203
  * @requires Navigation Object: JSON-LD Meta Tags - ID 1128
- * @requires MediaManager: degree-dictionary.json - ID 10331836
- * @requires MediaManager: institution-dictionary.json - ID 10331835
- * @requires MediaManager: cip-url-dictionary.json - ID 10014460
  * @t4layout text/json-ld
  *
  * @description
@@ -52,7 +48,6 @@
  *   url            ← Name of Faculty or Staff Member fulltext path
  *                    prepended with https://www.seattleu.edu
  *   knowsAbout     ← Areas of Expertise (pipe-delimited → string array)
- *   hasCredential  ← Credentials (pipe-delimited → EducationalOccupationalCredential array)
  *   worksFor       ← Staff College + Staff Department (conditional nesting)
  *   affiliation    ← Static @id reference to CollegeOrUniversity entity
  *   sameAs         ← All social + academic profile URL fields (combined array)
@@ -60,14 +55,6 @@
  *
  * ProfilePage fields:
  *   dateModified   ← item-level last_modified meta tag (date only)
- *
- * hasCredential parsing:
- *   Credentials field is pipe-delimited: "Degree, Field, Institution | Degree, Field, Institution"
- *   Each pipe-separated item becomes one EducationalOccupationalCredential object.
- *   Degree abbreviation   → degree-dictionary.json  (ISCED level, credential category)
- *   Field of study        → cip-url-dictionary.json (CIP 2020 code, fuzzy match on field portion)
- *   Institution name      → institution-dictionary.json (ROR @id, Wikidata, Wikipedia sameAs)
- *   Unmatched components pass through as plain strings without structured enrichment.
  *
  * worksFor nesting logic:
  *   Both college and department present → college wraps department as
@@ -93,12 +80,10 @@ try {
 
     var FulltextJsonLdImports = JavaImporter(
         java.lang.Thread,
-        java.util.Scanner,
         com.terminalfour.publish.utils.BrokerUtils,
         com.terminalfour.publish.utils.TreeTraversalUtils,
         com.terminalfour.spring.ApplicationContextProvider,
         com.terminalfour.content.IContentManager,
-        com.terminalfour.media.IMediaManager,
         com.terminalfour.version.Version
     );
 
@@ -193,28 +178,6 @@ try {
                 return clean;
             }
 
-            /**
-             * Reads a MediaManager JSON file by media ID and returns the
-             * parsed object. Returns an empty object on any failure.
-             *
-             * @param {number} mediaID - T4 MediaManager media item ID.
-             * @returns {Object} Parsed JSON object or empty object on error.
-             */
-            function readMediaJson(mediaID) {
-                try {
-                    var mediaManager = ApplicationContextProvider.getBean(IMediaManager);
-                    var mediaObj     = mediaManager.get(mediaID, language);
-                    var stream       = mediaObj.getMedia();
-                    var scanner      = new Scanner(stream).useDelimiter("\\A");
-                    var text         = "";
-                    while (scanner.hasNext()) { text += scanner.next(); }
-                    return JSON.parse(text);
-                } catch (e) {
-                    isPreview && document.write("<!-- MediaManager load error [" + mediaID + "]: " + e + " -->");
-                    return {};
-                }
-            }
-
             // ================================================================
             // College URL lookup — mirrors program layout static table
             // ================================================================
@@ -228,14 +191,6 @@ try {
                 "Cornish College of the Arts":           "https://www.cornish.edu/",
                 "School of Law":                         "https://law.seattleu.edu/"
             };
-
-            // ================================================================
-            // Load MediaManager dictionaries
-            // ================================================================
-
-            var degreeDict      = readMediaJson(10331836);
-            var institutionDict = readMediaJson(10331835);
-            var cipDict         = readMediaJson(10014460);
 
             // ================================================================
             // Step 1: Gather field data from T4 content item
@@ -254,9 +209,8 @@ try {
             list["url"]           = "https://www.seattleu.edu" + processTags('<t4 type="content" name="Name of Faculty or Staff Member" output="fulltext" use-element="true" filename-element="Name of Faculty or Staff Member" modifiers="striptags,htmlentities" />');
             list["lastModified"]  = processTags('<t4 type="meta" meta="last_modified" format="yyyy-MM-dd" />');
 
-            // Expertise, credentials, and organizational fields
+            // Expertise and organizational fields
             list["expertise"]     = processTags('<t4 type="content" name="Areas of Expertise" output="normal" modifiers="striptags,htmlentities" />');
-            list["credentials"]   = processTags('<t4 type="content" name="Credentials" output="normal" modifiers="striptags,htmlentities" />');
             list["college"]       = processTags('<t4 type="content" name="Staff College" output="normal" display_field="name" delimiter="|" />');
             list["department"]    = processTags('<t4 type="content" name="Staff Department" output="normal" display_field="name" delimiter="|" />');
 
@@ -336,169 +290,7 @@ try {
                 }
 
                 // ============================================================
-                // Step 6: Build hasCredential array from pipe-delimited field
-                //
-                // Input format: "Degree, Field, Institution | Degree, Field, Institution"
-                //
-                // Each pipe-separated credential is parsed into:
-                //   - Degree abbreviation  → degreeDict  (ISCED level, category)
-                //   - Field of study       → cipDict     (CIP 2020 code, fuzzy match)
-                //   - Institution name     → institutionDict (ROR, Wikidata, Wikipedia)
-                //
-                // Unmatched components pass through as plain strings.
-                // A credential with no recognizable degree token is skipped entirely.
-                // ============================================================
-
-                /**
-                 * Attempts a fuzzy CIP code lookup by matching the field of
-                 * study string against the field portion of cipDict keys.
-                 * Keys follow the format "Program Name, Degree" — we strip
-                 * the degree suffix and compare the field portion.
-                 *
-                 * @param {string} fieldOfStudy - Plain field string from credential.
-                 * @returns {string|null} CIP code string or null if no match found.
-                 */
-                function findCipCode(fieldOfStudy) {
-                    if (!fieldOfStudy) return null;
-                    var field = fieldOfStudy.toLowerCase().trim();
-                    var keys  = Object.keys(cipDict);
-                    for (var i = 0; i < keys.length; i++) {
-                        var key      = keys[i];
-                        var keyParts = key.split(",");
-                        // Strip degree suffix — everything before the last comma token
-                        var keyField = keyParts.slice(0, keyParts.length - 1)
-                                               .join(",").trim().toLowerCase();
-                        if (!keyField) continue;
-                        if (keyField === field ||
-                            keyField.indexOf(field) !== -1 ||
-                            field.indexOf(keyField) !== -1) {
-                            return cipDict[key] ? (cipDict[key].cip || null) : null;
-                        }
-                    }
-                    return null;
-                }
-
-                /**
-                 * Parses the pipe-delimited Credentials field and builds an
-                 * array of EducationalOccupationalCredential schema objects.
-                 *
-                 * @param {string} credentialString - Raw pipe-delimited credentials.
-                 * @returns {Array} Array of credential schema objects (may be empty).
-                 */
-                function buildHasCredential(credentialString) {
-                    var results = [];
-                    if (!credentialString || credentialString.trim() === "") return results;
-
-                    var credentials = credentialString.split("|");
-
-                    for (var i = 0; i < credentials.length; i++) {
-                        var raw = sanitizeText(credentials[i]);
-                        if (!raw) continue;
-
-                        var parts = raw.split(",").map(function (p) { return p.trim(); })
-                                       .filter(function (p) { return p !== ""; });
-                        if (parts.length === 0) continue;
-
-                        // ── Find degree token ─────────────────────────────
-                        var degreeAbbrev = null;
-                        var degreeInfo   = null;
-                        var degreeIdx    = -1;
-
-                        for (var d = 0; d < parts.length; d++) {
-                            if (degreeDict[parts[d]]) {
-                                degreeAbbrev = parts[d];
-                                degreeInfo   = degreeDict[parts[d]];
-                                degreeIdx    = d;
-                                break;
-                            }
-                        }
-
-                        // Skip credential if no recognizable degree token found
-                        if (!degreeInfo) continue;
-
-                        // ── Find institution ──────────────────────────────
-                        var institutionName = null;
-                        var institutionData = null;
-                        var institutionIdx  = -1;
-
-                        for (var inst = 0; inst < parts.length; inst++) {
-                            if (inst === degreeIdx) continue;
-                            if (institutionDict[parts[inst]]) {
-                                institutionName = parts[inst];
-                                institutionData = institutionDict[parts[inst]];
-                                institutionIdx  = inst;
-                                break;
-                            }
-                        }
-
-                        // ── Field of study — remaining parts ──────────────
-                        var fieldParts = [];
-                        for (var f = 0; f < parts.length; f++) {
-                            if (f !== degreeIdx && f !== institutionIdx) {
-                                fieldParts.push(parts[f]);
-                            }
-                        }
-                        var fieldOfStudy = fieldParts.join(", ").trim();
-
-                        // ── Assemble credential object ────────────────────
-                        var credential = {
-                            "@type":             "EducationalOccupationalCredential",
-                            "name":              raw,
-                            "credentialCategory": degreeInfo.credential_category || "degree"
-                        };
-
-                        if (degreeInfo.isced_level) {
-                            credential["educationalLevel"] = "ISCED 2011 Level " + degreeInfo.isced_level;
-                        }
-
-                        // CIP identifier — fuzzy match on field of study
-                        var cipCode = findCipCode(fieldOfStudy);
-                        if (cipCode) {
-                            credential["identifier"] = {
-                                "@type":      "PropertyValue",
-                                "propertyID": "CIP 2020",
-                                "value":      cipCode
-                            };
-                        }
-
-                        // recognizedBy — institution from dictionary
-                        if (institutionData) {
-                            var recognizedBy = {
-                                "@type": "CollegeOrUniversity",
-                                "name":  institutionName
-                            };
-                            if (institutionData.ror)     recognizedBy["@id"] = institutionData.ror;
-                            if (institutionData.website) recognizedBy["url"] = institutionData.website;
-
-                            var instSameAs = [];
-                            if (institutionData.wikidata) {
-                                instSameAs.push("https://www.wikidata.org/wiki/" + institutionData.wikidata);
-                            }
-                            if (institutionData.wikipedia) {
-                                instSameAs.push(institutionData.wikipedia);
-                            }
-                            if (instSameAs.length > 0) recognizedBy["sameAs"] = instSameAs;
-
-                            credential["recognizedBy"] = recognizedBy;
-
-                        } else if (institutionName) {
-                            // Named in credential but not in dictionary — name only
-                            credential["recognizedBy"] = {
-                                "@type": "CollegeOrUniversity",
-                                "name":  institutionName
-                            };
-                        }
-
-                        results.push(credential);
-                    }
-
-                    return results;
-                }
-
-                var hasCredential = buildHasCredential(list["credentials"]);
-
-                // ============================================================
-                // Step 7: Assemble Person entity — no nulls
+                // Step 6: Assemble Person entity — no nulls
                 // ============================================================
 
                 var person = {
@@ -512,15 +304,14 @@ try {
                 var telephone   = sanitizeText(list["phone"]);
                 var profileUrl  = sanitizeText(list["url"]);
 
-                if (list["photo"])                 person["image"]         = list["photo"];
-                if (jobTitle)                      person["jobTitle"]      = jobTitle;
-                if (description)                   person["description"]   = description;
-                if (email)                         person["email"]         = email;
-                if (telephone)                     person["telephone"]     = telephone;
-                if (profileUrl)                    person["url"]           = profileUrl;
-                if (knowsAbout.length > 0)         person["knowsAbout"]    = knowsAbout;
-                if (hasCredential.length > 0)      person["hasCredential"] = hasCredential;
-                if (worksFor)                      person["worksFor"]      = worksFor;
+                if (list["photo"])             person["image"]       = list["photo"];
+                if (jobTitle)                  person["jobTitle"]    = jobTitle;
+                if (description)               person["description"] = description;
+                if (email)                     person["email"]       = email;
+                if (telephone)                 person["telephone"]   = telephone;
+                if (profileUrl)                person["url"]         = profileUrl;
+                if (knowsAbout.length > 0)     person["knowsAbout"]  = knowsAbout;
+                if (worksFor)                  person["worksFor"]    = worksFor;
 
                 person["affiliation"] = {
                     "@type": "CollegeOrUniversity",
@@ -535,8 +326,9 @@ try {
                     "url":   list["cv"]
                 };
 
+
                 // ============================================================
-                // Step 8: Assemble ProfilePage wrapper
+                // Step 7: Assemble ProfilePage wrapper
                 // ============================================================
 
                 var jsonLD = {
@@ -549,8 +341,9 @@ try {
 
                 jsonLD["mainEntity"] = person;
 
+
                 // ============================================================
-                // Step 9: Output JSON-LD script block
+                // Step 8: Output JSON-LD script block
                 // ============================================================
 
                 document.write(
