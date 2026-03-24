@@ -1,6 +1,6 @@
 /**
  * @file text-json-ld.js
- * @version 3.2.1
+ * @version 3.2.2
  * @created 2026-03-10
  * @modified 2026-03-24
  * @fileoverview Generates Person JSON-LD for Seattle University
