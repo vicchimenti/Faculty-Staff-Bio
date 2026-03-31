@@ -1,6 +1,6 @@
 /**
  * @file v10-text-fulltext-json-ld.js
- * @version 4.0.0
+ * @version 4.0.1
  * @created 2026-03-09
  * @modified 2026-03-31
  * @fileoverview Generates Person JSON-LD for Seattle University
@@ -124,7 +124,7 @@ try {
         // getLayout() infrastructure — from v10-text-fulltext-meta.js
         // ====================================================================
 
-        var contentLayout = 'v10/text/fulltext/json-ld-content';
+        var contentLayout = 'v10/text/fulltext/json-ld/content';
 
         var isFullText = function () {
             return BrokerUtils.isFullTextPage(publishCache);
@@ -132,7 +132,7 @@ try {
 
         var getFulltextInfo = function () {
             if (isFullText()) {
-                return publishCache.getGenericProp('full-text-' + Thread.currentThread().getId());
+                return publishCache.getGenericProp('fulltext-' + Thread.currentThread().getId());
             }
             return false;
         };
